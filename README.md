@@ -21,6 +21,10 @@ EDAMAME Hub is the no-MDM security management dashboard for organizations. It pr
 - **Integrations** — GitHub, Vanta, VPN providers, identity providers
 - **GitHub Audit** — Audit trail of GitHub organization activity
 
+
+https://github.com/user-attachments/assets/087f0569-16cf-47e2-9412-28e79e3ea3e5
+
+
 ## Feature Wiki
 
 Full feature descriptions with screenshots are available in the project wiki: [github.com/edamametechnologies/edamame_hub/wiki](https://github.com/edamametechnologies/edamame_hub/wiki)
