@@ -14,7 +14,7 @@ Requirements:
 import argparse
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Set
 
@@ -216,7 +216,7 @@ def build_index(pages: List[Dict], output_dir: Path):
     index.new_line()
     index.new_line("- **Repository:** [EDAMAME Hub](https://github.com/edamametechnologies/edamame_hub)")
     index.new_line("- **Documentation:** Auto-generated from feature definitions")
-    index.new_line("- **Last Updated:** " + datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC"))
+    index.new_line("- **Last Updated:** " + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"))
     index.new_line()
     index.new_line("---")
     index.new_line()
