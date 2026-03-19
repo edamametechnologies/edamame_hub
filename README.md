@@ -1,7 +1,5 @@
 # EDAMAME Hub
 
-> Part of the **[EDAMAME Agents](https://github.com/edamametechnologies#edamame-agents)** family - AI-powered security assistants for the modern SDLC with shared LLM subscription via [EDAMAME Portal](https://portal.edamame.tech).
-
 ## Overview
 
 EDAMAME Hub is the no-MDM security management dashboard for organizations. It provides centralized visibility into endpoint security posture, compliance, access control policies, and user onboarding — without requiring an MDM agent.
