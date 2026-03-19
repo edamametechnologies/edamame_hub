@@ -1,0 +1,7 @@
+.DS_Store
+/wiki
+/auth_state.json
+.browser_profile/
+__pycache__/
+*.pyc
+.venv/

@@ -1,0 +1,967 @@
+{
+  "screenshot_metadata": {
+    "_comment": "Screenshot filename mappings for sub_features. The generate_screenshots.py script navigates to each path and captures a PNG.",
+    "patterns": {
+      "default": "{prefix}_{subfeature_name}.png"
+    },
+    "sub_feature_mappings": {
+      "overview_main": {
+        "prefix": "01"
+      },
+      "overview_devices_attention": {
+        "prefix": "01"
+      },
+      "onboarding_main": {
+        "prefix": "02"
+      },
+      "engagement_active": {
+        "prefix": "03"
+      },
+      "engagement_dismissed": {
+        "prefix": "03"
+      },
+      "users_list": {
+        "prefix": "04"
+      },
+      "users_detail": {
+        "prefix": "04"
+      },
+      "inventory_list": {
+        "prefix": "05"
+      },
+      "inventory_detail": {
+        "prefix": "05"
+      },
+      "inventory_cicd": {
+        "prefix": "05"
+      },
+      "security_current": {
+        "prefix": "06"
+      },
+      "security_live": {
+        "prefix": "06"
+      },
+      "security_history": {
+        "prefix": "06"
+      },
+      "security_events": {
+        "prefix": "06"
+      },
+      "compliance_current": {
+        "prefix": "07"
+      },
+      "compliance_live": {
+        "prefix": "07"
+      },
+      "compliance_history": {
+        "prefix": "07"
+      },
+      "policies_list": {
+        "prefix": "08"
+      },
+      "policies_conditional_access": {
+        "prefix": "08"
+      },
+      "policies_devices": {
+        "prefix": "08"
+      },
+      "securitychecks_list": {
+        "prefix": "09"
+      },
+      "securitychecks_detail": {
+        "prefix": "09"
+      },
+      "groups_list": {
+        "prefix": "10"
+      },
+      "groups_detail": {
+        "prefix": "10"
+      },
+      "map_overview": {
+        "prefix": "11"
+      },
+      "settings_members": {
+        "prefix": "12"
+      },
+      "settings_billing": {
+        "prefix": "12"
+      },
+      "settings_integrations": {
+        "prefix": "12"
+      },
+      "settings_notifications": {
+        "prefix": "12"
+      },
+      "notifications_list": {
+        "prefix": "13"
+      },
+      "audit_result": {
+        "prefix": "14"
+      }
+    }
+  },
+  "features": [
+    {
+      "name": "overview",
+      "title": {
+        "en": "Overview",
+        "fr": "Vue d'ensemble"
+      },
+      "visual": {
+        "en": "Dark-themed dashboard with four stat cards (Total Devices, Average Score, Active Devices, Live Avg Score), a 7-hour security score line chart, live devices table with usernames and locations, engagement widget (Onboarding not completed, Policy violation counts), devices requiring attention table with red indicators, OS distribution horizontal bar chart (Windows, Linux, macOS, iOS, Android), and device count evolution line graph. Left sidebar with Home, Users, Devices, Security, Notifications.",
+        "fr": "Tableau de bord sombre avec quatre cartes de stats, graphique de score sur 7h, tableau des appareils actifs, widget engagement, tableau des appareils a surveiller, graphique de distribution OS, et evolution des appareils. Barre laterale gauche."
+      },
+      "description": {
+        "en": "The domain home page provides an at-a-glance view of the organization's security posture with real-time stat cards, score history charts, active device lists, escalation summaries, OS distribution, and device evolution trends.",
+        "fr": "La page d'accueil du domaine offre une vue d'ensemble instantanee de la posture de securite de l'organisation avec des cartes de statistiques en temps reel, des graphiques d'historique de score, des listes d'appareils actifs, des resumes d'escalade, la distribution par OS et les tendances d'evolution des appareils."
+      },
+      "sub_features": [
+        {
+          "name": "overview_main",
+          "path": "home",
+          "title": {
+            "en": "Dashboard Overview",
+            "fr": "Vue d'ensemble du tableau de bord"
+          },
+          "visual": {
+            "en": "Four stat cards at top, Nivo line chart for 7-hour score trend, live devices list with username/city/score, engagement counts (Onboarding not completed, Policy violation), devices requiring attention table with low-score devices highlighted, OS distribution bar chart, device evolution line graph.",
+            "fr": "Quatre cartes stats, graphique score 7h, liste appareils actifs, compteurs engagement, tableau appareils a surveiller, graphique distribution OS, evolution des appareils."
+          },
+          "description": {
+            "en": "The main dashboard displays four stat cards (Total Devices, Average Score, Active Devices, Live Average Score), a 7-hour score history line chart, active devices list, escalation summary counts, devices requiring attention, OS distribution chart, and device count evolution graph.",
+            "fr": "Le tableau de bord principal affiche quatre cartes de statistiques (Total Appareils, Score Moyen, Appareils Actifs, Score Moyen En Direct), un graphique d'historique de score sur 7 heures, la liste des appareils actifs, les compteurs d'escalade, les appareils necessitant une attention, un graphique de distribution par OS et un graphique d'evolution du nombre d'appareils."
+          },
+          "items": [
+            {
+              "name": "stat_cards",
+              "title": {
+                "en": "Stat Cards – Key Metrics at a Glance",
+                "fr": "Cartes de statistiques – Metriques cles en un coup d'oeil"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Four cards showing Total Devices, Average Score (all time, 0-5 star scale), Active Devices (currently online), and Live Average Score (online devices only).",
+                "fr": "Quatre cartes affichant le Total d'Appareils, le Score Moyen (historique, echelle 0-5 etoiles), les Appareils Actifs (actuellement en ligne) et le Score Moyen En Direct (appareils en ligne uniquement)."
+              }
+            },
+            {
+              "name": "score_history",
+              "title": {
+                "en": "Score History – 7-Hour Trend",
+                "fr": "Historique du score – Tendance sur 7 heures"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "A Nivo line chart showing domain average security score over the past 7 hours, allowing quick detection of score drops.",
+                "fr": "Un graphique en ligne Nivo montrant le score moyen de securite du domaine sur les 7 dernieres heures, permettant la detection rapide de baisses de score."
+              }
+            },
+            {
+              "name": "escalation_summary",
+              "title": {
+                "en": "Escalation Summary",
+                "fr": "Resume des escalades"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Compact summary showing counts of active escalations by type: MissingSignal, InactiveDevice, OnboardingNotCompleted, PolicyViolation.",
+                "fr": "Resume compact montrant les compteurs d'escalades actives par type : Signal Manquant, Appareil Inactif, Onboarding Non Complete, Violation de Politique."
+              }
+            }
+          ]
+        },
+        {
+          "name": "overview_devices_attention",
+          "path": "home",
+          "title": {
+            "en": "Devices Requiring Attention",
+            "fr": "Appareils necessitant une attention"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "A dedicated list highlighting devices with policy violations or low security scores that need immediate admin attention, with direct navigation to device details.",
+            "fr": "Une liste dediee mettant en evidence les appareils avec des violations de politique ou des scores de securite bas necessitant une attention immediate de l'administrateur, avec navigation directe vers les details de l'appareil."
+          }
+        }
+      ]
+    },
+    {
+      "name": "onboarding",
+      "title": {
+        "en": "Onboarding",
+        "fr": "Onboarding"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Manage the user onboarding lifecycle from invitation to completion. Track onboarding progress, invite new users, monitor who has completed setup, and toggle self-onboarding for the domain.",
+        "fr": "Gerez le cycle de vie de l'onboarding des utilisateurs de l'invitation a la completion. Suivez la progression de l'onboarding, invitez de nouveaux utilisateurs, surveillez qui a termine la configuration et activez l'auto-onboarding pour le domaine."
+      },
+      "sub_features": [
+        {
+          "name": "onboarding_main",
+          "path": "onboarding",
+          "title": {
+            "en": "Onboarding Management",
+            "fr": "Gestion de l'onboarding"
+          },
+          "visual": {
+            "en": "Four stat cards (Onboarding in progress, Onboarded/Max, Total users, Disabled). Invite section with self-onboarding toggle, email input, Add to list button. Filter tabs (All, Ready, In Progress, Completed, Disabled). User table with EMAIL, STATUS, INVITED, SCORE, LASTSEEN, ACTIONS. Pagination.",
+            "fr": "Quatre cartes stats, section invitation avec bascule auto-onboarding, onglets filtres, tableau utilisateurs avec statut et score."
+          },
+          "description": {
+            "en": "Shows onboarding statistics (user limit, total users, disabled, in-progress, completed), a user invitation form, and a table of all onboarding users with their current status (WaitingForEmailToBeSent, InvitationSent, AskedPinCode, OnboardingCompleted). Includes a warning when user limit is reached.",
+            "fr": "Affiche les statistiques d'onboarding (limite utilisateurs, total, desactives, en cours, termines), un formulaire d'invitation et un tableau de tous les utilisateurs en onboarding avec leur statut actuel. Inclut un avertissement lorsque la limite d'utilisateurs est atteinte."
+          },
+          "items": [
+            {
+              "name": "onboarding_stats",
+              "title": {
+                "en": "Onboarding Statistics",
+                "fr": "Statistiques d'onboarding"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Summary stats showing user limit, total users, disabled count, completed count, and in-progress count.",
+                "fr": "Statistiques resumees montrant la limite utilisateurs, le total, le nombre de desactives, de termines et d'en cours."
+              }
+            },
+            {
+              "name": "invite_form",
+              "title": {
+                "en": "User Invitation Form",
+                "fr": "Formulaire d'invitation utilisateur"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Form to invite new users by email to join the domain and begin onboarding.",
+                "fr": "Formulaire pour inviter de nouveaux utilisateurs par email a rejoindre le domaine et commencer l'onboarding."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "engagement",
+      "title": {
+        "en": "Engagement",
+        "fr": "Engagement"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Monitor and manage security escalations across the domain. View active alerts, dismissed items, and resolved escalations. Navigate directly to the related device, user, or policy from any escalation entry.",
+        "fr": "Surveillez et gerez les escalades de securite a travers le domaine. Visualisez les alertes actives, les elements ignores et les escalades resolues. Naviguez directement vers l'appareil, l'utilisateur ou la politique associe depuis n'importe quelle entree d'escalade."
+      },
+      "sub_features": [
+        {
+          "name": "engagement_active",
+          "path": "engagement",
+          "title": {
+            "en": "Active Escalations",
+            "fr": "Escalades actives"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Five stat cards showing counts by type (New, MissingSignal, InactiveDevice, OnboardingNotCompleted, PolicyViolation), followed by a sortable table of active escalations with dismiss actions and direct navigation to related entities.",
+            "fr": "Cinq cartes de statistiques montrant les compteurs par type (Nouveau, Signal Manquant, Appareil Inactif, Onboarding Non Complete, Violation de Politique), suivies d'un tableau triable d'escalades actives avec actions d'ignorance et navigation directe vers les entites associees."
+          },
+          "items": [
+            {
+              "name": "escalate_types",
+              "title": {
+                "en": "Escalation Type Cards",
+                "fr": "Cartes de types d'escalade"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Five color-coded stat cards for each escalation type with live counts.",
+                "fr": "Cinq cartes de statistiques colorees pour chaque type d'escalade avec compteurs en direct."
+              }
+            }
+          ]
+        },
+        {
+          "name": "engagement_dismissed",
+          "path": "engagement",
+          "title": {
+            "en": "Dismissed & Resolved Escalations",
+            "fr": "Escalades ignorees et resolues"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Tables of dismissed escalations (with undismiss and delete actions) and resolved escalations (read-only). Dismissed items can be restored; resolved items are historical records.",
+            "fr": "Tableaux des escalades ignorees (avec actions de restauration et suppression) et des escalades resolues (lecture seule). Les elements ignores peuvent etre restaures ; les elements resolus sont des enregistrements historiques."
+          }
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "title": {
+        "en": "Users",
+        "fr": "Utilisateurs"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "View and manage domain users with evolution trends, device associations, geographic information, and security scores. Toggle between all users and currently online users.",
+        "fr": "Visualisez et gerez les utilisateurs du domaine avec les tendances d'evolution, les associations d'appareils, les informations geographiques et les scores de securite. Basculez entre tous les utilisateurs et ceux actuellement en ligne."
+      },
+      "sub_features": [
+        {
+          "name": "users_list",
+          "path": "users",
+          "title": {
+            "en": "User List",
+            "fr": "Liste des utilisateurs"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "A user evolution line chart showing user count over time, followed by a paginated table with toggle (All Users / Live Users) showing Name, Devices count, Score (0-5 stars), Country, Last Seen, and First Seen.",
+            "fr": "Un graphique en ligne d'evolution des utilisateurs montrant le nombre d'utilisateurs dans le temps, suivi d'un tableau pagine avec bascule (Tous les Utilisateurs / Utilisateurs En Direct) montrant le Nom, le Nombre d'Appareils, le Score (0-5 etoiles), le Pays, la Derniere Connexion et la Premiere Connexion."
+          }
+        },
+        {
+          "name": "users_detail",
+          "path": "user/{username}",
+          "title": {
+            "en": "User Detail",
+            "fr": "Detail utilisateur"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "User profile header with group memberships and auto-disable status, a device list table (Device ID, OS, Score, IP, Last Seen, Country, City), and an interactive Leaflet map showing device geolocations with click-to-navigate popups.",
+            "fr": "En-tete de profil utilisateur avec les appartenances aux groupes et le statut auto-desactivation, un tableau de liste d'appareils (ID Appareil, OS, Score, IP, Derniere Connexion, Pays, Ville) et une carte Leaflet interactive montrant les geolocalisations des appareils avec des popups navigables."
+          }
+        }
+      ]
+    },
+    {
+      "name": "inventory",
+      "title": {
+        "en": "Endpoints",
+        "fr": "Terminaux"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Browse and manage all monitored endpoints (workstations and CI/CD runners). View device evolution over time, filter by OS, toggle between all and live devices, and drill into individual device details with security scores, threat analysis, and policy compliance.",
+        "fr": "Parcourez et gerez tous les terminaux surveilles (postes de travail et runners CI/CD). Visualisez l'evolution des appareils dans le temps, filtrez par OS, basculez entre tous les appareils et ceux en direct, et explorez les details individuels des appareils avec les scores de securite, l'analyse des menaces et la conformite aux politiques."
+      },
+      "sub_features": [
+        {
+          "name": "inventory_list",
+          "path": "inventory",
+          "title": {
+            "en": "Device Inventory",
+            "fr": "Inventaire des appareils"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "An endpoint evolution line chart followed by a paginated device table with toggle (All Endpoints / Live Endpoints), search, OS filters, and sorting. Columns include online indicator, username, device ID, OS icon, score, IP, last seen, country, and city.",
+            "fr": "Un graphique en ligne d'evolution des terminaux suivi d'un tableau d'appareils pagine avec bascule (Tous les Terminaux / Terminaux En Direct), recherche, filtres OS et tri. Les colonnes incluent l'indicateur en ligne, le nom d'utilisateur, l'ID appareil, l'icone OS, le score, l'IP, la derniere connexion, le pays et la ville."
+          }
+        },
+        {
+          "name": "inventory_detail",
+          "path": "inventory/{device_id}/{username}",
+          "title": {
+            "en": "Device Detail",
+            "fr": "Detail de l'appareil"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Comprehensive device view with header (OS, IP, version, city, country, score breakdown across 5 dimensions), failed and passed security checks as scrollable lists, policy compliance status with violation reasons, event history timeline, security score line chart, and event score scatter plot.",
+            "fr": "Vue detaillee de l'appareil avec en-tete (OS, IP, version, ville, pays, decomposition du score selon 5 dimensions), les verifications de securite echouees et reussies en listes deroulantes, le statut de conformite aux politiques avec les raisons de violation, la chronologie de l'historique des evenements, le graphique en ligne du score de securite et le graphique en nuage de points du score des evenements."
+          },
+          "items": [
+            {
+              "name": "score_breakdown",
+              "title": {
+                "en": "5-Dimension Security Score",
+                "fr": "Score de securite a 5 dimensions"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Security score broken down into Credentials, Network, System Services, System Integrity, and Applications dimensions.",
+                "fr": "Score de securite decompose en dimensions Identifiants, Reseau, Services Systeme, Integrite Systeme et Applications."
+              }
+            },
+            {
+              "name": "threat_lists",
+              "title": {
+                "en": "Security Checks – Passed and Failed",
+                "fr": "Verifications de securite – Reussies et echouees"
+              },
+              "visual": {
+                "en": "",
+                "fr": ""
+              },
+              "description": {
+                "en": "Two scrollable MetricListCards showing failed checks (active threats in red) and passed checks (inactive threats in green) with click-to-navigate to security check details.",
+                "fr": "Deux MetricListCards deroulables montrant les verifications echouees (menaces actives en rouge) et les verifications reussies (menaces inactives en vert) avec navigation vers les details des verifications de securite."
+              }
+            }
+          ]
+        },
+        {
+          "name": "inventory_cicd",
+          "path": "cicd",
+          "title": {
+            "en": "CI/CD Inventory",
+            "fr": "Inventaire CI/CD"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Same layout as the workstation inventory but filtered for CI/CD pipeline runners. Shows CI/CD device evolution chart and a device table with All CI/CD / Live CI/CD toggle.",
+            "fr": "Meme disposition que l'inventaire des postes de travail mais filtre pour les runners de pipeline CI/CD. Affiche le graphique d'evolution des appareils CI/CD et un tableau d'appareils avec bascule Tous les CI/CD / CI/CD En Direct."
+          }
+        }
+      ]
+    },
+    {
+      "name": "security",
+      "title": {
+        "en": "Security Score",
+        "fr": "Score de securite"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Comprehensive security score analytics with current, live, historical, and event-based views. Filter by OS and country, view top and bottom performing devices and security checks, and track score changes over time.",
+        "fr": "Analyses completes du score de securite avec des vues actuelles, en direct, historiques et basees sur les evenements. Filtrez par OS et pays, visualisez les appareils et verifications de securite les plus et moins performants, et suivez les changements de score dans le temps."
+      },
+      "sub_features": [
+        {
+          "name": "security_current",
+          "path": "security",
+          "title": {
+            "en": "Current Security Score",
+            "fr": "Score de securite actuel"
+          },
+          "visual": {
+            "en": "Global Security Score card with overall 0-5 score and per-OS breakdown (macOS, Windows, Linux, iOS, Android) as progress bars. OS/country filter bar. Top 10 best devices list (5.0 scores). Top 10 worst devices list (low scores). Top 10 failed security checks with device counts and severity badges. Top 10 passed checks.",
+            "fr": "Carte score global avec decomposition par OS, filtres, listes top 10 meilleurs/pires appareils, top 10 verifications echouees/reussies."
+          },
+          "description": {
+            "en": "Global average security score (0-5 scale) with per-OS breakdown (macOS, Windows, Linux, iOS, Android) shown as progress bars. OS and country filters. Top 10 best and worst devices lists. Top 10 most failed and most passed security checks as pie charts.",
+            "fr": "Score moyen global de securite (echelle 0-5) avec decomposition par OS (macOS, Windows, Linux, iOS, Android) sous forme de barres de progression. Filtres OS et pays. Listes des 10 meilleurs et 10 pires appareils. Top 10 des verifications de securite les plus echouees et les plus reussies sous forme de graphiques en secteurs."
+          }
+        },
+        {
+          "name": "security_live",
+          "path": "security/live",
+          "title": {
+            "en": "Live Security Score",
+            "fr": "Score de securite en direct"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Same layout as Current Security Score but filtered to only include devices that are currently online (within the 15-minute live window).",
+            "fr": "Meme disposition que le Score de Securite Actuel mais filtre pour n'inclure que les appareils actuellement en ligne (dans la fenetre de 15 minutes en direct)."
+          }
+        },
+        {
+          "name": "security_history",
+          "path": "security/history",
+          "title": {
+            "en": "Security Score History",
+            "fr": "Historique du score de securite"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Date range picker with resolution selector, followed by two line charts: one with OS filter toggle and one showing all OS types. Tracks domain average security score over the selected time period.",
+            "fr": "Selecteur de plage de dates avec selecteur de resolution, suivi de deux graphiques en ligne : un avec bascule de filtre OS et un montrant tous les types d'OS. Suit le score moyen de securite du domaine sur la periode selectionnee."
+          }
+        },
+        {
+          "name": "security_events",
+          "path": "security/events",
+          "title": {
+            "en": "Security Events",
+            "fr": "Evenements de securite"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Event analysis with configurable date range, score threshold, and device percentage filters. Scatter plot showing positive (green) and negative (red) security events over time. Click any event to open a drawer with full event details.",
+            "fr": "Analyse d'evenements avec plage de dates configurable, seuil de score et filtres de pourcentage d'appareils. Graphique en nuage de points montrant les evenements de securite positifs (vert) et negatifs (rouge) dans le temps. Cliquez sur un evenement pour ouvrir un tiroir avec les details complets."
+          }
+        }
+      ]
+    },
+    {
+      "name": "compliance",
+      "title": {
+        "en": "Compliance",
+        "fr": "Conformite"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Track compliance against industry frameworks (PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). View current and live compliance rates, historical trends, and per-device and per-check compliance rankings.",
+        "fr": "Suivez la conformite par rapport aux cadres industriels (PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Visualisez les taux de conformite actuels et en direct, les tendances historiques, et les classements de conformite par appareil et par verification."
+      },
+      "sub_features": [
+        {
+          "name": "compliance_current",
+          "path": "compliance",
+          "title": {
+            "en": "Current Compliance",
+            "fr": "Conformite actuelle"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Compliance framework selector dropdown (tags: PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Global compliance rate with per-OS breakdown as progress bars. OS and country filters. Top 10 best and worst compliance devices. Top 10 most failed and passed compliance checks as pie charts.",
+            "fr": "Selecteur de cadre de conformite (tags : PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Taux de conformite global avec decomposition par OS sous forme de barres de progression. Filtres OS et pays. Top 10 des meilleurs et pires appareils en conformite. Top 10 des verifications de conformite les plus echouees et reussies sous forme de graphiques en secteurs."
+          }
+        },
+        {
+          "name": "compliance_live",
+          "path": "compliance/live",
+          "title": {
+            "en": "Live Compliance",
+            "fr": "Conformite en direct"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Same layout as Current Compliance but filtered to only include devices currently online.",
+            "fr": "Meme disposition que la Conformite Actuelle mais filtre pour n'inclure que les appareils actuellement en ligne."
+          }
+        },
+        {
+          "name": "compliance_history",
+          "path": "compliance/history",
+          "title": {
+            "en": "Compliance History",
+            "fr": "Historique de conformite"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Date range picker with resolution selector. Two line charts showing domain-wide compliance rate over time and per-OS compliance trends for the selected framework.",
+            "fr": "Selecteur de plage de dates avec selecteur de resolution. Deux graphiques en ligne montrant le taux de conformite du domaine dans le temps et les tendances de conformite par OS pour le cadre selectionne."
+          }
+        }
+      ]
+    },
+    {
+      "name": "policies",
+      "title": {
+        "en": "Policies",
+        "fr": "Politiques"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Define and manage access control policies with conditional access rules, integration triggers, and device-centric compliance views. Create policies based on minimum scores, security checks, compliance tags, or group membership.",
+        "fr": "Definissez et gerez les politiques de controle d'acces avec des regles d'acces conditionnel, des declencheurs d'integration et des vues de conformite centrees sur les appareils. Creez des politiques basees sur des scores minimaux, des verifications de securite, des tags de conformite ou l'appartenance a un groupe."
+      },
+      "sub_features": [
+        {
+          "name": "policies_list",
+          "path": "policies",
+          "title": {
+            "en": "Policies List",
+            "fr": "Liste des politiques"
+          },
+          "visual": {
+            "en": "Three pill tabs: Policies (active), Conditional access, Devices. Conditional access wiki link, + Link conditional access and + Create a policy buttons. Policy table with NAME, NUMBER OF COMPLIANT DEVICES (green), NUMBER OF NON-COMPLIANT DEVICES (red), CONDITIONAL ACCESS. Search, refresh, columns selector.",
+            "fr": "Trois onglets pilules, liens wiki, boutons creation. Tableau policies avec colonnes conformes/non-conformes."
+          },
+          "description": {
+            "en": "Three-tab view with pill-style toggle buttons: Policies (policy table), Conditional Access (triggers and rules), and Devices (device-centric policy view). Header includes Create Policy and Add Conditional Access buttons. External link to Access Control Wiki.",
+            "fr": "Vue a trois onglets avec boutons bascule en forme de pilule : Politiques (tableau des politiques), Acces Conditionnel (declencheurs et regles) et Appareils (vue centree sur les appareils). L'en-tete inclut les boutons Creer une Politique et Ajouter un Acces Conditionnel. Lien externe vers le Wiki de Controle d'Acces."
+          }
+        },
+        {
+          "name": "policies_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Conditional Access Rules",
+            "fr": "Regles d'acces conditionnel"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Tab showing conditional access rules with associated triggers for integration enforcement (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom).",
+            "fr": "Onglet montrant les regles d'acces conditionnel avec les declencheurs associes pour l'application des integrations (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Personnalise)."
+          }
+        },
+        {
+          "name": "policies_devices",
+          "path": "policies",
+          "title": {
+            "en": "Device Policy Compliance",
+            "fr": "Conformite des appareils aux politiques"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Device-centric view showing all devices with one dynamic column per policy displaying Compliant/Non-compliant badges. Offline device rows have a subtle background highlight. Non-compliant badges show tooltip with violation reasons. CI/CD devices excluded.",
+            "fr": "Vue centree sur les appareils montrant tous les appareils avec une colonne dynamique par politique affichant des badges Conforme/Non-conforme. Les lignes d'appareils hors ligne ont un surlignage de fond subtil. Les badges non-conformes affichent une infobulle avec les raisons de violation. Les appareils CI/CD sont exclus."
+          }
+        }
+      ]
+    },
+    {
+      "name": "securitychecks",
+      "title": {
+        "en": "Security Checks",
+        "fr": "Verifications de securite"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Browse the catalog of security checks and benchmarks evaluated across all devices. Filter by OS type, view pass rates, severity levels, and compliance framework tags. Drill into individual checks to see which devices pass or fail.",
+        "fr": "Parcourez le catalogue des verifications de securite et des benchmarks evalues sur tous les appareils. Filtrez par type d'OS, consultez les taux de reussite, les niveaux de severite et les tags de cadres de conformite. Explorez les verifications individuelles pour voir quels appareils reussissent ou echouent."
+      },
+      "sub_features": [
+        {
+          "name": "securitychecks_list",
+          "path": "securitychecks",
+          "title": {
+            "en": "Security Checks Catalog",
+            "fr": "Catalogue des verifications de securite"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "OS type filter (macOS, Windows, Linux, iOS, Android) with a DataTableV2 showing Metric name, Compatible OS types (icons), Severity (color-coded badge), Pass Rate (horizontal bar: green >=80%, orange 50-79%, red <50%), Dimension, and Tags. Server-side pagination, search, and sorting.",
+            "fr": "Filtre par type d'OS (macOS, Windows, Linux, iOS, Android) avec un DataTableV2 montrant le Nom de la metrique, les Types d'OS compatibles (icones), la Severite (badge colore), le Taux de Reussite (barre horizontale : vert >=80%, orange 50-79%, rouge <50%), la Dimension et les Tags. Pagination, recherche et tri cote serveur."
+          }
+        },
+        {
+          "name": "securitychecks_detail",
+          "path": "securitychecks/{name}",
+          "title": {
+            "en": "Security Check Detail",
+            "fr": "Detail de la verification de securite"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Check info card with description, severity badge, and pass rate bar. Two MetricListCards side by side: Failed Devices (red accent, showing OS icon, username, device ID, score) and Passed Devices (green accent). Click any device row to navigate to device detail.",
+            "fr": "Carte d'information de la verification avec description, badge de severite et barre de taux de reussite. Deux MetricListCards cote a cote : Appareils Echoues (accent rouge, montrant l'icone OS, le nom d'utilisateur, l'ID appareil, le score) et Appareils Reussis (accent vert). Cliquez sur une ligne d'appareil pour naviguer vers les details de l'appareil."
+          }
+        }
+      ]
+    },
+    {
+      "name": "groups",
+      "title": {
+        "en": "Groups",
+        "fr": "Groupes"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Create and manage user groups for policy targeting. Groups allow organizing users into logical sets that can be referenced in access control policies.",
+        "fr": "Creez et gerez des groupes d'utilisateurs pour le ciblage des politiques. Les groupes permettent d'organiser les utilisateurs en ensembles logiques qui peuvent etre references dans les politiques de controle d'acces."
+      },
+      "sub_features": [
+        {
+          "name": "groups_list",
+          "path": "groups",
+          "title": {
+            "en": "Groups List",
+            "fr": "Liste des groupes"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "A searchable DataTableV2 with Group Name and Number of Users columns (green badge). Create Group button in the header opens a modal for group creation.",
+            "fr": "Un DataTableV2 avec recherche montrant le Nom du Groupe et le Nombre d'Utilisateurs (badge vert). Le bouton Creer un Groupe dans l'en-tete ouvre une modale pour la creation de groupe."
+          }
+        },
+        {
+          "name": "groups_detail",
+          "path": "groups/{group_name}",
+          "title": {
+            "en": "Group Detail",
+            "fr": "Detail du groupe"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Group info header showing group name and member count. Members table (DataTableV2) with username column. Click a row to navigate to user detail.",
+            "fr": "En-tete d'information du groupe montrant le nom du groupe et le nombre de membres. Tableau des membres (DataTableV2) avec colonne nom d'utilisateur. Cliquez sur une ligne pour naviguer vers le detail de l'utilisateur."
+          }
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "title": {
+        "en": "Map",
+        "fr": "Carte"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Interactive geographic map showing the physical location of all monitored devices. Toggle between all devices and currently live devices. Click markers to view device details.",
+        "fr": "Carte geographique interactive montrant l'emplacement physique de tous les appareils surveilles. Basculez entre tous les appareils et ceux actuellement en direct. Cliquez sur les marqueurs pour voir les details de l'appareil."
+      },
+      "sub_features": [
+        {
+          "name": "map_overview",
+          "path": "map",
+          "title": {
+            "en": "Device Map",
+            "fr": "Carte des appareils"
+          },
+          "visual": {
+            "en": "Dark world map with grey continent outlines. Zoom controls top-left. Toggle All devices / Live devices (green when selected). OS icons scattered across map (Windows, macOS, Linux, Android, iOS). Leaflet/OpenStreetMap attribution. Device clusters in North America, Europe, Africa, Asia.",
+            "fr": "Carte monde sombre avec marqueurs OS par localisation, bascule All/Live, controles zoom."
+          },
+          "description": {
+            "en": "Full-width Leaflet map with device location markers. Toggle button group to switch between All and Live devices. Marker popups show device and user information with click-to-navigate to device detail.",
+            "fr": "Carte Leaflet pleine largeur avec des marqueurs de localisation des appareils. Groupe de boutons bascule pour alterner entre Tous les appareils et les appareils En Direct. Les popups des marqueurs montrent les informations de l'appareil et de l'utilisateur avec navigation vers le detail de l'appareil."
+          }
+        }
+      ]
+    },
+    {
+      "name": "settings",
+      "title": {
+        "en": "Settings",
+        "fr": "Parametres"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Domain administration with four tabs: Members (invite, manage roles, remove members), Billing (subscription plan, upgrade/downgrade), Integrations (connect GitHub, Vanta, and other providers), and Notifications (configure alert preferences, thresholds, and delivery channels).",
+        "fr": "Administration du domaine avec quatre onglets : Membres (inviter, gerer les roles, supprimer des membres), Facturation (plan d'abonnement, mise a niveau/retrogradation), Integrations (connecter GitHub, Vanta et d'autres fournisseurs) et Notifications (configurer les preferences d'alerte, les seuils et les canaux de diffusion)."
+      },
+      "sub_features": [
+        {
+          "name": "settings_members",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Members Management",
+            "fr": "Gestion des membres"
+          },
+          "visual": {
+            "en": "Four tabs: Members (active), Billing, Integrations, Notifications. Invite section: info banner, Email input, Role dropdown (DomainAdmin), + Add another member, Send invitation(s). Sub-tabs Team members / Pending invitations. Table with EMAIL, ROLE. Danger Zone with Delete this domain button.",
+            "fr": "Onglets Members, formulaire invitation, sous-onglets equipe/invitations, tableau membres, zone danger suppression domaine."
+          },
+          "description": {
+            "en": "Invitation form to add members by email. Sub-tabs for Team Members and Pending Invitations. Team Members table shows email and role with delete action. Pending Invitations table shows email and role with copy link and cancel actions. Danger Zone with domain deletion option at the bottom.",
+            "fr": "Formulaire d'invitation pour ajouter des membres par email. Sous-onglets pour les Membres de l'Equipe et les Invitations En Attente. Le tableau des Membres de l'Equipe montre l'email et le role avec action de suppression. Le tableau des Invitations En Attente montre l'email et le role avec actions de copie du lien et d'annulation. Zone de Danger avec option de suppression du domaine en bas."
+          }
+        },
+        {
+          "name": "settings_billing",
+          "path": "settings?tab=billing",
+          "title": {
+            "en": "Billing & Subscription",
+            "fr": "Facturation et abonnement"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Current subscription plan information and pricing plans for upgrade or downgrade options (Free, Business, Enterprise tiers).",
+            "fr": "Informations sur le plan d'abonnement actuel et plans tarifaires pour les options de mise a niveau ou de retrogradation (niveaux Gratuit, Business, Entreprise)."
+          }
+        },
+        {
+          "name": "settings_integrations",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Integrations",
+            "fr": "Integrations"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Table of available integrations (GitHub, Vanta) with name, description, and connection status (Connected/Not Connected badge). Actions: Connect, View last audit, trigger GitHub audit with lookback selector (7/30/90/180 days), Disconnect.",
+            "fr": "Tableau des integrations disponibles (GitHub, Vanta) avec nom, description et statut de connexion (badge Connecte/Non Connecte). Actions : Connecter, Voir le dernier audit, declencher un audit GitHub avec selecteur de retrospective (7/30/90/180 jours), Deconnecter."
+          }
+        },
+        {
+          "name": "settings_notifications",
+          "path": "settings?tab=notifications",
+          "title": {
+            "en": "Notification Preferences",
+            "fr": "Preferences de notification"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Two notification buckets: Identity & Licensing (NewUser, NewDevice, LimitDomain, TriggerError) and Score & Compliance (SecurityScoreEvent, ComplianceEvent, Engagement). Each notification has toggles for center notification, email delivery (configurable scope), SMS (where supported), and threshold settings. Save button persists all changes.",
+            "fr": "Deux groupes de notifications : Identite et Licences (NouvelUtilisateur, NouvelAppareil, LimiteDomaine, ErreurDeclencheur) et Score et Conformite (EvenementScoreSecurite, EvenementConformite, Engagement). Chaque notification a des bascules pour la notification au centre, la livraison par email (perimetre configurable), les SMS (si pris en charge) et les parametres de seuil. Le bouton Sauvegarder persiste tous les changements."
+          }
+        }
+      ]
+    },
+    {
+      "name": "notifications",
+      "title": {
+        "en": "Notifications",
+        "fr": "Notifications"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "View and manage all domain notifications. Track total, unread, and read counts. Mark notifications as read, delete them, or click to open the related resource.",
+        "fr": "Visualisez et gerez toutes les notifications du domaine. Suivez les totaux, les non-lus et les lus. Marquez les notifications comme lues, supprimez-les ou cliquez pour ouvrir la ressource associee."
+      },
+      "sub_features": [
+        {
+          "name": "notifications_list",
+          "path": "notifications",
+          "title": {
+            "en": "Notification Center",
+            "fr": "Centre de notifications"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Three stat cards (Total, Unread, Read) with info bar and settings shortcut. Paginated DataTableV2 showing Title (with unread dot indicator and bold text) and Description columns. Actions: Mark as read, Delete. Click row to open linked resource in new tab.",
+            "fr": "Trois cartes de statistiques (Total, Non-lus, Lus) avec barre d'information et raccourci vers les parametres. DataTableV2 pagine montrant les colonnes Titre (avec indicateur de point non-lu et texte en gras) et Description. Actions : Marquer comme lu, Supprimer. Cliquez sur une ligne pour ouvrir la ressource liee dans un nouvel onglet."
+          }
+        }
+      ]
+    },
+    {
+      "name": "audit",
+      "title": {
+        "en": "GitHub Audit",
+        "fr": "Audit GitHub"
+      },
+      "visual": {
+        "en": "",
+        "fr": ""
+      },
+      "description": {
+        "en": "Comprehensive GitHub organization audit trail. Triggered from the Integrations settings, it analyzes GitHub events for security-relevant activity including boundary changes, PAT usage, trust modifications, membership changes, and git operations.",
+        "fr": "Piste d'audit complete de l'organisation GitHub. Declenchee depuis les parametres Integrations, elle analyse les evenements GitHub pour les activites pertinentes en securite, y compris les changements de perimetre, l'utilisation de PAT, les modifications de confiance, les changements d'adhesion et les operations git."
+      },
+      "sub_features": [
+        {
+          "name": "audit_result",
+          "path": "audit/{auditId}",
+          "title": {
+            "en": "Audit Results",
+            "fr": "Resultats de l'audit"
+          },
+          "visual": {
+            "en": "",
+            "fr": ""
+          },
+          "description": {
+            "en": "Audit score as circular progress, five stat cards (Total Events, Human Events, Non-Human Events, Unique Actors, Unique IPs). Score breakdown by factor (clickable badges). Severity distribution horizontal bar with legend. Two-column layout for Top Actors and IP Addresses lists. Activity map (Leaflet) with IP geolocation markers. Category filter pills (All, Boundary, PAT, Trust, Membership, GitOps, Other). Full events table with Severity, Timestamp, Actor, Action, Category, and Repo columns.",
+            "fr": "Score d'audit sous forme de progression circulaire, cinq cartes de statistiques (Total des Evenements, Evenements Humains, Evenements Non-Humains, Acteurs Uniques, IPs Uniques). Decomposition du score par facteur (badges cliquables). Barre horizontale de distribution de severite avec legende. Disposition a deux colonnes pour les listes des Principaux Acteurs et des Adresses IP. Carte d'activite (Leaflet) avec marqueurs de geolocalisation IP. Pilules de filtre par categorie (Tous, Perimetre, PAT, Confiance, Adhesion, GitOps, Autre). Tableau complet des evenements avec les colonnes Severite, Horodatage, Acteur, Action, Categorie et Depot."
+          }
+        }
+      ]
+    }
+  ]
+}
