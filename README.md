@@ -19,10 +19,7 @@ EDAMAME Hub is the no-MDM security management dashboard for organizations. It pr
 - **Security Checks** — Catalog of security benchmarks with pass/fail rates per device
 - **Escalations & Engagement** — Automated alerts for missing signals, inactive devices, policy violations
 - **Integrations** — GitHub, Vanta, VPN providers, identity providers
-- **GitHub Audit** — Audit trail of GitHub organization activity
-
-
-https://github.com/user-attachments/assets/087f0569-16cf-47e2-9412-28e79e3ea3e5
+- **[GitHub Audit](./GITHUBAUDIT.md)** — Audit trail of GitHub organization activity
 
 
 ## Feature Wiki
