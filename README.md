@@ -50,17 +50,33 @@ Full feature descriptions with screenshots are available in the project wiki: [g
 
 ## Screenshot Generation
 
-To capture dashboard screenshots for the wiki:
+Screenshots are captured **manually on your machine** (Playwright against
+production). CI only rebuilds the wiki from committed PNGs.
+
+The script normally **auto-detects** the domain UUID from the post-login
+redirect (`/dashboard/<uuid>/home`), so you don't pass it. The exception is the
+demo workspace `acme.com`: the dashboard landing page deliberately hides that
+reserved name, so auto-detection can't resolve it and you must pass the UUID
+explicitly with `--domain-id` (find it in the Hub URL after manually opening the
+workspace).
 
 ```bash
 pip install -r requirements.txt
 playwright install chromium
 
-# First run: log in interactively to save auth state
-python src/generate_screenshots.py --login --domain-id YOUR_DOMAIN_ID
+# First run: log in interactively to save auth state (domain auto-detected)
+python src/generate_screenshots.py --login
 
 # Subsequent runs: reuse saved auth
-python src/generate_screenshots.py --domain-id YOUR_DOMAIN_ID
+python src/generate_screenshots.py
+
+# Demo "acme.com" workspace: auto-detect is hidden, pass the UUID explicitly
+python src/generate_screenshots.py --domain-id <uuid>
+# Or persist it so you can omit the flag:
+cp .screenshot.env.example .screenshot.env   # then set HUB_SCREENSHOT_DOMAIN_ID
+
+# Commit PNGs, then push — feature-wiki.yml updates the GitHub wiki
+git add screenshots/ && git commit -m "docs: refresh Hub screenshots"
 ```
 
 ## Wiki Generation

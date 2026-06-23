@@ -2,6 +2,7 @@
 /wiki
 /auth_state.json
 .browser_profile/
+.screenshot.env
 __pycache__/
 *.pyc
 .venv/
