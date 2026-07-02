@@ -243,8 +243,9 @@ def dismiss_overlays(page: Page):
             pass
 
 
-def capture(page: Page, output_path: Path):
-    dismiss_overlays(page)
+def capture(page: Page, output_path: Path, dismiss: bool = True):
+    if dismiss:
+        dismiss_overlays(page)
     page.screenshot(path=str(output_path), full_page=True)
     print(f"    -> {output_path.name}")
 
@@ -364,6 +365,10 @@ def capture_workflows(page: Page, domain_base: str, workflows: list, output_dir:
                 else:
                     print(f"  {step_name}: (continue on current page)")
 
+                # Clear stray popups (demo tour, welcome) BEFORE running actions,
+                # so an intentional modal opened by the actions survives the shot.
+                dismiss_overlays(page)
+
                 for action in step.get("actions", []):
                     run_action(page, domain_base, action)
 
@@ -374,7 +379,8 @@ def capture_workflows(page: Page, domain_base: str, workflows: list, output_dir:
                     if not highlighted:
                         print(f"    WARN: highlight target not found: {highlight}")
 
-                capture(page, out)
+                # dismiss=False: keep modals/popovers that the step intentionally opened.
+                capture(page, out, dismiss=False)
 
                 if highlighted:
                     clear_highlight(page)
