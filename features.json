@@ -985,9 +985,10 @@
             "fr": "Ouvrir la page Onboarding"
           },
           "instruction": {
-            "en": "Open the Onboarding page from the End-users section of the sidebar. The top of the page shows onboarding statistics (in progress, onboarded users vs. plan limit, total users, disabled users).",
-            "fr": "Ouvrez la page Onboarding depuis la section End-users de la barre laterale. Le haut de la page affiche les statistiques d'onboarding (en cours, utilisateurs onboardes vs limite du plan, total, desactives)."
-          }
+            "en": "Open the Onboarding page from the End-users section of the sidebar. The stat cards at the top (highlighted) track onboarding progress: in progress, onboarded users vs. plan limit, total users, and disabled users.",
+            "fr": "Ouvrez la page Onboarding depuis la section End-users de la barre laterale. Les cartes de stats en haut (en surbrillance) suivent l'avancement de l'onboarding : en cours, utilisateurs onboardes vs limite du plan, total et desactives."
+          },
+          "highlight": ".chakra-stat"
         },
         {
           "name": "toggle_self_onboard",
@@ -997,12 +998,10 @@
             "fr": "Choisir invitation ou auto-onboarding"
           },
           "instruction": {
-            "en": "In the 'Invite users to install the app' card, use the self-onboard toggle if you want users to onboard themselves without an explicit invitation.",
-            "fr": "Dans la carte 'Invite users to install the app', utilisez la bascule d'auto-onboarding si vous souhaitez que les utilisateurs s'onboardent eux-memes sans invitation explicite."
+            "en": "In the 'Invite users to install the app' card (highlighted), the self-onboard toggle lets users onboard themselves without an explicit invitation. Leave it off to invite users by email in the next step.",
+            "fr": "Dans la carte 'Invite users to install the app' (en surbrillance), la bascule d'auto-onboarding permet aux utilisateurs de s'onboarder eux-memes sans invitation explicite. Laissez-la desactivee pour inviter des utilisateurs par email a l'etape suivante."
           },
-          "actions": [
-            { "type": "click", "selector": ".chakra-switch" }
-          ]
+          "highlight": "[data-tutorial=invite-form]"
         },
         {
           "name": "fill_invite_email",
@@ -1012,12 +1011,13 @@
             "fr": "Saisir les emails et envoyer les invitations"
           },
           "instruction": {
-            "en": "Type one or more email addresses (comma-separated) into the invite field. Each user receives an email to install the app. Review the entry, then click 'Add Users' to send the invitations.",
-            "fr": "Saisissez une ou plusieurs adresses email (separees par des virgules) dans le champ d'invitation. Chaque utilisateur recoit un email pour installer l'application. Verifiez la saisie, puis cliquez sur 'Add Users' pour envoyer les invitations."
+            "en": "Type one or more usernames/emails (comma-separated) into the invite field. Each user receives an email to install the app. Review the entry, then click 'Add Users' (highlighted) to send the invitations.",
+            "fr": "Saisissez un ou plusieurs identifiants/emails (separes par des virgules) dans le champ d'invitation. Chaque utilisateur recoit un email pour installer l'application. Verifiez la saisie, puis cliquez sur 'Add Users' (en surbrillance) pour envoyer les invitations."
           },
           "actions": [
-            { "type": "fill", "selector": "input[type=email]", "value": "new.user" }
-          ]
+            { "type": "fill", "selector": "[data-cy=inviteOnboardInput]", "value": "new.user" }
+          ],
+          "highlight": "[data-cy=inviteOnboardButton]"
         }
       ]
     },
@@ -1310,24 +1310,26 @@
             "fr": "Ouvrir la liste des utilisateurs"
           },
           "instruction": {
-            "en": "Open the Users page. Use the search box and the sortable columns (Score, Number of Devices, Country, Last Seen) to find the user you are looking for, or toggle All users / Live users.",
-            "fr": "Ouvrez la page Users. Utilisez la recherche et les colonnes triables (Score, Number of Devices, Country, Last Seen) pour trouver l'utilisateur recherche, ou basculez All users / Live users."
+            "en": "Open the Users page. Use the search box (highlighted) and the sortable columns (Score, Number of Devices, Country, Last Seen) to find the user you are looking for, or toggle All users / Live users.",
+            "fr": "Ouvrez la page Users. Utilisez la recherche (en surbrillance) et les colonnes triables (Score, Number of Devices, Country, Last Seen) pour trouver l'utilisateur recherche, ou basculez All users / Live users."
           },
-          "actions": [
-            { "type": "fill", "selector": "input[type=search], input[placeholder*='earch']", "value": "a" }
-          ]
+          "highlight": "input[placeholder='Username']"
         },
         {
           "name": "open_user_detail",
-          "path": "user/{username}",
+          "path": "users",
           "title": {
             "en": "Open the user profile",
             "fr": "Ouvrir le profil utilisateur"
           },
           "instruction": {
-            "en": "Click a user to open their profile: group memberships, auto-disable status, a device list, and an interactive map of device locations. This is a dynamic route, so it is not captured automatically.",
-            "fr": "Cliquez sur un utilisateur pour ouvrir son profil : appartenances aux groupes, statut d'auto-desactivation, liste des appareils et carte interactive des localisations. Route dynamique, non capturee automatiquement."
-          }
+            "en": "Click a user row to open their profile: group memberships, auto-disable status, a device list, and an interactive map of device locations.",
+            "fr": "Cliquez sur une ligne d'utilisateur pour ouvrir son profil : appartenances aux groupes, statut d'auto-desactivation, liste des appareils et carte interactive des localisations."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=table-row]" },
+            { "type": "wait", "ms": 3500 }
+          ]
         }
       ]
     },
@@ -1351,21 +1353,26 @@
             "fr": "Ouvrir l'inventaire des postes de travail"
           },
           "instruction": {
-            "en": "Open Endpoints > Workstations. Use search, the OS filters, and the All/Live toggle to narrow the device table (OS, Username, Score, Device ID, IP, Last Seen).",
-            "fr": "Ouvrez Endpoints > Workstations. Utilisez la recherche, les filtres OS et la bascule All/Live pour affiner le tableau (OS, Username, Score, Device ID, IP, Last Seen)."
-          }
+            "en": "Open Endpoints > Workstations. Use search, the OS filters, and the All/Live toggle to narrow the device table (highlighted): OS, Username, Score, Device ID, IP, Last Seen.",
+            "fr": "Ouvrez Endpoints > Workstations. Utilisez la recherche, les filtres OS et la bascule All/Live pour affiner le tableau (en surbrillance) : OS, Username, Score, Device ID, IP, Last Seen."
+          },
+          "highlight": "[data-tutorial=device-table]"
         },
         {
           "name": "open_device_detail",
-          "path": "inventory/{device_id}/{username}",
+          "path": "inventory",
           "title": {
             "en": "Open the device detail",
             "fr": "Ouvrir le detail de l'appareil"
           },
           "instruction": {
-            "en": "Click a device to open its detail: header (OS, IP, version, location), the 5-dimension score breakdown, failed and passed security checks, policy compliance, an event timeline, and score charts. This is a dynamic route, so it is not captured automatically.",
-            "fr": "Cliquez sur un appareil pour ouvrir son detail : en-tete (OS, IP, version, localisation), decomposition du score en 5 dimensions, verifications echouees et reussies, conformite aux politiques, chronologie des evenements et graphiques de score. Route dynamique, non capturee automatiquement."
-          }
+            "en": "Click a device row to open its detail: header (OS, IP, version, location), the 5-dimension score breakdown, failed and passed security checks, policy compliance, an event timeline, and score charts.",
+            "fr": "Cliquez sur une ligne d'appareil pour ouvrir son detail : en-tete (OS, IP, version, localisation), decomposition du score en 5 dimensions, verifications echouees et reussies, conformite aux politiques, chronologie des evenements et graphiques de score."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=table-row]" },
+            { "type": "wait", "ms": 3500 }
+          ]
         }
       ]
     },
@@ -1442,21 +1449,26 @@
             "fr": "Ouvrir le catalogue des verifications"
           },
           "instruction": {
-            "en": "Open Security > Checks. Use the OS filter and search, then read each row's severity, %Passed bar, dimension, and tags (e.g. AI Agent Posture, CIS Benchmark Level 1).",
-            "fr": "Ouvrez Security > Checks. Utilisez le filtre OS et la recherche, puis lisez pour chaque ligne la severite, la barre %Passed, la dimension et les tags (ex. AI Agent Posture, CIS Benchmark Level 1)."
-          }
+            "en": "Open Security > Checks. Use the OS filter and search, then read each row of the catalog (highlighted): severity, %Passed bar, dimension, and tags (e.g. AI Agent Posture, CIS Benchmark Level 1).",
+            "fr": "Ouvrez Security > Checks. Utilisez le filtre OS et la recherche, puis lisez chaque ligne du catalogue (en surbrillance) : severite, barre %Passed, dimension et tags (ex. AI Agent Posture, CIS Benchmark Level 1)."
+          },
+          "highlight": "[data-cy=table-body]"
         },
         {
           "name": "open_check_detail",
-          "path": "securitychecks/{name}",
+          "path": "securitychecks",
           "title": {
             "en": "Open a check detail",
             "fr": "Ouvrir le detail d'une verification"
           },
           "instruction": {
-            "en": "Click a check to open its detail: description, severity, pass-rate bar, and two lists of failed (red) and passed (green) devices. Click a device to open its detail. Dynamic route, not captured automatically.",
-            "fr": "Cliquez sur une verification pour ouvrir son detail : description, severite, barre de taux de reussite et deux listes d'appareils echoues (rouge) et reussis (vert). Cliquez sur un appareil pour ouvrir son detail. Route dynamique, non capturee automatiquement."
-          }
+            "en": "Click a check row to open its detail: description, severity, pass-rate bar, and two lists of failed (red) and passed (green) devices. From there you can click a device to open its detail.",
+            "fr": "Cliquez sur une ligne de verification pour ouvrir son detail : description, severite, barre de taux de reussite et deux listes d'appareils echoues (rouge) et reussis (vert). De la, vous pouvez cliquer sur un appareil pour ouvrir son detail."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=table-row]" },
+            { "type": "wait", "ms": 3000 }
+          ]
         }
       ]
     },
@@ -1480,13 +1492,14 @@
             "fr": "Ouvrir l'onglet Acces conditionnel"
           },
           "instruction": {
-            "en": "On the Policies page, switch to the 'Conditional access' tab. Existing rules and their integration triggers are listed here; the 'Conditional access wiki' link explains the enforcement model.",
-            "fr": "Sur la page Policies, basculez sur l'onglet 'Conditional access'. Les regles existantes et leurs declencheurs d'integration y sont listes ; le lien 'Conditional access wiki' explique le modele d'application."
+            "en": "On the Policies page, switch to the 'Conditional access' tab (highlighted). Existing rules and their integration triggers are listed here; the 'Conditional access wiki' link explains the enforcement model.",
+            "fr": "Sur la page Policies, basculez sur l'onglet 'Conditional access' (en surbrillance). Les regles existantes et leurs declencheurs d'integration y sont listes ; le lien 'Conditional access wiki' explique le modele d'application."
           },
           "actions": [
-            { "type": "click", "selector": "button:has-text('Conditional access'), [role=tab]:has-text('Conditional access')" },
-            { "type": "wait", "ms": 800 }
-          ]
+            { "type": "click", "selector": "[data-cy=conditionalAccessTab]" },
+            { "type": "wait", "ms": 900 }
+          ],
+          "highlight": "[data-cy=conditionalAccessTab]"
         },
         {
           "name": "link_conditional_access",
@@ -1496,9 +1509,14 @@
             "fr": "Lier une regle d'acces conditionnel"
           },
           "instruction": {
-            "en": "Click 'Link conditional access', choose the policy and the integration to enforce it on, then confirm. Non-compliant devices will then be denied access through that integration.",
-            "fr": "Cliquez sur 'Link conditional access', choisissez la politique et l'integration sur laquelle l'appliquer, puis confirmez. Les appareils non-conformes se verront alors refuser l'acces via cette integration."
-          }
+            "en": "Click 'Link conditional access' (highlighted), choose the policy and the integration to enforce it on, then confirm. Non-compliant devices will then be denied access through that integration.",
+            "fr": "Cliquez sur 'Link conditional access' (en surbrillance), choisissez la politique et l'integration sur laquelle l'appliquer, puis confirmez. Les appareils non-conformes se verront alors refuser l'acces via cette integration."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=conditionalAccessTab]" },
+            { "type": "wait", "ms": 900 }
+          ],
+          "highlight": "[data-cy=createConditionalAccess]"
         }
       ]
     },
@@ -1522,24 +1540,25 @@
             "fr": "Ouvrir la page Groupes"
           },
           "instruction": {
-            "en": "Open End-users > Groups. Existing groups appear as cards showing the name and member count (e.g. 'admin - 2 users').",
-            "fr": "Ouvrez End-users > Groups. Les groupes existants apparaissent en cartes avec le nom et le nombre de membres (ex. 'admin - 2 users')."
-          }
+            "en": "Open End-users > Groups. Existing groups appear as cards showing the name and member count (e.g. 'admin - 2 users'). Click 'Create a group' (highlighted) to add a new one.",
+            "fr": "Ouvrez End-users > Groups. Les groupes existants apparaissent en cartes avec le nom et le nombre de membres (ex. 'admin - 2 users'). Cliquez sur 'Create a group' (en surbrillance) pour en ajouter un."
+          },
+          "highlight": "[data-cy=createGroupButton]"
         },
         {
           "name": "open_create_group",
           "path": "groups",
           "title": {
-            "en": "Open the create-group modal",
-            "fr": "Ouvrir la modale de creation de groupe"
+            "en": "Fill in the create-group modal",
+            "fr": "Remplir la modale de creation de groupe"
           },
           "instruction": {
-            "en": "Click 'Create a group', give the group a name, add members, and confirm. The group can then be referenced when creating a policy.",
-            "fr": "Cliquez sur 'Create a group', donnez un nom au groupe, ajoutez des membres et confirmez. Le groupe pourra ensuite etre reference lors de la creation d'une politique."
+            "en": "The 'Create a group' modal opens. Give the group a name, add members, and confirm. The group can then be referenced when creating a policy.",
+            "fr": "La modale 'Create a group' s'ouvre. Donnez un nom au groupe, ajoutez des membres et confirmez. Le groupe pourra ensuite etre reference lors de la creation d'une politique."
           },
           "actions": [
-            { "type": "click", "selector": "button:has-text('Create a group')" },
-            { "type": "wait", "ms": 800 }
+            { "type": "click", "selector": "[data-cy=createGroupButton]" },
+            { "type": "wait", "ms": 1200 }
           ]
         }
       ]
@@ -1564,9 +1583,10 @@
             "fr": "Ouvrir la carte des appareils"
           },
           "instruction": {
-            "en": "Open Endpoints > Map. Toggle All devices / Live devices, zoom into a region, and click an OS-icon marker to open its device/user popup and navigate to the detail.",
-            "fr": "Ouvrez Endpoints > Map. Basculez All devices / Live devices, zoomez sur une region et cliquez sur un marqueur a icone OS pour ouvrir son popup appareil/utilisateur et aller vers le detail."
-          }
+            "en": "Open Endpoints > Map. Use the All devices / Live devices toggle (highlighted) to switch datasets, zoom into a region, and click an OS-icon marker to open its device/user popup and navigate to the detail.",
+            "fr": "Ouvrez Endpoints > Map. Utilisez la bascule All devices / Live devices (en surbrillance) pour changer de jeu de donnees, zoomez sur une region et cliquez sur un marqueur a icone OS pour ouvrir son popup appareil/utilisateur et aller vers le detail."
+          },
+          "highlight": "button:has-text('All devices')"
         }
       ]
     },
