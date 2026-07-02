@@ -249,6 +249,50 @@ def capture(page: Page, output_path: Path):
     print(f"    -> {output_path.name}")
 
 
+HIGHLIGHT_JS = """el => {
+  el.setAttribute('data-wf-highlight', '1');
+  el.dataset.wfPrevOutline = el.style.outline || '';
+  el.dataset.wfPrevOffset = el.style.outlineOffset || '';
+  el.dataset.wfPrevShadow = el.style.boxShadow || '';
+  el.style.outline = '4px solid #ff2d2d';
+  el.style.outlineOffset = '3px';
+  el.style.boxShadow = '0 0 0 6px rgba(255, 45, 45, 0.35)';
+}"""
+
+CLEAR_HIGHLIGHT_JS = """() => {
+  const el = document.querySelector('[data-wf-highlight]');
+  if (!el) return;
+  el.style.outline = el.dataset.wfPrevOutline || '';
+  el.style.outlineOffset = el.dataset.wfPrevOffset || '';
+  el.style.boxShadow = el.dataset.wfPrevShadow || '';
+  el.removeAttribute('data-wf-highlight');
+}"""
+
+
+def apply_highlight(page: Page, selector: str) -> bool:
+    """Draw a red rectangle around the element to focus the reader's attention.
+
+    Uses Playwright's selector engine so text selectors (e.g. has-text) work in
+    addition to plain CSS.
+    """
+    try:
+        el = page.query_selector(selector)
+        if not el or not el.is_visible():
+            return False
+        el.scroll_into_view_if_needed()
+        el.evaluate(HIGHLIGHT_JS)
+        return True
+    except Exception:
+        return False
+
+
+def clear_highlight(page: Page):
+    try:
+        page.evaluate(CLEAR_HIGHLIGHT_JS)
+    except Exception:
+        pass
+
+
 def run_action(page: Page, domain_base: str, action: dict):
     """Run a single non-destructive workflow action.
 
@@ -323,7 +367,17 @@ def capture_workflows(page: Page, domain_base: str, workflows: list, output_dir:
                 for action in step.get("actions", []):
                     run_action(page, domain_base, action)
 
+                highlighted = False
+                highlight = step.get("highlight")
+                if highlight:
+                    highlighted = apply_highlight(page, highlight)
+                    if not highlighted:
+                        print(f"    WARN: highlight target not found: {highlight}")
+
                 capture(page, out)
+
+                if highlighted:
+                    clear_highlight(page)
             except Exception as exc:
                 print(f"    WARN: step '{step_name}' failed ({exc}); continuing.")
 

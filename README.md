@@ -120,6 +120,11 @@ A step with an omitted/empty `path` stays on the current page instead of
 re-navigating, so multi-click flows (e.g. connect -> start audit -> view
 results) keep their state across steps.
 
+A step can also set `highlight` to a selector (CSS or Playwright text selector,
+e.g. `"[data-cy=createPoliciesButton]"` or `"button:has-text('Connect')"`). The
+capture draws a red rectangle around that element before taking the screenshot,
+so the reader's eye is drawn to the button/field the step is about.
+
 There is **no destructive action type** (no submit): workflow capture navigates,
 opens tabs/modals, and fills fields, but never clicks the final
 Send/Create/Run button. This keeps automated capture safe to run against the

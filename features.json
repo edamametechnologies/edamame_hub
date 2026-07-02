@@ -1025,8 +1025,8 @@
       "name": "create_policy",
       "feature": "policies",
       "title": {
-        "en": "Create an access control policy",
-        "fr": "Creer une politique de controle d'acces"
+        "en": "Create a policy",
+        "fr": "Creer une politique"
       },
       "description": {
         "en": "Step-by-step guide to opening the policy creation flow. Policies can be based on minimum security scores, specific security checks, compliance tags, or group membership, and can be bound to an integration trigger (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom). This walkthrough stops before saving the policy so it is safe to run against the live demo workspace.",
@@ -1041,24 +1041,24 @@
             "fr": "Ouvrir la page Policies"
           },
           "instruction": {
-            "en": "Open the Policies page from the Security section of the sidebar. The Policies tab lists existing policies as cards with compliant and non-compliant device counts.",
-            "fr": "Ouvrez la page Policies depuis la section Security de la barre laterale. L'onglet Policies liste les politiques existantes sous forme de cartes avec les nombres d'appareils conformes et non-conformes."
-          }
+            "en": "Open the Policies page from the Security section of the sidebar. The Policies tab lists existing policies as cards with compliant and non-compliant device counts. Click 'Create a policy' (highlighted) to start.",
+            "fr": "Ouvrez la page Policies depuis la section Security de la barre laterale. L'onglet Policies liste les politiques existantes sous forme de cartes avec les nombres d'appareils conformes et non-conformes. Cliquez sur 'Create a policy' (en surbrillance) pour commencer."
+          },
+          "highlight": "[data-cy=createPoliciesButton]"
         },
         {
           "name": "open_create_form",
-          "path": "policies",
           "title": {
-            "en": "Open the policy creation form",
-            "fr": "Ouvrir le formulaire de creation de politique"
+            "en": "Fill in the policy creation form",
+            "fr": "Remplir le formulaire de creation de politique"
           },
           "instruction": {
-            "en": "Click 'Create a policy' to open the policy creation form. Give the policy a name, choose its criteria (minimum score, security check, compliance tag, or group), and optionally bind an integration trigger. Click the final create/save button to persist it.",
-            "fr": "Cliquez sur 'Create a policy' pour ouvrir le formulaire de creation. Donnez un nom a la politique, choisissez ses criteres (score minimal, verification, cadre de conformite ou groupe) et liez eventuellement un declencheur d'integration. Cliquez sur le bouton final de creation/enregistrement pour la persister."
+            "en": "The 'Create a policy' modal opens. Give the policy a name, choose its criteria (minimum score, security check, compliance tag, or group), and optionally bind an integration trigger. Click the final create/save button to persist it.",
+            "fr": "La fenetre 'Create a policy' s'ouvre. Donnez un nom a la politique, choisissez ses criteres (score minimal, verification, cadre de conformite ou groupe) et liez eventuellement un declencheur d'integration. Cliquez sur le bouton final de creation/enregistrement pour la persister."
           },
           "actions": [
-            { "type": "click", "selector": "button:has-text('Create a policy')" },
-            { "type": "wait", "ms": 1000 }
+            { "type": "click", "selector": "[data-cy=createPoliciesButton]" },
+            { "type": "wait", "ms": 1500 }
           ]
         }
       ]
@@ -1137,9 +1137,10 @@
             "fr": "Ouvrir Settings > Integrations"
           },
           "instruction": {
-            "en": "Open Settings and select the Integrations tab. You will see a table of available integrations, including GitHub ('Audit your GitHub organization activity and security events.') with a 'Connect' button.",
-            "fr": "Ouvrez Settings et selectionnez l'onglet Integrations. Vous verrez un tableau des integrations disponibles, dont GitHub ('Audit your GitHub organization activity and security events.') avec un bouton 'Connect'."
-          }
+            "en": "Open Settings and select the Integrations tab. You will see a table of available integrations, including GitHub ('Audit your GitHub organization activity and security events.') with a 'Connect' button (highlighted).",
+            "fr": "Ouvrez Settings et selectionnez l'onglet Integrations. Vous verrez un tableau des integrations disponibles, dont GitHub ('Audit your GitHub organization activity and security events.') avec un bouton 'Connect' (en surbrillance)."
+          },
+          "highlight": "tr:has-text('Github') button:has-text('Connect')"
         },
         {
           "name": "connect_github",
@@ -1149,13 +1150,14 @@
             "fr": "Connecter GitHub"
           },
           "instruction": {
-            "en": "Click 'Connect' on the GitHub row. In production this opens GitHub's app authorization in a new tab; in the demo workspace the connection is simulated. Once connected, an 'Audit' button appears on the GitHub row.",
-            "fr": "Cliquez sur 'Connect' sur la ligne GitHub. En production, cela ouvre l'autorisation de l'application GitHub dans un nouvel onglet ; dans l'espace de demonstration, la connexion est simulee. Une fois connecte, un bouton 'Audit' apparait sur la ligne GitHub."
+            "en": "Click 'Connect' on the GitHub row. In production this opens GitHub's app authorization; in the demo workspace clicking Connect instantly connects GitHub (no GitHub login required). Once connected, an 'Audit' button (highlighted) appears on the GitHub row.",
+            "fr": "Cliquez sur 'Connect' sur la ligne GitHub. En production, cela ouvre l'autorisation de l'application GitHub ; dans l'espace de demonstration, cliquer sur Connect connecte instantanement GitHub (aucune connexion GitHub requise). Une fois connecte, un bouton 'Audit' (en surbrillance) apparait sur la ligne GitHub."
           },
           "actions": [
             { "type": "click", "selector": "tr:has-text('Github') button:has-text('Connect')" },
-            { "type": "wait", "ms": 2000 }
-          ]
+            { "type": "wait", "ms": 2500 }
+          ],
+          "highlight": "button:has-text('Audit')"
         },
         {
           "name": "start_audit",
@@ -1164,15 +1166,14 @@
             "fr": "Ouvrir le menu Audit et lancer"
           },
           "instruction": {
-            "en": "Click the 'Audit' button on the GitHub row to open the popover, pick a lookback window (7, 30, 90, or 180 days), then click 'Start audit'. The audit runs and opens the results page.",
-            "fr": "Cliquez sur le bouton 'Audit' de la ligne GitHub pour ouvrir le menu, choisissez une periode retrospective (7, 30, 90 ou 180 jours), puis cliquez sur 'Start audit'. L'audit s'execute et ouvre la page de resultats."
+            "en": "Click the 'Audit' button on the GitHub row to open the popover, pick a lookback window (7, 30, 90, or 180 days), then click 'Start audit' (highlighted). The audit runs and opens the results page.",
+            "fr": "Cliquez sur le bouton 'Audit' de la ligne GitHub pour ouvrir le menu, choisissez une periode retrospective (7, 30, 90 ou 180 jours), puis cliquez sur 'Start audit' (en surbrillance). L'audit s'execute et ouvre la page de resultats."
           },
           "actions": [
             { "type": "click", "selector": "button:has-text('Audit')" },
-            { "type": "wait", "ms": 800 },
-            { "type": "click", "selector": "button:has-text('Start audit')" },
-            { "type": "wait", "ms": 4000 }
-          ]
+            { "type": "wait", "ms": 800 }
+          ],
+          "highlight": "button:has-text('Start audit')"
         },
         {
           "name": "view_audit_results",
