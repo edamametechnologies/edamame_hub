@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  schedule:
+    # Weekly refresh so screenshots stay current even without pushes.
+    - cron: "0 4 * * 1"
 
 jobs:
   build-wiki:
@@ -27,7 +30,21 @@ jobs:
           python-version: "3.11"
 
       - name: Install Python dependencies
-        run: pip install mdutils
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright browser
+        run: playwright install --with-deps chromium
+
+      - name: Capture screenshots (features + workflows)
+        # Non-blocking: if live capture fails (e.g. login/MFA), the wiki still
+        # builds from any screenshots already committed to the repo.
+        # The domain UUID is auto-detected from the post-login redirect, so no
+        # HUB_SCREENSHOT_DOMAIN_ID is needed for this account.
+        continue-on-error: true
+        env:
+          HUB_SCREENSHOT_EMAIL: ${{ secrets.HUB_SCREENSHOT_EMAIL }}
+          HUB_SCREENSHOT_PASSWORD: ${{ secrets.HUB_SCREENSHOT_PASSWORD }}
+        run: python src/generate_screenshots.py --headless
 
       - name: Generate wiki markdown files
         run: |

@@ -50,8 +50,24 @@ Full feature descriptions with screenshots are available in the project wiki: [g
 
 ## Screenshot Generation
 
-Screenshots are captured **manually on your machine** (Playwright against
-production). CI only rebuilds the wiki from committed PNGs.
+Screenshots can be captured **automatically in CI** or **manually on your
+machine** (Playwright against production).
+
+- **CI (automatic):** `feature-wiki.yml` logs in headlessly with email +
+  password, captures every feature and workflow screenshot, then rebuilds and
+  pushes the wiki. It runs on push to `main`, on a weekly schedule, and via
+  `workflow_dispatch`. Required GitHub secrets:
+  - `HUB_SCREENSHOT_EMAIL` (secret) — screenshot account email
+  - `HUB_SCREENSHOT_PASSWORD` (secret) — screenshot account password (the
+    account must have **MFA disabled** for headless login)
+
+  The domain UUID is **auto-detected** from the post-login redirect
+  (`/dashboard/<uuid>/home`), so no domain ID needs to be configured as long as
+  the account lands directly on its workspace. If live capture fails, the step
+  is non-blocking and the wiki still builds from any PNGs committed under
+  `screenshots/`.
+
+- **Local (manual):** interactive login as below.
 
 The script normally **auto-detects** the domain UUID from the post-login
 redirect (`/dashboard/<uuid>/home`), so you don't pass it. The exception is the
@@ -78,6 +94,37 @@ cp .screenshot.env.example .screenshot.env   # then set HUB_SCREENSHOT_DOMAIN_ID
 # Commit PNGs, then push — feature-wiki.yml updates the GitHub wiki
 git add screenshots/ && git commit -m "docs: refresh Hub screenshots"
 ```
+
+For non-interactive local capture (same path CI uses), set the credentials in
+`.screenshot.env` (`HUB_SCREENSHOT_EMAIL`, `HUB_SCREENSHOT_PASSWORD`) and run the
+script without `--login`.
+
+## Workflows (step-by-step tutorials)
+
+The `workflows` array in `features.json` defines step-by-step tutorials that are
+rendered as their own wiki pages (linked from the Home index and from the
+related feature page). The whole pipeline is **data-driven**: adding, editing, or
+removing a workflow or step in `features.json` needs no code changes.
+
+Each workflow has `name`, an optional `feature` (parent feature slug for
+cross-linking), `title`/`description` (`en`/`fr`), and `steps[]`. Each step has a
+`name`, `path` (route), `title`/`instruction` (`en`/`fr`), and optional
+`actions[]` performed before the screenshot is taken:
+
+- `goto` `{ "path": "..." }`
+- `click` `{ "selector": "..." }`
+- `fill` `{ "selector": "...", "value": "..." }`
+- `wait` `{ "ms": 1000 }`
+
+A step with an omitted/empty `path` stays on the current page instead of
+re-navigating, so multi-click flows (e.g. connect -> start audit -> view
+results) keep their state across steps.
+
+There is **no destructive action type** (no submit): workflow capture navigates,
+opens tabs/modals, and fills fields, but never clicks the final
+Send/Create/Run button. This keeps automated capture safe to run against the
+live demo workspace. Workflow step screenshots are saved as
+`wf_{workflow}_{NN}_{step}.png`.
 
 ## Wiki Generation
 

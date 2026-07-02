@@ -963,5 +963,803 @@
         }
       ]
     }
+  ],
+  "workflows": [
+    {
+      "name": "invite_users",
+      "feature": "onboarding",
+      "title": {
+        "en": "Invite and onboard end users",
+        "fr": "Inviter et onboarder des utilisateurs finaux"
+      },
+      "description": {
+        "en": "Step-by-step guide to inviting end users to install the EDAMAME Security app and start onboarding, either by sending invitations or enabling self-onboarding. This walkthrough stops before actually sending invitations so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape pour inviter des utilisateurs finaux a installer l'application EDAMAME Security et commencer l'onboarding, soit en envoyant des invitations, soit en activant l'auto-onboarding. Ce tutoriel s'arrete avant l'envoi reel des invitations, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_onboarding",
+          "path": "onboarding",
+          "title": {
+            "en": "Open the Onboarding page",
+            "fr": "Ouvrir la page Onboarding"
+          },
+          "instruction": {
+            "en": "Open the Onboarding page from the End-users section of the sidebar. The top of the page shows onboarding statistics (in progress, onboarded users vs. plan limit, total users, disabled users).",
+            "fr": "Ouvrez la page Onboarding depuis la section End-users de la barre laterale. Le haut de la page affiche les statistiques d'onboarding (en cours, utilisateurs onboardes vs limite du plan, total, desactives)."
+          }
+        },
+        {
+          "name": "toggle_self_onboard",
+          "path": "onboarding",
+          "title": {
+            "en": "Choose invitation or self-onboarding",
+            "fr": "Choisir invitation ou auto-onboarding"
+          },
+          "instruction": {
+            "en": "In the 'Invite users to install the app' card, use the self-onboard toggle if you want users to onboard themselves without an explicit invitation.",
+            "fr": "Dans la carte 'Invite users to install the app', utilisez la bascule d'auto-onboarding si vous souhaitez que les utilisateurs s'onboardent eux-memes sans invitation explicite."
+          },
+          "actions": [
+            { "type": "click", "selector": ".chakra-switch" }
+          ]
+        },
+        {
+          "name": "fill_invite_email",
+          "path": "onboarding",
+          "title": {
+            "en": "Enter emails and send invitations",
+            "fr": "Saisir les emails et envoyer les invitations"
+          },
+          "instruction": {
+            "en": "Type one or more email addresses (comma-separated) into the invite field. Each user receives an email to install the app. Review the entry, then click 'Add Users' to send the invitations.",
+            "fr": "Saisissez une ou plusieurs adresses email (separees par des virgules) dans le champ d'invitation. Chaque utilisateur recoit un email pour installer l'application. Verifiez la saisie, puis cliquez sur 'Add Users' pour envoyer les invitations."
+          },
+          "actions": [
+            { "type": "fill", "selector": "input[type=email]", "value": "new.user" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "create_policy",
+      "feature": "policies",
+      "title": {
+        "en": "Create an access control policy",
+        "fr": "Creer une politique de controle d'acces"
+      },
+      "description": {
+        "en": "Step-by-step guide to opening the policy creation flow. Policies can be based on minimum security scores, specific security checks, compliance tags, or group membership, and can be bound to an integration trigger (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom). This walkthrough stops before saving the policy so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape pour ouvrir le flux de creation de politique. Les politiques peuvent etre basees sur des scores minimaux, des verifications specifiques, des cadres de conformite ou l'appartenance a un groupe, et peuvent etre liees a un declencheur d'integration (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Personnalise). Ce tutoriel s'arrete avant l'enregistrement de la politique, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_policies",
+          "path": "policies",
+          "title": {
+            "en": "Open the Policies page",
+            "fr": "Ouvrir la page Policies"
+          },
+          "instruction": {
+            "en": "Open the Policies page from the Security section of the sidebar. The Policies tab lists existing policies as cards with compliant and non-compliant device counts.",
+            "fr": "Ouvrez la page Policies depuis la section Security de la barre laterale. L'onglet Policies liste les politiques existantes sous forme de cartes avec les nombres d'appareils conformes et non-conformes."
+          }
+        },
+        {
+          "name": "open_create_form",
+          "path": "policies",
+          "title": {
+            "en": "Open the policy creation form",
+            "fr": "Ouvrir le formulaire de creation de politique"
+          },
+          "instruction": {
+            "en": "Click 'Create a policy' to open the policy creation form. Give the policy a name, choose its criteria (minimum score, security check, compliance tag, or group), and optionally bind an integration trigger. Click the final create/save button to persist it.",
+            "fr": "Cliquez sur 'Create a policy' pour ouvrir le formulaire de creation. Donnez un nom a la politique, choisissez ses criteres (score minimal, verification, cadre de conformite ou groupe) et liez eventuellement un declencheur d'integration. Cliquez sur le bouton final de creation/enregistrement pour la persister."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text('Create a policy')" },
+            { "type": "wait", "ms": 1000 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "check_compliance",
+      "feature": "compliance",
+      "title": {
+        "en": "Check compliance against a framework",
+        "fr": "Verifier la conformite par rapport a un cadre"
+      },
+      "description": {
+        "en": "Step-by-step guide to measuring your fleet's compliance against an industry framework (e.g. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Selecting a framework tag is read-only, so this walkthrough is safe to run end-to-end.",
+        "fr": "Guide etape par etape pour mesurer la conformite de votre parc par rapport a un cadre industriel (ex. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). La selection d'un cadre est en lecture seule, ce tutoriel est donc sans risque de bout en bout."
+      },
+      "steps": [
+        {
+          "name": "open_compliance",
+          "path": "compliance",
+          "title": {
+            "en": "Open the Compliance page",
+            "fr": "Ouvrir la page Compliance"
+          },
+          "instruction": {
+            "en": "Open the Compliance page from the Security section of the sidebar. Before a framework is selected, the page prompts you to choose a tag.",
+            "fr": "Ouvrez la page Compliance depuis la section Security de la barre laterale. Avant la selection d'un cadre, la page vous invite a choisir un tag."
+          }
+        },
+        {
+          "name": "open_framework_dropdown",
+          "path": "compliance",
+          "title": {
+            "en": "Select a compliance framework",
+            "fr": "Selectionner un cadre de conformite"
+          },
+          "instruction": {
+            "en": "Open the framework selector ('Select a tag to check its compliance ratio...') and pick the framework you want to measure against.",
+            "fr": "Ouvrez le selecteur de cadre ('Select a tag to check its compliance ratio...') et choisissez le cadre par rapport auquel vous voulez mesurer."
+          },
+          "actions": [
+            { "type": "click", "selector": ".chakra-select, [class*='select']" },
+            { "type": "wait", "ms": 800 }
+          ]
+        },
+        {
+          "name": "view_compliance_breakdown",
+          "path": "compliance",
+          "title": {
+            "en": "Review the compliance breakdown",
+            "fr": "Consulter la decomposition de conformite"
+          },
+          "instruction": {
+            "en": "Once a framework is selected, the page shows the global compliance rate, a per-OS breakdown, best/worst devices, and the most failed/passed compliance checks. Use the All devices / Live devices / History tabs to switch views.",
+            "fr": "Une fois un cadre selectionne, la page affiche le taux de conformite global, une decomposition par OS, les meilleurs/pires appareils et les verifications les plus echouees/reussies. Utilisez les onglets All devices / Live devices / History pour changer de vue."
+          }
+        }
+      ]
+    },
+    {
+      "name": "run_github_audit",
+      "feature": "audit",
+      "title": {
+        "en": "Run a GitHub organization audit",
+        "fr": "Lancer un audit d'organisation GitHub"
+      },
+      "description": {
+        "en": "Step-by-step guide to running a GitHub organization audit from Settings > Integrations. The audit analyzes GitHub events for security-relevant activity (boundary changes, PAT usage, trust modifications, membership changes, git operations). In the demo workspace the GitHub connection and audit are simulated, so this walkthrough runs the full flow end-to-end safely.",
+        "fr": "Guide etape par etape pour lancer un audit d'organisation GitHub depuis Settings > Integrations. L'audit analyse les evenements GitHub pour les activites pertinentes en securite (changements de perimetre, usage de PAT, modifications de confiance, changements d'adhesion, operations git). Dans l'espace de demonstration, la connexion GitHub et l'audit sont simules, ce tutoriel deroule donc tout le flux de bout en bout sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_integrations",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Open Settings > Integrations",
+            "fr": "Ouvrir Settings > Integrations"
+          },
+          "instruction": {
+            "en": "Open Settings and select the Integrations tab. You will see a table of available integrations, including GitHub ('Audit your GitHub organization activity and security events.') with a 'Connect' button.",
+            "fr": "Ouvrez Settings et selectionnez l'onglet Integrations. Vous verrez un tableau des integrations disponibles, dont GitHub ('Audit your GitHub organization activity and security events.') avec un bouton 'Connect'."
+          }
+        },
+        {
+          "name": "connect_github",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Connect GitHub",
+            "fr": "Connecter GitHub"
+          },
+          "instruction": {
+            "en": "Click 'Connect' on the GitHub row. In production this opens GitHub's app authorization in a new tab; in the demo workspace the connection is simulated. Once connected, an 'Audit' button appears on the GitHub row.",
+            "fr": "Cliquez sur 'Connect' sur la ligne GitHub. En production, cela ouvre l'autorisation de l'application GitHub dans un nouvel onglet ; dans l'espace de demonstration, la connexion est simulee. Une fois connecte, un bouton 'Audit' apparait sur la ligne GitHub."
+          },
+          "actions": [
+            { "type": "click", "selector": "tr:has-text('Github') button:has-text('Connect')" },
+            { "type": "wait", "ms": 2000 }
+          ]
+        },
+        {
+          "name": "start_audit",
+          "title": {
+            "en": "Open the Audit menu and start",
+            "fr": "Ouvrir le menu Audit et lancer"
+          },
+          "instruction": {
+            "en": "Click the 'Audit' button on the GitHub row to open the popover, pick a lookback window (7, 30, 90, or 180 days), then click 'Start audit'. The audit runs and opens the results page.",
+            "fr": "Cliquez sur le bouton 'Audit' de la ligne GitHub pour ouvrir le menu, choisissez une periode retrospective (7, 30, 90 ou 180 jours), puis cliquez sur 'Start audit'. L'audit s'execute et ouvre la page de resultats."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text('Audit')" },
+            { "type": "wait", "ms": 800 },
+            { "type": "click", "selector": "button:has-text('Start audit')" },
+            { "type": "wait", "ms": 4000 }
+          ]
+        },
+        {
+          "name": "view_audit_results",
+          "path": "audit/demo-github-audit",
+          "title": {
+            "en": "Review the audit results",
+            "fr": "Consulter les resultats de l'audit"
+          },
+          "instruction": {
+            "en": "The audit results page shows an overall audit score, stat cards (Total/Human/Non-Human events, Unique Actors, Unique IPs), a severity distribution, top actors and IPs, an activity map, category filter pills, and a full events table. You can return to it any time via 'View last audit' on the GitHub row.",
+            "fr": "La page de resultats affiche un score d'audit global, des cartes de stats (evenements Total/Humains/Non-humains, acteurs uniques, IP uniques), une distribution de severite, les principaux acteurs et IP, une carte d'activite, des pilules de filtre par categorie et un tableau complet des evenements. Vous pouvez y revenir a tout moment via 'View last audit' sur la ligne GitHub."
+          },
+          "actions": [
+            { "type": "wait", "ms": 6000 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "review_dashboard",
+      "feature": "overview",
+      "title": {
+        "en": "Review your security dashboard",
+        "fr": "Consulter votre tableau de bord de securite"
+      },
+      "description": {
+        "en": "Quick tour of the domain home page to read your organization's security posture at a glance and spot devices that need attention. Read-only and safe to run end-to-end.",
+        "fr": "Tour rapide de la page d'accueil du domaine pour lire la posture de securite de votre organisation en un coup d'oeil et reperer les appareils a surveiller. En lecture seule et sans risque de bout en bout."
+      },
+      "steps": [
+        {
+          "name": "open_home",
+          "path": "home",
+          "title": {
+            "en": "Open the dashboard home",
+            "fr": "Ouvrir l'accueil du tableau de bord"
+          },
+          "instruction": {
+            "en": "Open the Overview home page. Read the four stat cards (Total Devices, Average Score, Active Devices, Live Avg Score) and the 7-hour Global Security Score chart to gauge current posture.",
+            "fr": "Ouvrez la page d'accueil Overview. Lisez les quatre cartes de stats (Total Devices, Average Score, Active Devices, Live Avg Score) et le graphique Global Security Score sur 7h pour evaluer la posture actuelle."
+          }
+        },
+        {
+          "name": "review_attention",
+          "path": "home",
+          "title": {
+            "en": "Spot devices requiring attention",
+            "fr": "Reperer les appareils a surveiller"
+          },
+          "instruction": {
+            "en": "Scroll to the 'Devices requiring attention' panel; low-score rows carry a red accent. Click a device row to open its detail, or check the Engagement widget for active escalations.",
+            "fr": "Faites defiler jusqu'au panneau 'Devices requiring attention' ; les lignes a faible score ont un accent rouge. Cliquez sur une ligne pour ouvrir le detail de l'appareil, ou consultez le widget Engagement pour les escalades actives."
+          }
+        }
+      ]
+    },
+    {
+      "name": "handle_escalation",
+      "feature": "engagement",
+      "title": {
+        "en": "Handle a security escalation",
+        "fr": "Traiter une escalade de securite"
+      },
+      "description": {
+        "en": "Work the engagement queue: review active escalations by type, navigate to the related device/user/policy, and dismiss items you have addressed. This walkthrough stops before dismissing so it is safe to run against the live demo workspace.",
+        "fr": "Traitez la file d'engagement : consultez les escalades actives par type, naviguez vers l'appareil/utilisateur/politique associe et ignorez les elements traites. Ce tutoriel s'arrete avant l'ignorance, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_engagement",
+          "path": "engagement",
+          "title": {
+            "en": "Open the Engagement page",
+            "fr": "Ouvrir la page Engagement"
+          },
+          "instruction": {
+            "en": "Open Engagement from the End-users section. The five stat cards (New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, Policy Violation) summarize open escalations by type.",
+            "fr": "Ouvrez Engagement depuis la section End-users. Les cinq cartes de stats (New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, Policy Violation) resument les escalades ouvertes par type."
+          }
+        },
+        {
+          "name": "review_active_queue",
+          "path": "engagement",
+          "title": {
+            "en": "Review the active queue",
+            "fr": "Consulter la file active"
+          },
+          "instruction": {
+            "en": "In the 'Active' table (Username, Type, OS Type, Since), click any row to jump to the related device, user, or policy and investigate the cause.",
+            "fr": "Dans le tableau 'Active' (Username, Type, OS Type, Since), cliquez sur une ligne pour aller vers l'appareil, l'utilisateur ou la politique associe et investiguer la cause."
+          }
+        },
+        {
+          "name": "dismiss_escalation",
+          "path": "engagement",
+          "title": {
+            "en": "Dismiss or resolve an item",
+            "fr": "Ignorer ou resoudre un element"
+          },
+          "instruction": {
+            "en": "Use the dismiss action at the end of a row to clear an escalation you have addressed. Dismissed items move to the 'Dismissed' section where they can be restored; resolved escalations appear read-only under 'Resolved'.",
+            "fr": "Utilisez l'action d'ignorance en fin de ligne pour retirer une escalade traitee. Les elements ignores passent dans la section 'Dismissed' ou ils peuvent etre restaures ; les escalades resolues apparaissent en lecture seule sous 'Resolved'."
+          }
+        }
+      ]
+    },
+    {
+      "name": "investigate_user",
+      "feature": "users",
+      "title": {
+        "en": "Find and investigate a user",
+        "fr": "Trouver et investiguer un utilisateur"
+      },
+      "description": {
+        "en": "Locate a user in the domain and open their profile to review devices, group memberships, scores, and locations. Read-only and safe to run.",
+        "fr": "Localisez un utilisateur du domaine et ouvrez son profil pour consulter appareils, appartenances aux groupes, scores et localisations. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_users",
+          "path": "users",
+          "title": {
+            "en": "Open the Users list",
+            "fr": "Ouvrir la liste des utilisateurs"
+          },
+          "instruction": {
+            "en": "Open the Users page. Use the search box and the sortable columns (Score, Number of Devices, Country, Last Seen) to find the user you are looking for, or toggle All users / Live users.",
+            "fr": "Ouvrez la page Users. Utilisez la recherche et les colonnes triables (Score, Number of Devices, Country, Last Seen) pour trouver l'utilisateur recherche, ou basculez All users / Live users."
+          },
+          "actions": [
+            { "type": "fill", "selector": "input[type=search], input[placeholder*='earch']", "value": "a" }
+          ]
+        },
+        {
+          "name": "open_user_detail",
+          "path": "user/{username}",
+          "title": {
+            "en": "Open the user profile",
+            "fr": "Ouvrir le profil utilisateur"
+          },
+          "instruction": {
+            "en": "Click a user to open their profile: group memberships, auto-disable status, a device list, and an interactive map of device locations. This is a dynamic route, so it is not captured automatically.",
+            "fr": "Cliquez sur un utilisateur pour ouvrir son profil : appartenances aux groupes, statut d'auto-desactivation, liste des appareils et carte interactive des localisations. Route dynamique, non capturee automatiquement."
+          }
+        }
+      ]
+    },
+    {
+      "name": "investigate_device",
+      "feature": "inventory",
+      "title": {
+        "en": "Investigate an endpoint",
+        "fr": "Investiguer un terminal"
+      },
+      "description": {
+        "en": "Browse the Workstations inventory and open a device to review its 5-dimension security score, failed/passed checks, policy compliance, and event history. Read-only and safe to run.",
+        "fr": "Parcourez l'inventaire des postes de travail et ouvrez un appareil pour consulter son score de securite a 5 dimensions, les verifications reussies/echouees, la conformite aux politiques et l'historique des evenements. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_workstations",
+          "path": "inventory",
+          "title": {
+            "en": "Open the Workstations inventory",
+            "fr": "Ouvrir l'inventaire des postes de travail"
+          },
+          "instruction": {
+            "en": "Open Endpoints > Workstations. Use search, the OS filters, and the All/Live toggle to narrow the device table (OS, Username, Score, Device ID, IP, Last Seen).",
+            "fr": "Ouvrez Endpoints > Workstations. Utilisez la recherche, les filtres OS et la bascule All/Live pour affiner le tableau (OS, Username, Score, Device ID, IP, Last Seen)."
+          }
+        },
+        {
+          "name": "open_device_detail",
+          "path": "inventory/{device_id}/{username}",
+          "title": {
+            "en": "Open the device detail",
+            "fr": "Ouvrir le detail de l'appareil"
+          },
+          "instruction": {
+            "en": "Click a device to open its detail: header (OS, IP, version, location), the 5-dimension score breakdown, failed and passed security checks, policy compliance, an event timeline, and score charts. This is a dynamic route, so it is not captured automatically.",
+            "fr": "Cliquez sur un appareil pour ouvrir son detail : en-tete (OS, IP, version, localisation), decomposition du score en 5 dimensions, verifications echouees et reussies, conformite aux politiques, chronologie des evenements et graphiques de score. Route dynamique, non capturee automatiquement."
+          }
+        }
+      ]
+    },
+    {
+      "name": "explore_security_score",
+      "feature": "security",
+      "title": {
+        "en": "Explore the security score",
+        "fr": "Explorer le score de securite"
+      },
+      "description": {
+        "en": "Analyze your fleet's security score: overall and per-OS breakdown, best/worst devices, most failed/passed checks, and score history over time. Read-only and safe to run end-to-end.",
+        "fr": "Analysez le score de securite de votre parc : note globale et par OS, meilleurs/pires appareils, verifications les plus echouees/reussies et historique du score. En lecture seule et sans risque de bout en bout."
+      },
+      "steps": [
+        {
+          "name": "open_security",
+          "path": "security",
+          "title": {
+            "en": "Open the Security Score page",
+            "fr": "Ouvrir la page Score de securite"
+          },
+          "instruction": {
+            "en": "Open Security > Score. Read the Global Security Score card and the per-OS cards, then use the OS-type filter chips to focus on a platform.",
+            "fr": "Ouvrez Security > Score. Lisez la carte Global Security Score et les cartes par OS, puis utilisez les filtres par OS pour vous concentrer sur une plateforme."
+          }
+        },
+        {
+          "name": "review_rankings",
+          "path": "security",
+          "title": {
+            "en": "Review best/worst devices and top checks",
+            "fr": "Consulter meilleurs/pires appareils et top verifications"
+          },
+          "instruction": {
+            "en": "Scroll to the Top 10 best/worst devices and the Top 10 failed/passed security checks (each with a device count and severity badge) to prioritize remediation.",
+            "fr": "Faites defiler jusqu'aux Top 10 meilleurs/pires appareils et aux Top 10 verifications echouees/reussies (avec compteur d'appareils et badge de severite) pour prioriser la remediation."
+          }
+        },
+        {
+          "name": "view_score_history",
+          "path": "security/history",
+          "title": {
+            "en": "View the score history",
+            "fr": "Consulter l'historique du score"
+          },
+          "instruction": {
+            "en": "Open the History tab, pick a From/To range, and click Update to see the overall and per-OS score trends over the selected period.",
+            "fr": "Ouvrez l'onglet History, choisissez une plage From/To et cliquez sur Update pour voir les tendances du score global et par OS sur la periode."
+          }
+        }
+      ]
+    },
+    {
+      "name": "investigate_security_check",
+      "feature": "securitychecks",
+      "title": {
+        "en": "Investigate a security check",
+        "fr": "Investiguer une verification de securite"
+      },
+      "description": {
+        "en": "Browse the security checks catalog, filter and find a failing check, and open it to see which devices pass or fail. Read-only and safe to run.",
+        "fr": "Parcourez le catalogue des verifications, filtrez et trouvez une verification en echec, puis ouvrez-la pour voir quels appareils reussissent ou echouent. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_catalog",
+          "path": "securitychecks",
+          "title": {
+            "en": "Open the Security Checks catalog",
+            "fr": "Ouvrir le catalogue des verifications"
+          },
+          "instruction": {
+            "en": "Open Security > Checks. Use the OS filter and search, then read each row's severity, %Passed bar, dimension, and tags (e.g. AI Agent Posture, CIS Benchmark Level 1).",
+            "fr": "Ouvrez Security > Checks. Utilisez le filtre OS et la recherche, puis lisez pour chaque ligne la severite, la barre %Passed, la dimension et les tags (ex. AI Agent Posture, CIS Benchmark Level 1)."
+          }
+        },
+        {
+          "name": "open_check_detail",
+          "path": "securitychecks/{name}",
+          "title": {
+            "en": "Open a check detail",
+            "fr": "Ouvrir le detail d'une verification"
+          },
+          "instruction": {
+            "en": "Click a check to open its detail: description, severity, pass-rate bar, and two lists of failed (red) and passed (green) devices. Click a device to open its detail. Dynamic route, not captured automatically.",
+            "fr": "Cliquez sur une verification pour ouvrir son detail : description, severite, barre de taux de reussite et deux listes d'appareils echoues (rouge) et reussis (vert). Cliquez sur un appareil pour ouvrir son detail. Route dynamique, non capturee automatiquement."
+          }
+        }
+      ]
+    },
+    {
+      "name": "setup_conditional_access",
+      "feature": "policies",
+      "title": {
+        "en": "Set up conditional access",
+        "fr": "Configurer l'acces conditionnel"
+      },
+      "description": {
+        "en": "Link a policy to an integration trigger so non-compliant devices are blocked from your tools (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom). This walkthrough stops before linking so it is safe to run against the live demo workspace.",
+        "fr": "Liez une politique a un declencheur d'integration pour bloquer les appareils non-conformes de vos outils (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Personnalise). Ce tutoriel s'arrete avant la liaison, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Open the Conditional access tab",
+            "fr": "Ouvrir l'onglet Acces conditionnel"
+          },
+          "instruction": {
+            "en": "On the Policies page, switch to the 'Conditional access' tab. Existing rules and their integration triggers are listed here; the 'Conditional access wiki' link explains the enforcement model.",
+            "fr": "Sur la page Policies, basculez sur l'onglet 'Conditional access'. Les regles existantes et leurs declencheurs d'integration y sont listes ; le lien 'Conditional access wiki' explique le modele d'application."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text('Conditional access'), [role=tab]:has-text('Conditional access')" },
+            { "type": "wait", "ms": 800 }
+          ]
+        },
+        {
+          "name": "link_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Link a conditional access rule",
+            "fr": "Lier une regle d'acces conditionnel"
+          },
+          "instruction": {
+            "en": "Click 'Link conditional access', choose the policy and the integration to enforce it on, then confirm. Non-compliant devices will then be denied access through that integration.",
+            "fr": "Cliquez sur 'Link conditional access', choisissez la politique et l'integration sur laquelle l'appliquer, puis confirmez. Les appareils non-conformes se verront alors refuser l'acces via cette integration."
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_group",
+      "feature": "groups",
+      "title": {
+        "en": "Create a user group",
+        "fr": "Creer un groupe d'utilisateurs"
+      },
+      "description": {
+        "en": "Create a group to organize users into logical sets that can be targeted by access control policies. This walkthrough stops before creating so it is safe to run against the live demo workspace.",
+        "fr": "Creez un groupe pour organiser les utilisateurs en ensembles logiques ciblables par les politiques de controle d'acces. Ce tutoriel s'arrete avant la creation, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_groups",
+          "path": "groups",
+          "title": {
+            "en": "Open the Groups page",
+            "fr": "Ouvrir la page Groupes"
+          },
+          "instruction": {
+            "en": "Open End-users > Groups. Existing groups appear as cards showing the name and member count (e.g. 'admin - 2 users').",
+            "fr": "Ouvrez End-users > Groups. Les groupes existants apparaissent en cartes avec le nom et le nombre de membres (ex. 'admin - 2 users')."
+          }
+        },
+        {
+          "name": "open_create_group",
+          "path": "groups",
+          "title": {
+            "en": "Open the create-group modal",
+            "fr": "Ouvrir la modale de creation de groupe"
+          },
+          "instruction": {
+            "en": "Click 'Create a group', give the group a name, add members, and confirm. The group can then be referenced when creating a policy.",
+            "fr": "Cliquez sur 'Create a group', donnez un nom au groupe, ajoutez des membres et confirmez. Le groupe pourra ensuite etre reference lors de la creation d'une politique."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text('Create a group')" },
+            { "type": "wait", "ms": 800 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explore_device_map",
+      "feature": "map",
+      "title": {
+        "en": "Explore the device map",
+        "fr": "Explorer la carte des appareils"
+      },
+      "description": {
+        "en": "Use the geographic map to see where your monitored devices are located and open a marker to jump to a device. Read-only and safe to run.",
+        "fr": "Utilisez la carte geographique pour voir ou se trouvent vos appareils surveilles et ouvrez un marqueur pour aller vers un appareil. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_map",
+          "path": "map",
+          "title": {
+            "en": "Open the device map",
+            "fr": "Ouvrir la carte des appareils"
+          },
+          "instruction": {
+            "en": "Open Endpoints > Map. Toggle All devices / Live devices, zoom into a region, and click an OS-icon marker to open its device/user popup and navigate to the detail.",
+            "fr": "Ouvrez Endpoints > Map. Basculez All devices / Live devices, zoomez sur une region et cliquez sur un marqueur a icone OS pour ouvrir son popup appareil/utilisateur et aller vers le detail."
+          }
+        }
+      ]
+    },
+    {
+      "name": "manage_team_members",
+      "feature": "settings",
+      "title": {
+        "en": "Manage dashboard team members",
+        "fr": "Gerer les membres de l'equipe du tableau de bord"
+      },
+      "description": {
+        "en": "Invite administrators to the dashboard, assign roles, and manage existing members and pending invitations. This is distinct from end-user onboarding. This walkthrough stops before sending invitations so it is safe to run against the live demo workspace.",
+        "fr": "Invitez des administrateurs au tableau de bord, attribuez des roles et gerez les membres existants et les invitations en attente. Distinct de l'onboarding des utilisateurs finaux. Ce tutoriel s'arrete avant l'envoi des invitations, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_members",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Open Settings > Members",
+            "fr": "Ouvrir Settings > Members"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select the Members tab. Note that only users who already have an account can currently be invited as members.",
+            "fr": "Ouvrez Workspace settings et selectionnez l'onglet Members. Notez que seuls les utilisateurs disposant deja d'un compte peuvent actuellement etre invites comme membres."
+          }
+        },
+        {
+          "name": "fill_member_invite",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Invite a member and pick a role",
+            "fr": "Inviter un membre et choisir un role"
+          },
+          "instruction": {
+            "en": "In 'Invite new members', enter the member's email, choose a role (e.g. DomainAdmin), optionally 'Add another member', then click 'Send invitation(s)'.",
+            "fr": "Dans 'Invite new members', saisissez l'email du membre, choisissez un role (ex. DomainAdmin), eventuellement 'Add another member', puis cliquez sur 'Send invitation(s)'."
+          },
+          "actions": [
+            { "type": "fill", "selector": "input[type=email]", "value": "admin.colleague@acme.com" }
+          ]
+        },
+        {
+          "name": "manage_existing_members",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Manage members and invitations",
+            "fr": "Gerer les membres et invitations"
+          },
+          "instruction": {
+            "en": "Use the 'Team members' and 'Pending invitations' sub-tabs to review and adjust roles. The Danger Zone at the bottom lets an owner delete the workspace.",
+            "fr": "Utilisez les sous-onglets 'Team members' et 'Pending invitations' pour consulter et ajuster les roles. La Danger Zone en bas permet a un proprietaire de supprimer l'espace de travail."
+          }
+        }
+      ]
+    },
+    {
+      "name": "connect_integration",
+      "feature": "settings",
+      "title": {
+        "en": "Connect an integration",
+        "fr": "Connecter une integration"
+      },
+      "description": {
+        "en": "Connect a third-party integration (e.g. Vanta for compliance tracking, GitHub for audits) from Settings. This walkthrough stops before authorizing so it is safe to run against the live demo workspace.",
+        "fr": "Connectez une integration tierce (ex. Vanta pour le suivi de conformite, GitHub pour les audits) depuis Settings. Ce tutoriel s'arrete avant l'autorisation, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_integrations",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Open Settings > Integrations",
+            "fr": "Ouvrir Settings > Integrations"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select the Integrations tab. The table lists each integration (Vanta, GitHub) with a description and a Connected/Not Connected status.",
+            "fr": "Ouvrez Workspace settings et selectionnez l'onglet Integrations. Le tableau liste chaque integration (Vanta, GitHub) avec une description et un statut Connecte/Non connecte."
+          }
+        },
+        {
+          "name": "connect_provider",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Connect a provider",
+            "fr": "Connecter un fournisseur"
+          },
+          "instruction": {
+            "en": "Click 'Connect' on the integration you want (e.g. Vanta) and complete the provider's authorization flow. Once connected, the status badge flips to Connected and provider-specific actions become available.",
+            "fr": "Cliquez sur 'Connect' sur l'integration souhaitee (ex. Vanta) et completez le flux d'autorisation du fournisseur. Une fois connectee, le badge passe a Connecte et des actions specifiques deviennent disponibles."
+          }
+        }
+      ]
+    },
+    {
+      "name": "manage_billing",
+      "feature": "settings",
+      "title": {
+        "en": "Review billing and plans",
+        "fr": "Consulter la facturation et les plans"
+      },
+      "description": {
+        "en": "Review your current subscription and compare the Free, Business, and Enterprise plans (user/device limits, history retention, support). This walkthrough stops before changing the plan so it is safe to run against the live demo workspace.",
+        "fr": "Consultez votre abonnement actuel et comparez les plans Free, Business et Enterprise (limites utilisateurs/appareils, retention d'historique, support). Ce tutoriel s'arrete avant tout changement de plan, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_billing",
+          "path": "settings?tab=billing",
+          "title": {
+            "en": "Open Settings > Billing and plans",
+            "fr": "Ouvrir Settings > Facturation et plans"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select 'Billing and plans'. The Current plan banner shows your subscription with a 'Manage plan' action.",
+            "fr": "Ouvrez Workspace settings et selectionnez 'Billing and plans'. La banniere Current plan affiche votre abonnement avec une action 'Manage plan'."
+          }
+        },
+        {
+          "name": "compare_plans",
+          "path": "settings?tab=billing",
+          "title": {
+            "en": "Compare plans",
+            "fr": "Comparer les plans"
+          },
+          "instruction": {
+            "en": "Toggle Monthly / Yearly (yearly saves 20%) and compare the Free, Business, and Enterprise cards. Use 'Manage plan' to upgrade or downgrade when ready.",
+            "fr": "Basculez Mensuel / Annuel (l'annuel economise 20%) et comparez les cartes Free, Business et Enterprise. Utilisez 'Manage plan' pour mettre a niveau ou retrograder le moment venu."
+          }
+        }
+      ]
+    },
+    {
+      "name": "configure_notifications",
+      "feature": "settings",
+      "title": {
+        "en": "Configure notification preferences",
+        "fr": "Configurer les preferences de notification"
+      },
+      "description": {
+        "en": "Choose which events notify you (identity/licensing and score/compliance), add email and phone recipients, and set thresholds. This walkthrough stops before saving so it is safe to run against the live demo workspace.",
+        "fr": "Choisissez quels evenements vous notifient (identite/licences et score/conformite), ajoutez des destinataires email et telephone et definissez des seuils. Ce tutoriel s'arrete avant l'enregistrement, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_notification_settings",
+          "path": "settings?tab=notifications",
+          "title": {
+            "en": "Open Settings > Notifications",
+            "fr": "Ouvrir Settings > Notifications"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select the Notifications tab. Preferences are grouped into 'Identity and Licensing' and 'Score and Compliance'.",
+            "fr": "Ouvrez Workspace settings et selectionnez l'onglet Notifications. Les preferences sont groupees en 'Identity and Licensing' et 'Score and Compliance'."
+          }
+        },
+        {
+          "name": "set_thresholds",
+          "path": "settings?tab=notifications",
+          "title": {
+            "en": "Set channels and thresholds",
+            "fr": "Definir canaux et seuils"
+          },
+          "instruction": {
+            "en": "For each row, toggle the Notification Center, add email/phone recipients, and set a threshold (e.g. score change of 10%). Click 'Save' to persist your changes.",
+            "fr": "Pour chaque ligne, activez le Notification Center, ajoutez des destinataires email/telephone et definissez un seuil (ex. variation de score de 10%). Cliquez sur 'Save' pour persister vos changements."
+          }
+        }
+      ]
+    },
+    {
+      "name": "manage_notifications",
+      "feature": "notifications",
+      "title": {
+        "en": "Work the notification center",
+        "fr": "Utiliser le centre de notifications"
+      },
+      "description": {
+        "en": "Review, open, mark as read, and delete domain notifications from the Notification Center. This walkthrough stops before deleting so it is safe to run against the live demo workspace.",
+        "fr": "Consultez, ouvrez, marquez comme lues et supprimez les notifications du domaine depuis le Centre de notifications. Ce tutoriel s'arrete avant la suppression, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_notification_center",
+          "path": "notifications",
+          "title": {
+            "en": "Open the Notification Center",
+            "fr": "Ouvrir le Centre de notifications"
+          },
+          "instruction": {
+            "en": "Open Notifications. The Total / Unread / Read stat cards summarize your notifications; note they are auto-removed 7 days after they occur.",
+            "fr": "Ouvrez Notifications. Les cartes Total / Unread / Read resument vos notifications ; notez qu'elles sont supprimees automatiquement 7 jours apres leur survenue."
+          }
+        },
+        {
+          "name": "work_notifications",
+          "path": "notifications",
+          "title": {
+            "en": "Read, open, or clear notifications",
+            "fr": "Lire, ouvrir ou effacer des notifications"
+          },
+          "instruction": {
+            "en": "In the 'All notifications' table, click a row to open the linked resource, use mark-as-read to clear the unread dot, or delete notifications you no longer need.",
+            "fr": "Dans le tableau 'All notifications', cliquez sur une ligne pour ouvrir la ressource liee, utilisez marquer-comme-lu pour retirer la pastille non-lu, ou supprimez les notifications inutiles."
+          }
+        }
+      ]
+    }
   ]
 }
