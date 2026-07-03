@@ -1101,6 +1101,8 @@
           },
           "actions": [
             { "type": "click", "selector": "[data-cy=selectTag]" },
+            { "type": "wait", "ms": 500 },
+            { "type": "press", "key": "ArrowDown" },
             { "type": "wait", "ms": 1000 }
           ]
         },
@@ -1515,9 +1517,9 @@
           "actions": [
             { "type": "click", "selector": "[data-cy=createConditionalAccess]" },
             { "type": "wait", "ms": 1200 },
-            { "type": "click", "selector": "[data-cy=conditionalAccessModal] input[id^=react-select]" },
-            { "type": "wait", "ms": 700 },
-            { "type": "click", "selector": "[id*=-option-]:has-text('Github')" },
+            { "type": "fill", "selector": "[data-cy=conditionalAccessModal] input[id^=react-select]", "value": "Github" },
+            { "type": "wait", "ms": 600 },
+            { "type": "press", "key": "Enter" },
             { "type": "wait", "ms": 900 }
           ],
           "highlight": "[data-cy=conditionalAccessModal]"

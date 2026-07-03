@@ -314,6 +314,16 @@ def run_action(page: Page, domain_base: str, action: dict):
         el = page.query_selector(action["selector"])
         if el and el.is_visible():
             el.fill(action.get("value", ""))
+    elif action_type == "press":
+        # Send a keyboard key to the focused element (e.g. ArrowDown to open a
+        # react-select menu, Enter to confirm a highlighted option). If a
+        # selector is given, focus/click it first.
+        selector = action.get("selector")
+        if selector:
+            el = page.query_selector(selector)
+            if el and el.is_visible():
+                el.click()
+        page.keyboard.press(action.get("key", "ArrowDown"))
     elif action_type == "wait":
         page.wait_for_timeout(int(action.get("ms", 1000)))
     else:
