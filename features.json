@@ -1480,8 +1480,8 @@
         "fr": "Configurer l'acces conditionnel"
       },
       "description": {
-        "en": "Link a policy to an integration trigger so non-compliant devices are blocked from your tools (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom). This walkthrough stops before linking so it is safe to run against the live demo workspace.",
-        "fr": "Liez une politique a un declencheur d'integration pour bloquer les appareils non-conformes de vos outils (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Personnalise). Ce tutoriel s'arrete avant la liaison, il est donc sans risque sur l'espace de demonstration."
+        "en": "Two-part flow: first CREATE a conditional access integration (choose the integration type and enter its credentials), then LINK that integration to a policy from the policy's menu. Once linked, non-compliant devices are blocked from that integration (GitHub, GitLab, Azure, Google, Fortigate, NetBird, Tailscale, or Custom). This walkthrough stops before saving in both modals, so it is safe to run against the live demo workspace. Credentials for each integration are documented in the Access control wiki: https://github.com/edamametechnologies/integrations/wiki/Access-control-Documentation",
+        "fr": "Flux en deux parties : d'abord CREER une integration d'acces conditionnel (choisir le type d'integration et saisir ses identifiants), puis LIER cette integration a une politique depuis le menu de la politique. Une fois liee, les appareils non-conformes sont bloques de cette integration (GitHub, GitLab, Azure, Google, Fortigate, NetBird, Tailscale ou Custom). Ce tutoriel s'arrete avant l'enregistrement dans les deux modales, il est donc sans risque sur l'espace de demonstration. Les identifiants de chaque integration sont documentes dans le wiki Access control : https://github.com/edamametechnologies/integrations/wiki/Access-control-Documentation"
       },
       "steps": [
         {
@@ -1492,31 +1492,86 @@
             "fr": "Ouvrir l'onglet Acces conditionnel"
           },
           "instruction": {
-            "en": "On the Policies page, switch to the 'Conditional access' tab (highlighted). Existing rules and their integration triggers are listed here; the 'Conditional access wiki' link explains the enforcement model.",
-            "fr": "Sur la page Policies, basculez sur l'onglet 'Conditional access' (en surbrillance). Les regles existantes et leurs declencheurs d'integration y sont listes ; le lien 'Conditional access wiki' explique le modele d'application."
-          },
-          "actions": [
-            { "type": "click", "selector": "[data-cy=conditionalAccessTab]" },
-            { "type": "wait", "ms": 900 }
-          ],
-          "highlight": "[data-cy=conditionalAccessTab]"
-        },
-        {
-          "name": "link_conditional_access",
-          "path": "policies",
-          "title": {
-            "en": "Link a conditional access rule",
-            "fr": "Lier une regle d'acces conditionnel"
-          },
-          "instruction": {
-            "en": "Click 'Link conditional access' (highlighted), choose the policy and the integration to enforce it on, then confirm. Non-compliant devices will then be denied access through that integration.",
-            "fr": "Cliquez sur 'Link conditional access' (en surbrillance), choisissez la politique et l'integration sur laquelle l'appliquer, puis confirmez. Les appareils non-conformes se verront alors refuser l'acces via cette integration."
+            "en": "On the Policies page, switch to the 'Conditional access' tab. It lists your existing integration triggers. To add one, click 'Link conditional access' (highlighted) - despite the name, this button opens a modal that CREATES a new integration.",
+            "fr": "Sur la page Policies, basculez sur l'onglet 'Conditional access'. Il liste vos declencheurs d'integration existants. Pour en ajouter un, cliquez sur 'Link conditional access' (en surbrillance) - malgre son nom, ce bouton ouvre une modale qui CREE une nouvelle integration."
           },
           "actions": [
             { "type": "click", "selector": "[data-cy=conditionalAccessTab]" },
             { "type": "wait", "ms": 900 }
           ],
           "highlight": "[data-cy=createConditionalAccess]"
+        },
+        {
+          "name": "create_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Create the integration: pick a type and enter credentials",
+            "fr": "Creer l'integration : choisir un type et saisir les identifiants"
+          },
+          "instruction": {
+            "en": "The 'Create conditional access' modal opens. First pick a 'Conditional access type' - available types are Github, Gitlab, Azure, Google, Fortigate, Netbird, Tailscale, and Custom (shown here with Github selected). Each type then reveals the credential fields it needs (for Github: an access token and organization name). Give it a name, fill the required secrets/variables, then submit ('Test and create conditional access', or 'Create conditional access' for Fortigate/Custom). The exact credentials for every integration are documented in the Access control wiki.",
+            "fr": "La modale 'Create conditional access' s'ouvre. Choisissez d'abord un 'Conditional access type' - les types disponibles sont Github, Gitlab, Azure, Google, Fortigate, Netbird, Tailscale et Custom (ici avec Github selectionne). Chaque type revele ensuite les champs d'identifiants necessaires (pour Github : un access token et un nom d'organisation). Donnez-lui un nom, remplissez les secrets/variables requis, puis validez ('Test and create conditional access', ou 'Create conditional access' pour Fortigate/Custom). Les identifiants exacts de chaque integration sont documentes dans le wiki Access control."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=createConditionalAccess]" },
+            { "type": "wait", "ms": 1200 },
+            { "type": "click", "selector": "[data-cy=conditionalAccessModal] input[id^=react-select]" },
+            { "type": "wait", "ms": 700 },
+            { "type": "click", "selector": "[id*=-option-]:has-text('Github')" },
+            { "type": "wait", "ms": 900 }
+          ],
+          "highlight": "[data-cy=conditionalAccessModal]"
+        },
+        {
+          "name": "open_policy",
+          "path": "policies",
+          "title": {
+            "en": "Open a policy to link the integration to",
+            "fr": "Ouvrir une politique a laquelle lier l'integration"
+          },
+          "instruction": {
+            "en": "Creating the integration does not attach it to anything yet - you link it from a policy. Go back to the 'Policies' tab and click a policy to open its detail page. On the top-right of the policy card, open the menu (the vertical three-dot / burger button, highlighted).",
+            "fr": "Creer l'integration ne l'attache encore a rien - vous la liez depuis une politique. Revenez sur l'onglet 'Policies' et cliquez sur une politique pour ouvrir sa page de detail. En haut a droite de la carte de politique, ouvrez le menu (le bouton a trois points verticaux / burger, en surbrillance)."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=policiesTab]" },
+            { "type": "wait", "ms": 700 },
+            { "type": "click", "selector": "[data-cy=policy-row]" },
+            { "type": "wait", "ms": 3000 }
+          ],
+          "highlight": "[data-cy=menuPolicyButton]"
+        },
+        {
+          "name": "open_policy_menu",
+          "title": {
+            "en": "Open the policy menu and choose Edit",
+            "fr": "Ouvrir le menu de la politique et choisir Edit"
+          },
+          "instruction": {
+            "en": "Click the top-right burger menu to open it. It offers 'Add exception', 'Edit', notification toggles, and 'Delete policy'. Choose 'Edit' (highlighted) to open the policy's update form.",
+            "fr": "Cliquez sur le menu burger en haut a droite pour l'ouvrir. Il propose 'Add exception', 'Edit', des bascules de notification et 'Delete policy'. Choisissez 'Edit' (en surbrillance) pour ouvrir le formulaire de mise a jour de la politique."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=menuPolicyButton]" },
+            { "type": "wait", "ms": 800 }
+          ],
+          "highlight": "[data-cy=editPolicyButton]"
+        },
+        {
+          "name": "link_conditional_access",
+          "title": {
+            "en": "Link the conditional access to the policy",
+            "fr": "Lier l'acces conditionnel a la politique"
+          },
+          "instruction": {
+            "en": "The 'Update policy' modal opens. In the 'Selection conditional access(es)' field (highlighted), search for and select the integration you created, then click 'Update policy' to confirm. Non-compliant devices will then be denied access through that integration. Note: a conditional access can currently be linked to a single policy only.",
+            "fr": "La modale 'Update policy' s'ouvre. Dans le champ 'Selection conditional access(es)' (en surbrillance), recherchez et selectionnez l'integration que vous avez creee, puis cliquez sur 'Update policy' pour confirmer. Les appareils non-conformes se verront alors refuser l'acces via cette integration. Note : un acces conditionnel ne peut actuellement etre lie qu'a une seule politique."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=editPolicyButton]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "highlight": "[data-cy=controlledProviderSelect]"
         }
       ]
     },
