@@ -663,8 +663,8 @@
             "fr": "L'onglet 'Conditional access' de la page Policies (la capture statique montre l'onglet Policies par defaut). Il liste les regles d'acces conditionnel et leurs declencheurs d'integration associes."
           },
           "description": {
-            "en": "Tab showing conditional access rules with associated triggers for integration enforcement (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom).",
-            "fr": "Onglet montrant les regles d'acces conditionnel avec les declencheurs associes pour l'application des integrations (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Personnalise)."
+            "en": "Tab showing conditional access rules with associated triggers for integration enforcement (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Netskope, Custom). For Netskope, EDAMAME applies or removes a device tag from the device's policy result; the customer's Netskope Device Classification and Real-time Policy enforce access.",
+            "fr": "Onglet montrant les regles d'acces conditionnel avec les declencheurs associes pour l'application des integrations (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Netskope, Personnalise). Pour Netskope, EDAMAME applique ou retire un tag d'appareil selon le resultat de la politique de l'appareil ; la Device Classification et la Real-time Policy Netskope du client appliquent l'acces."
           }
         },
         {
@@ -827,8 +827,8 @@
         "fr": "La page 'Workspace settings' avec quatre onglets (Members, Billing and plans, Integrations, Notifications). Chaque onglet a un titre et un court sous-titre et affiche son propre contenu (formulaire/tableau) sous la barre d'onglets."
       },
       "description": {
-        "en": "Workspace administration across four tabs: Members (invite, manage roles, remove), Billing and plans (subscription, upgrade/downgrade), Integrations (connect Vanta, GitHub), and Notifications (configure alert channels and thresholds).",
-        "fr": "Administration de l'espace de travail via quatre onglets : Members (inviter, gerer les roles, retirer), Billing and plans (abonnement, mise a niveau/retrogradation), Integrations (connecter Vanta, GitHub) et Notifications (configurer les canaux d'alerte et les seuils)."
+        "en": "Workspace administration across four tabs: Members (invite, manage roles, remove), Billing and plans (subscription, upgrade/downgrade), Integrations (connect Vanta and GitHub), and Notifications (configure alert channels and thresholds). Netskope is a shipped conditional-access trigger configured from Policies rather than this Integrations tab.",
+        "fr": "Administration de l'espace de travail via quatre onglets : Members (inviter, gerer les roles, retirer), Billing and plans (abonnement, mise a niveau/retrogradation), Integrations (connecter Vanta et GitHub) et Notifications (configurer les canaux d'alerte et les seuils). Netskope est un declencheur d'acces conditionnel livre, configure depuis Policies plutot que depuis cet onglet Integrations."
       },
       "sub_features": [
         {
@@ -875,8 +875,8 @@
             "fr": "L'onglet Integrations : un tableau (Name, Description, Status) listant Vanta ('Track security compliance across devices within your organization.') et GitHub ('Audit your GitHub organization activity and security events.'), chacun avec un badge 'NOT CONNECTED' et un bouton 'Connect'."
           },
           "description": {
-            "en": "A table of available integrations (Vanta, GitHub) with description and a Connected/Not Connected status, plus a Connect action. Once GitHub is connected, audit actions (with a lookback selector) become available.",
-            "fr": "Un tableau des integrations disponibles (Vanta, GitHub) avec description et statut Connecte/Non connecte, plus une action Connecter. Une fois GitHub connecte, les actions d'audit (avec selecteur de retrospective) deviennent disponibles."
+            "en": "A table of Settings integrations (Vanta, GitHub) with description and a Connected/Not Connected status, plus a Connect action. Once GitHub is connected, audit actions (with a lookback selector) become available. Netskope is configured separately as a conditional-access trigger under Policies: EDAMAME manages the device tag, while the customer's Netskope policy enforces access.",
+            "fr": "Un tableau des integrations Settings (Vanta, GitHub) avec description et statut Connecte/Non connecte, plus une action Connecter. Une fois GitHub connecte, les actions d'audit (avec selecteur de retrospective) deviennent disponibles. Netskope se configure separement comme declencheur d'acces conditionnel sous Policies : EDAMAME gere le tag d'appareil, tandis que la politique Netskope du client applique l'acces."
           }
         },
         {
