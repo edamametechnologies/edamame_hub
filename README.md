@@ -65,9 +65,15 @@ machine** (Playwright against production).
   fleet including AI-capable devices, so the AI Governance page and the device
   AI posture card are populated). That reserved workspace is hidden from the
   post-login landing page, so its UUID cannot be auto-detected: it is read from
-  the **`HUB_SCREENSHOT_DOMAIN_ID`** repository *variable* (every confirmed Hub
-  account is added to `acme.com` as a viewer, so the screenshot account can
-  open it). A `workflow_dispatch` run can pass a `domain_id` input to capture
+  the **`HUB_SCREENSHOT_DOMAIN_ID`** repository *variable*. The login must be a
+  regular Hub account, held in the **`HUB_SCREENSHOT_ACME_EMAIL`** /
+  **`HUB_SCREENSHOT_ACME_PASSWORD`** secrets (MFA off; every confirmed Hub
+  account is added to `acme.com` as a viewer, so it can open the workspace —
+  `src/create_screenshot_account.py` signs one up). `demo@edamame.tech`
+  (`HUB_SCREENSHOT_EMAIL` / `_PASSWORD`, the fallback when the ACME secrets are
+  unset) is hard-wired by the dashboard to a client-side mock workspace
+  (`edamame.demo`, Business plan) whatever the URL says, so it never renders
+  `acme.com`. A `workflow_dispatch` run can pass a `domain_id` input to capture
   another workspace once; an empty value falls back to auto-detecting the UUID
   from the post-login redirect (`/dashboard/<uuid>/home`). If live capture
   fails, the step is non-blocking and the wiki still builds from any PNGs

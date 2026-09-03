@@ -49,13 +49,19 @@ jobs:
         # plan, simulated fleet incl. AI-capable devices, so AI Governance is
         # populated). That reserved workspace is hidden from the post-login
         # landing page, so its UUID cannot be auto-detected: it comes from the
-        # HUB_SCREENSHOT_DOMAIN_ID repository variable (every confirmed Hub
-        # account is added to acme.com as a viewer, so the screenshot account
-        # can open it). An empty value falls back to auto-detection.
+        # HUB_SCREENSHOT_DOMAIN_ID repository variable. An empty value falls
+        # back to auto-detection.
+        # The login must be a regular Hub account: demo@edamame.tech is
+        # hard-wired by the dashboard to a client-side mock workspace
+        # ("edamame.demo", Business plan) whatever the URL says, so it can never
+        # render acme.com. HUB_SCREENSHOT_ACME_EMAIL / _PASSWORD hold that
+        # account (every confirmed Hub account is an acme.com viewer, MFA must
+        # stay off; see src/create_screenshot_account.py); when they are unset
+        # the demo account is used.
         continue-on-error: true
         env:
-          HUB_SCREENSHOT_EMAIL: ${{ secrets.HUB_SCREENSHOT_EMAIL }}
-          HUB_SCREENSHOT_PASSWORD: ${{ secrets.HUB_SCREENSHOT_PASSWORD }}
+          HUB_SCREENSHOT_EMAIL: ${{ secrets.HUB_SCREENSHOT_ACME_EMAIL || secrets.HUB_SCREENSHOT_EMAIL }}
+          HUB_SCREENSHOT_PASSWORD: ${{ secrets.HUB_SCREENSHOT_ACME_PASSWORD || secrets.HUB_SCREENSHOT_PASSWORD }}
           HUB_SCREENSHOT_DOMAIN_ID: ${{ github.event.inputs.domain_id || vars.HUB_SCREENSHOT_DOMAIN_ID }}
         run: python src/generate_screenshots.py --headless
 
