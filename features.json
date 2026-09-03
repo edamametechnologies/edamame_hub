@@ -671,7 +671,11 @@
           "description": {
             "en": "Manage the domain-level AI governance allowlists, separate from the network exceptions in Policies. Write rules ahead of a rollout, scope them to a group or a device, give them an expiry, and tick 'Restrict what is allowed to exist' to turn an audit-only list into one that reports unlisted agents or MCP servers as not permitted.",
             "fr": "Gerez les listes d'autorisation de gouvernance IA au niveau du domaine, distinctes des exceptions reseau de Policies. Ecrivez des regles avant un deploiement, limitez-les a un groupe ou a un appareil, donnez-leur une expiration et cochez 'Restrict what is allowed to exist' pour qu'une liste d'audit signale les agents ou serveurs MCP non listes comme non autorises."
-          }
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=aiWhitelistsTab]" },
+            { "type": "wait", "ms": 1500 }
+          ]
         }
       ]
     },
@@ -1430,6 +1434,19 @@
             { "type": "click", "selector": "[data-cy=table-row]" },
             { "type": "wait", "ms": 3500 }
           ]
+        },
+        {
+          "name": "review_ai_posture",
+          "path": "",
+          "title": {
+            "en": "Review the device's AI posture",
+            "fr": "Examiner la posture IA de l'appareil"
+          },
+          "instruction": {
+            "en": "Scroll to the 'AI posture' card (highlighted). Per observed agent it shows the sandbox state, host amplifiers, whether the agent is observed and covered by a governance harness, and its MCP servers with their transport and authentication. Each failing AI check lists its causes with an inline Accept action that authors an AI governance allowlist entry for that cause.",
+            "fr": "Faites defiler jusqu'a la carte 'AI posture' (en surbrillance). Pour chaque agent observe, elle montre l'etat du sandbox, les amplificateurs de l'hote, si l'agent est observe et couvert par un harnais de gouvernance, et ses serveurs MCP avec leur transport et leur authentification. Chaque controle IA en echec liste ses causes avec une action Accept qui cree une entree de liste de gouvernance IA pour cette cause."
+          },
+          "highlight": "[data-tutorial=device-ai-posture]"
         }
       ]
     },

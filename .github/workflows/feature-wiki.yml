@@ -4,6 +4,13 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      domain_id:
+        description: >-
+          Hub domain UUID to capture (overrides the HUB_SCREENSHOT_DOMAIN_ID
+          repository variable for this run; leave empty to use the variable).
+        required: false
+        default: ""
   schedule:
     # Weekly refresh so screenshots stay current even without pushes.
     - cron: "0 4 * * 1"
@@ -38,12 +45,18 @@ jobs:
       - name: Capture screenshots (features + workflows)
         # Non-blocking: if live capture fails (e.g. login/MFA), the wiki still
         # builds from any screenshots already committed to the repo.
-        # The domain UUID is auto-detected from the post-login redirect, so no
-        # HUB_SCREENSHOT_DOMAIN_ID is needed for this account.
+        # The screenshots are taken on the "acme.com" demo workspace (Enterprise
+        # plan, simulated fleet incl. AI-capable devices, so AI Governance is
+        # populated). That reserved workspace is hidden from the post-login
+        # landing page, so its UUID cannot be auto-detected: it comes from the
+        # HUB_SCREENSHOT_DOMAIN_ID repository variable (every confirmed Hub
+        # account is added to acme.com as a viewer, so the screenshot account
+        # can open it). An empty value falls back to auto-detection.
         continue-on-error: true
         env:
           HUB_SCREENSHOT_EMAIL: ${{ secrets.HUB_SCREENSHOT_EMAIL }}
           HUB_SCREENSHOT_PASSWORD: ${{ secrets.HUB_SCREENSHOT_PASSWORD }}
+          HUB_SCREENSHOT_DOMAIN_ID: ${{ github.event.inputs.domain_id || vars.HUB_SCREENSHOT_DOMAIN_ID }}
         run: python src/generate_screenshots.py --headless
 
       - name: Generate wiki markdown files

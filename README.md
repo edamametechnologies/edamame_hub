@@ -61,11 +61,17 @@ machine** (Playwright against production).
   - `HUB_SCREENSHOT_PASSWORD` (secret) — screenshot account password (the
     account must have **MFA disabled** for headless login)
 
-  The domain UUID is **auto-detected** from the post-login redirect
-  (`/dashboard/<uuid>/home`), so no domain ID needs to be configured as long as
-  the account lands directly on its workspace. If live capture fails, the step
-  is non-blocking and the wiki still builds from any PNGs committed under
-  `screenshots/`.
+  CI captures the **`acme.com` demo workspace** (Enterprise plan, simulated
+  fleet including AI-capable devices, so the AI Governance page and the device
+  AI posture card are populated). That reserved workspace is hidden from the
+  post-login landing page, so its UUID cannot be auto-detected: it is read from
+  the **`HUB_SCREENSHOT_DOMAIN_ID`** repository *variable* (every confirmed Hub
+  account is added to `acme.com` as a viewer, so the screenshot account can
+  open it). A `workflow_dispatch` run can pass a `domain_id` input to capture
+  another workspace once; an empty value falls back to auto-detecting the UUID
+  from the post-login redirect (`/dashboard/<uuid>/home`). If live capture
+  fails, the step is non-blocking and the wiki still builds from any PNGs
+  committed under `screenshots/`.
 
 - **Local (manual):** interactive login as below.
 
@@ -114,7 +120,12 @@ cross-linking), `title`/`description` (`en`/`fr`), and `steps[]`. Each step has 
 - `goto` `{ "path": "..." }`
 - `click` `{ "selector": "..." }`
 - `fill` `{ "selector": "...", "value": "..." }`
+- `press` `{ "key": "ArrowDown", "selector": "..." }` (selector optional)
 - `wait` `{ "ms": 1000 }`
+
+A feature `sub_feature` accepts the same optional `actions[]` and `highlight`
+when several sub-features share one route and differ only by UI state (e.g. the
+AI Governance *Overview* / *Allowlists* pill tabs).
 
 A step with an omitted/empty `path` stays on the current page instead of
 re-navigating, so multi-click flows (e.g. connect -> start audit -> view

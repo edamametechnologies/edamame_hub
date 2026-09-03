@@ -24,7 +24,10 @@ from shutil import copy2
 FEATURES_PATH = Path(__file__).parent.with_name("features.json")
 WIKI_BASE_URL = "https://github.com/edamametechnologies/edamame_hub/wiki"
 
-PREFIX_RE = re.compile(r"^\d+_+")
+# Ordering prefix: digits with an optional letter suffix ("07_", "07b_"), so a
+# feature inserted between two numbered ones (e.g. AI Governance as "07b") still
+# resolves to its screenshots.
+PREFIX_RE = re.compile(r"^\d+[a-z]?_+")
 
 
 def load_features() -> Dict:

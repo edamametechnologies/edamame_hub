@@ -510,6 +510,28 @@ def main():
                     print("    WARN: Redirected to login. Session may have expired.")
                     continue
 
+                # Sub-features may share a route and differ only by UI state
+                # (e.g. the AI Governance Overview / Allowlists pill tabs), so
+                # they accept the same optional non-destructive `actions` and
+                # `highlight` as workflow steps. Clear stray popups first so an
+                # intentionally opened tab/modal survives the shot.
+                actions = sf.get("actions", [])
+                highlight = sf.get("highlight")
+                if actions or highlight:
+                    dismiss_overlays(page)
+                    for action in actions:
+                        try:
+                            run_action(page, domain_base, action)
+                        except Exception as exc:
+                            print(f"    WARN: action {action} failed ({exc}); continuing.")
+                    highlighted = bool(highlight) and apply_highlight(page, highlight)
+                    if highlight and not highlighted:
+                        print(f"    WARN: highlight target not found: {highlight}")
+                    capture(page, out, dismiss=False)
+                    if highlighted:
+                        clear_highlight(page)
+                    continue
+
                 capture(page, out)
 
         capture_workflows(page, domain_base, data.get("workflows", []), args.output_dir)
