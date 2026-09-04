@@ -410,7 +410,11 @@ def main():
         default=os.environ.get("HUB_SCREENSHOT_DOMAIN_ID"),
         help="Override the auto-detected domain UUID (optional)",
     )
-    parser.add_argument("--base-url", default=DEFAULT_BASE_URL)
+    parser.add_argument(
+        "--base-url",
+        default=os.environ.get("HUB_SCREENSHOT_BASE_URL") or DEFAULT_BASE_URL,
+        help="Hub origin to capture (env HUB_SCREENSHOT_BASE_URL; default production)",
+    )
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--profile-dir", type=Path, default=PROFILE_DIR)
     parser.add_argument(

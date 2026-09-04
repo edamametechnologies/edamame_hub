@@ -643,7 +643,7 @@
       "sub_features": [
         {
           "name": "aigovernance_overview",
-          "path": "aigovernance",
+          "path": "aigovernance?demo=1",
           "title": {
             "en": "AI Governance Overview",
             "fr": "Vue d'ensemble de la gouvernance IA"
@@ -659,7 +659,7 @@
         },
         {
           "name": "aigovernance_allowlists",
-          "path": "aigovernance",
+          "path": "aigovernance?demo=1",
           "title": {
             "en": "AI Governance Allowlists",
             "fr": "Listes d'autorisation de gouvernance IA"
@@ -1434,19 +1434,6 @@
             { "type": "click", "selector": "[data-cy=table-row]" },
             { "type": "wait", "ms": 3500 }
           ]
-        },
-        {
-          "name": "review_ai_posture",
-          "path": "",
-          "title": {
-            "en": "Review the device's AI posture",
-            "fr": "Examiner la posture IA de l'appareil"
-          },
-          "instruction": {
-            "en": "Scroll to the 'AI posture' card (highlighted). Per observed agent it shows the sandbox state, host amplifiers, whether the agent is observed and covered by a governance harness, and its MCP servers with their transport and authentication. Each failing AI check lists its causes with an inline Accept action that authors an AI governance allowlist entry for that cause.",
-            "fr": "Faites defiler jusqu'a la carte 'AI posture' (en surbrillance). Pour chaque agent observe, elle montre l'etat du sandbox, les amplificateurs de l'hote, si l'agent est observe et couvert par un harnais de gouvernance, et ses serveurs MCP avec leur transport et leur authentification. Chaque controle IA en echec liste ses causes avec une action Accept qui cree une entree de liste de gouvernance IA pour cette cause."
-          },
-          "highlight": "[data-tutorial=device-ai-posture]"
         }
       ]
     },

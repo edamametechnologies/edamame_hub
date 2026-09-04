@@ -11,6 +11,12 @@ on:
           repository variable for this run; leave empty to use the variable).
         required: false
         default: ""
+      base_url:
+        description: >-
+          Hub origin to capture, e.g. a preprod CloudFront URL (overrides the
+          HUB_SCREENSHOT_BASE_URL repository variable; empty = production).
+        required: false
+        default: ""
   schedule:
     # Weekly refresh so screenshots stay current even without pushes.
     - cron: "0 4 * * 1"
@@ -58,11 +64,16 @@ jobs:
         # account (every confirmed Hub account is an acme.com viewer, MFA must
         # stay off; see src/create_screenshot_account.py); when they are unset
         # the demo account is used.
+        # The AI Governance page renders a synthetic fleet with `?demo=1`
+        # (client-side, plan gate bypassed, banner shown) -- that is what the
+        # aigovernance sub-features capture on the demo account, which has no
+        # Enterprise fleet of its own.
         continue-on-error: true
         env:
           HUB_SCREENSHOT_EMAIL: ${{ secrets.HUB_SCREENSHOT_ACME_EMAIL || secrets.HUB_SCREENSHOT_EMAIL }}
           HUB_SCREENSHOT_PASSWORD: ${{ secrets.HUB_SCREENSHOT_ACME_PASSWORD || secrets.HUB_SCREENSHOT_PASSWORD }}
           HUB_SCREENSHOT_DOMAIN_ID: ${{ github.event.inputs.domain_id || vars.HUB_SCREENSHOT_DOMAIN_ID }}
+          HUB_SCREENSHOT_BASE_URL: ${{ github.event.inputs.base_url || vars.HUB_SCREENSHOT_BASE_URL }}
         run: python src/generate_screenshots.py --headless
 
       - name: Generate wiki markdown files
