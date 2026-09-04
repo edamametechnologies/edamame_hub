@@ -24,7 +24,7 @@ EDAMAME Hub is the no-MDM security management dashboard for organizations. It pr
 
 ## Security Checks
 
-The Hub aggregates the security checks that **EDAMAME Security** (workstations) and **EDAMAME Posture** (CI/CD runners and build hosts) evaluate on every enrolled endpoint, then rolls them up across the fleet. Each check appears in the **Security Checks** catalog with per-device pass/fail rates, on each device's detail page (passed vs. failed lists), and feeds the **Security Score** (5 dimensions: Credentials, Network, System Services, System Integrity, Applications) and **Compliance** views.
+The Hub aggregates the security checks that **EDAMAME Security** (workstations) and **EDAMAME Posture** (CI/CD runners and any server running AI agents, cloud or self-hosted) evaluate on every enrolled endpoint, then rolls them up across the fleet. Each check appears in the **Security Checks** catalog with per-device pass/fail rates, on each device's detail page (passed vs. failed lists), and feeds the **Security Score** (5 dimensions: Credentials, Network, System Services, System Integrity, Applications) and **Compliance** views.
 
 Checks come from the open-source [EDAMAME threat models](https://github.com/edamametechnologies/threatmodels) — industry benchmarks such as CIS and NIST, mapped to ISO 27001, SOC 2, PCI-DSS, and HIPAA — and fall into four implementation types:
 
