@@ -103,6 +103,12 @@
       },
       "audit_result": {
         "prefix": "14"
+      },
+      "aigovernance_devices": {
+        "prefix": "07b"
+      },
+      "aigovernance_inventory": {
+        "prefix": "07b"
       }
     }
   },
@@ -633,8 +639,8 @@
         "fr": "Gouvernance IA"
       },
       "visual": {
-        "en": "The 'AI Governance' page (Enterprise plan; other plans see an 'Available on the Enterprise plan' card) under the Security section of the sidebar, with two pill tabs: Overview and Allowlists. Overview is a set of panels over one fleet bundle: 'Agent adoption' (which AI agents are present on how many devices), 'Governance harnesses' with a 'Devices with a harness' coverage figure, 'External services (MCP)' listing every MCP server declared by agents with its authentication state, 'Recurring evidence' (the causes the fleet reports most, with device counts), 'Not permitted by any allowlist' (agents or MCP servers present on devices but not permitted by an enforcing allowlist), and the 'Devices and allowlists' matrix: one row per AI-capable device, one column per allowlist, each cell reading Fits / Does not fit / incomplete for that list only. Accept and Allow buttons open the allowlist editor prefilled with the cause.",
-        "fr": "La page 'AI Governance' (offre Enterprise ; les autres offres voient une carte 'Available on the Enterprise plan') dans la section Security de la barre laterale, avec deux onglets pilules : Overview et Allowlists. Overview presente des panneaux calcules sur un seul bundle de flotte : 'Agent adoption' (quels agents IA sont presents sur combien d'appareils), 'Governance harnesses' avec le taux 'Devices with a harness', 'External services (MCP)' listant chaque serveur MCP declare par les agents avec son etat d'authentification, 'Recurring evidence' (les causes les plus signalees par la flotte, avec le nombre d'appareils), 'Not permitted by any allowlist' (agents ou serveurs MCP presents mais non autorises par une liste qui applique une restriction) et la matrice 'Devices and allowlists' : une ligne par appareil compatible IA, une colonne par liste, chaque cellule indiquant Fits / Does not fit / incomplete pour cette liste seulement. Les boutons Accept et Allow ouvrent l'editeur de liste prerempli avec la cause."
+        "en": "The 'AI Governance' page (Enterprise plan; other plans see an 'Available on the Enterprise plan' card) with four pill tabs: Overview, Devices, Inventory and Allowlists, and a 'Create allowlist' button. A banner warns when an allowlist is about to expire. Overview: an 'AI Governance score' card (score out of 5 with clean devices, sharing evidence, agents observed and harness coverage percentages, plus a point-deduction chip such as '-9 pts · MCP auth'), an 'AI posture over time' chart (24h / 7 days / 30 days), four stat tiles (AI-capable devices, agents observed, evidence shared, need attention), 'Runtime findings' (attack findings, divergence findings, escalated actions with severity chips and the agent + device), 'Devices to chase', 'Framework exposure' (OWASP Agentic, OWASP LLM, MITRE ATLAS, Trust Controls, ISO/IEC 42001, ISO 27001:2022 ids with device counts), 'Recurring evidence' (cause, devices, failing checks, an Accept button per cause) and 'Not permitted by any allowlist' (Allow button per item).",
+        "fr": "La page 'AI Governance' (offre Enterprise ; les autres offres voient une carte 'Available on the Enterprise plan') avec quatre onglets pilules : Overview, Devices, Inventory et Allowlists, et un bouton 'Create allowlist'. Un bandeau previent quand une liste va expirer. Overview : une carte 'AI Governance score' (score sur 5 avec les pourcentages d'appareils sains, de partage de preuves, d'agents observes et de couverture par harnais, plus une puce de deduction telle que '-9 pts · MCP auth'), un graphique 'AI posture over time' (24h / 7 jours / 30 jours), quatre tuiles (appareils compatibles IA, agents observes, preuves partagees, a surveiller), 'Runtime findings' (attaques, divergences, actions escaladees avec severite, agent et appareil), 'Devices to chase', 'Framework exposure' (identifiants OWASP Agentic, OWASP LLM, MITRE ATLAS, Trust Controls, ISO/IEC 42001, ISO 27001:2022 avec nombre d'appareils), 'Recurring evidence' (cause, appareils, controles en echec, bouton Accept par cause) et 'Not permitted by any allowlist' (bouton Allow par element)."
       },
       "description": {
         "en": "Govern the AI agents running across your fleet from the evidence the devices report: which agents exist, whether a governance harness confines them, which MCP servers they reach, and which conditions keep failing an AI posture check. Exceptions are granted per cause, never per check: accepting a condition on one agent leaves every other cause failing, a new condition on an accepted agent fails the check again, and raw statuses are never rewritten, so score history stays truthful. Allowlists can also restrict what is allowed to exist (agents, MCP servers) and expire.",
@@ -649,12 +655,55 @@
             "fr": "Vue d'ensemble de la gouvernance IA"
           },
           "visual": {
-            "en": "The Overview tab: 'Agent adoption', 'Governance harnesses' (with the 'Devices with a harness' figure), 'External services (MCP)' (Server, Agent, Auth columns; 'none' / 'some' authentication badges with tooltips), 'Recurring evidence' (Cause, Failing checks, Device count), 'Not permitted by any allowlist' (Item, kind badge 'AI agent' / 'MCP server', Device count, Allow action), and the 'Devices and allowlists' matrix (Device, Failing checks, Causes, Overall, then one column per allowlist reading Fits / Does not fit / incomplete). Expanding a device row shows 'To make this device fit this list' with 'Accept these findings:' and 'Allow these, or stop enforcing their kind:' groups. An 'incomplete' badge means the device capped the evidence it sent, so the missing causes cannot be accepted until it reports in full.",
-            "fr": "L'onglet Overview : 'Agent adoption', 'Governance harnesses' (avec le chiffre 'Devices with a harness'), 'External services (MCP)' (colonnes Server, Agent, Auth ; badges d'authentification 'none' / 'some' avec infobulles), 'Recurring evidence' (Cause, Failing checks, Device count), 'Not permitted by any allowlist' (Item, badge de type 'AI agent' / 'MCP server', Device count, action Allow) et la matrice 'Devices and allowlists' (Device, Failing checks, Causes, Overall, puis une colonne par liste indiquant Fits / Does not fit / incomplete). Deplier une ligne d'appareil affiche 'To make this device fit this list' avec les groupes 'Accept these findings:' et 'Allow these, or stop enforcing their kind:'. Un badge 'incomplete' signifie que l'appareil a plafonne les preuves envoyees ; les causes manquantes ne peuvent pas etre acceptees tant qu'il ne rapporte pas en entier."
+            "en": "Overview tab: the 'AI Governance score' card and the 'AI posture over time' chart side by side, four stat tiles, 'Runtime findings' next to 'Devices to chase', then 'Framework exposure', 'Recurring evidence' with an Accept button per cause, and 'Not permitted by any allowlist' with an Allow button per agent or MCP server.",
+            "fr": "Onglet Overview : la carte 'AI Governance score' et le graphique 'AI posture over time' cote a cote, quatre tuiles, 'Runtime findings' a cote de 'Devices to chase', puis 'Framework exposure', 'Recurring evidence' avec un bouton Accept par cause, et 'Not permitted by any allowlist' avec un bouton Allow par agent ou serveur MCP."
           },
           "description": {
             "en": "Read the fleet's AI posture and triage it: find the recurring cause behind a check that fails on many devices, accept it once where it is expected, allow the agents and MCP servers you approve, and investigate the rest. The matrix answers, per device and per allowlist, whether the device fits that list -- a device is never marked against a list unrelated to its problem.",
             "fr": "Lisez la posture IA de la flotte et triez-la : trouvez la cause recurrente derriere un controle qui echoue sur de nombreux appareils, acceptez-la une fois la ou elle est attendue, autorisez les agents et serveurs MCP que vous approuvez et enquetez sur le reste. La matrice repond, par appareil et par liste, si l'appareil correspond a cette liste -- un appareil n'est jamais marque contre une liste sans rapport avec son probleme."
+          },
+          "static": true
+        },
+        {
+          "name": "aigovernance_devices",
+          "path": "aigovernance?demo=1",
+          "static": true,
+          "actions": [
+            { "type": "click", "selector": "[data-cy=aiDevicesTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "title": {
+            "en": "AI Governance Devices",
+            "fr": "Appareils de la gouvernance IA"
+          },
+          "visual": {
+            "en": "Devices tab: the 'Devices and allowlists' matrix with an 'All devices / Needs attention' toggle. One row per AI-capable device (OS icon, device and user), its failing checks with severity chips, the number of causes, an Overall verdict and one column per allowlist reading Fits, Does not fit or incomplete, with the count of not-permitted and not-accepted items under each verdict.",
+            "fr": "Onglet Devices : la matrice 'Devices and allowlists' avec une bascule 'All devices / Needs attention'. Une ligne par appareil compatible IA (icone OS, appareil et utilisateur), ses controles en echec avec severite, le nombre de causes, un verdict Overall et une colonne par liste indiquant Fits, Does not fit ou incomplete, avec le nombre d'elements non permis et non acceptes sous chaque verdict."
+          },
+          "description": {
+            "en": "Read, per device and per allowlist, whether the device fits that list. Each column reports only what its own list says, so a device is never marked against a list unrelated to its problem; 'Needs attention' narrows the table to the devices with an open verdict.",
+            "fr": "Lisez, par appareil et par liste, si l'appareil correspond a cette liste. Chaque colonne ne rapporte que ce que dit sa propre liste, donc un appareil n'est jamais marque contre une liste sans rapport avec son probleme ; 'Needs attention' restreint le tableau aux appareils avec un verdict ouvert."
+          }
+        },
+        {
+          "name": "aigovernance_inventory",
+          "path": "aigovernance?demo=1",
+          "static": true,
+          "actions": [
+            { "type": "click", "selector": "[data-cy=aiInventoryTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "title": {
+            "en": "AI Governance Inventory",
+            "fr": "Inventaire de la gouvernance IA"
+          },
+          "visual": {
+            "en": "Inventory tab: 'Agent inventory (AI-BOM)' with one row per agent (Claude Code, Codex CLI, Cursor, OpenClaw): devices, sandbox state ('unsandboxed on N' / 'all sandboxed'), blast-radius amplifiers (secret_exposure, passwordless_root, critical_subprocess), MCP endpoint count, critical processes (ssh, sudo) and reachable secret classes (aws_secret, github_token, private_key). Below: 'Agent adoption' (observed / installed per agent with a percentage bar), 'Governance harnesses' (AgentField, nono, Rippletide, Anthropic Sandbox Runtime: detected on N devices or not detected, and 'Devices with a harness') and 'External services (MCP)' listing every server with agent, devices, authentication state, severity and an 'Allow in an allowlist' button.",
+            "fr": "Onglet Inventory : 'Agent inventory (AI-BOM)' avec une ligne par agent (Claude Code, Codex CLI, Cursor, OpenClaw) : appareils, etat du sandbox ('unsandboxed on N' / 'all sandboxed'), amplificateurs de blast radius (secret_exposure, passwordless_root, critical_subprocess), nombre d'endpoints MCP, process critiques (ssh, sudo) et classes de secrets accessibles (aws_secret, github_token, private_key). En dessous : 'Agent adoption' (observe / installe par agent avec une barre), 'Governance harnesses' (AgentField, nono, Rippletide, Anthropic Sandbox Runtime : detecte sur N appareils ou non detecte, et 'Devices with a harness') et 'External services (MCP)' listant chaque serveur avec agent, appareils, etat d'authentification, severite et un bouton 'Allow in an allowlist'."
+          },
+          "description": {
+            "en": "The fleet's AI bill of materials: what each inventoried agent carries (sandbox state, blast-radius amplifiers, MCP endpoints, critical subprocesses, reachable secret classes), which agents are observed versus merely installed, which governance harnesses confine them, and every external MCP service the agents can reach with its authentication state. The row answers what it would cost if this agent went rogue.",
+            "fr": "La nomenclature IA de la flotte : ce que porte chaque agent inventorie (etat du sandbox, amplificateurs de blast radius, endpoints MCP, process critiques, classes de secrets accessibles), quels agents sont observes ou seulement installes, quels harnais de gouvernance les confinent, et chaque service MCP externe que les agents peuvent atteindre avec son etat d'authentification. La ligne repond a ce que couterait un agent devenu incontrolable."
           }
         },
         {
@@ -665,8 +714,8 @@
             "fr": "Listes d'autorisation de gouvernance IA"
           },
           "visual": {
-            "en": "The Allowlists tab (reached with the 'Allowlists' pill on the same page): one card per allowlist with its target (Whole domain / Group / Device), expiry ('never', an 'expiring soon' warning, 'expired'), an 'audit only' badge when the list hides accepted findings but restricts nothing, and a 'Create allowlist' button. Each entry row shows the selector it matches, its mode -- 'expected' (findings about this thing are hidden) or 'permitted' (this thing is allowed to be here) -- the agent scope ('Any agent' or one agent), and Edit / Delete actions; an inert entry (nothing in the fleet matches it) is flagged with a tooltip. 'Expire now' retires a list with an undo.",
-            "fr": "L'onglet Allowlists (via la pilule 'Allowlists' sur la meme page) : une carte par liste avec sa cible (Whole domain / Group / Device), son expiration ('never', avertissement 'expiring soon', 'expired'), un badge 'audit only' lorsque la liste masque des constats acceptes sans rien restreindre, et un bouton 'Create allowlist'. Chaque ligne d'entree montre le selecteur correspondant, son mode -- 'expected' (les constats sur cet element sont masques) ou 'permitted' (cet element a le droit d'etre la) --, la portee d'agent ('Any agent' ou un agent) et les actions Edit / Delete ; une entree inerte (rien dans la flotte ne correspond) est signalee par une infobulle. 'Expire now' retire une liste avec possibilite d'annulation."
+            "en": "Allowlists tab: the domain's AI governance allowlists (name, scope, expiry, audit-only or restricting), the 'about to expire' banner with a Review button, and the 'Create allowlist' button; an empty state reads 'No allowlists yet' with 'Create your first allowlist'.",
+            "fr": "Onglet Allowlists : les listes de gouvernance IA du domaine (nom, portee, expiration, audit seul ou restriction), le bandeau 'about to expire' avec un bouton Review et le bouton 'Create allowlist' ; l'etat vide indique 'No allowlists yet' avec 'Create your first allowlist'."
           },
           "description": {
             "en": "Manage the domain-level AI governance allowlists, separate from the network exceptions in Policies. Write rules ahead of a rollout, scope them to a group or a device, give them an expiry, and tick 'Restrict what is allowed to exist' to turn an audit-only list into one that reports unlisted agents or MCP servers as not permitted.",
@@ -675,7 +724,8 @@
           "actions": [
             { "type": "click", "selector": "[data-cy=aiWhitelistsTab]" },
             { "type": "wait", "ms": 1500 }
-          ]
+          ],
+          "static": true
         }
       ]
     },

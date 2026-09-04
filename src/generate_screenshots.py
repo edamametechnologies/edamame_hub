@@ -500,6 +500,14 @@ def main():
                     print(f"  {name}: skipped (dynamic param: {path})")
                     continue
 
+                # A static sub-feature keeps the PNG committed under screenshots/
+                # (captured by hand where the CI account cannot go, e.g. the
+                # ?demo=1 AI Governance page on a preprod build). Skip it so the
+                # CI run never overwrites it with a plan-gated empty state.
+                if sf.get("static"):
+                    print(f"  {name}: static (committed screenshot kept)")
+                    continue
+
                 if "?" in path:
                     parts = path.split("?", 1)
                     url = f"{domain_base}/{parts[0]}?{parts[1]}"

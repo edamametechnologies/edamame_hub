@@ -133,6 +133,20 @@ A feature `sub_feature` accepts the same optional `actions[]` and `highlight`
 when several sub-features share one route and differ only by UI state (e.g. the
 AI Governance *Overview* / *Allowlists* pill tabs).
 
+A sub-feature with `"static": true` is **not captured by CI**: the PNG committed
+under `screenshots/` is used as is. The four AI Governance tabs are static: the
+CI account cannot see the Enterprise-only page, so they were captured by hand on
+the preprod build (`https://d2uilxq0a99b7n.cloudfront.net`, workspace
+`wikishots.test` owned by the E2E account of `edamame-services`) with `?demo=1`,
+the page's synthetic-fleet demo mode. Re-capture the same way — or drop the
+flag once production ships the demo mode:
+
+```bash
+HUB_SCREENSHOT_BASE_URL=https://d2uilxq0a99b7n.cloudfront.net \
+HUB_SCREENSHOT_DOMAIN_ID=b9de36b9-98c8-40df-a133-407d5c3587ef \
+python src/generate_screenshots.py --login     # then commit screenshots/07b_*.png
+```
+
 A step with an omitted/empty `path` stays on the current page instead of
 re-navigating, so multi-click flows (e.g. connect -> start audit -> view
 results) keep their state across steps.
