@@ -1,0 +1,1980 @@
+{
+  "screenshot_metadata": {
+    "_comment": "Screenshot filename mappings for sub_features. The generate_screenshots.py script navigates to each path and captures a PNG.",
+    "patterns": {
+      "default": "{prefix}_{subfeature_name}.png"
+    },
+    "sub_feature_mappings": {
+      "overview_main": {
+        "prefix": "01"
+      },
+      "overview_devices_attention": {
+        "prefix": "01"
+      },
+      "onboarding_main": {
+        "prefix": "02"
+      },
+      "engagement_active": {
+        "prefix": "03"
+      },
+      "engagement_dismissed": {
+        "prefix": "03"
+      },
+      "users_list": {
+        "prefix": "04"
+      },
+      "users_detail": {
+        "prefix": "04"
+      },
+      "inventory_list": {
+        "prefix": "05"
+      },
+      "inventory_detail": {
+        "prefix": "05"
+      },
+      "inventory_cicd": {
+        "prefix": "05"
+      },
+      "security_current": {
+        "prefix": "06"
+      },
+      "security_live": {
+        "prefix": "06"
+      },
+      "security_history": {
+        "prefix": "06"
+      },
+      "security_events": {
+        "prefix": "06"
+      },
+      "compliance_current": {
+        "prefix": "07"
+      },
+      "compliance_live": {
+        "prefix": "07"
+      },
+      "compliance_history": {
+        "prefix": "07"
+      },
+      "aigovernance_overview": {
+        "prefix": "07b"
+      },
+      "aigovernance_allowlists": {
+        "prefix": "07b"
+      },
+      "policies_list": {
+        "prefix": "08"
+      },
+      "policies_conditional_access": {
+        "prefix": "08"
+      },
+      "policies_devices": {
+        "prefix": "08"
+      },
+      "securitychecks_list": {
+        "prefix": "09"
+      },
+      "securitychecks_detail": {
+        "prefix": "09"
+      },
+      "groups_list": {
+        "prefix": "10"
+      },
+      "groups_detail": {
+        "prefix": "10"
+      },
+      "map_overview": {
+        "prefix": "11"
+      },
+      "settings_members": {
+        "prefix": "12"
+      },
+      "settings_billing": {
+        "prefix": "12"
+      },
+      "settings_integrations": {
+        "prefix": "12"
+      },
+      "settings_notifications": {
+        "prefix": "12"
+      },
+      "notifications_list": {
+        "prefix": "13"
+      },
+      "audit_result": {
+        "prefix": "14"
+      },
+      "aigovernance_devices": {
+        "prefix": "07b"
+      },
+      "aigovernance_inventory": {
+        "prefix": "07b"
+      }
+    }
+  },
+  "features": [
+    {
+      "name": "overview",
+      "title": {
+        "en": "Overview",
+        "fr": "Vue d'ensemble"
+      },
+      "visual": {
+        "en": "Dark 'Welcome to your dashboard' home page. Left sidebar groups navigation into Overview, End-users (Onboarding, Engagement, Users, Groups), Endpoints (Workstations, CI/CD, Map), Security (Score, Compliance, Policies, Checks), and Notifications, with an ENTERPRISE badge and EN/FR switch at the bottom. The header has 'Create workspace' and 'Install EDAMAME' buttons, a bell, a theme toggle, and the user menu. A green banner notes all data is simulated for demo. Four stat cards (Total Devices 90, Average Score 4.27/5, Active Devices 47, Live Avg Score 4.20/5) sit above a 'Global Security Score in the last 7 hours' line chart, a 'Live devices' table (OS/Username/City/Score), an 'Engagement' widget (Signal lost, Onboarding not completed, Policy violation), a 'Devices requiring attention' table with red-highlighted low-score rows, an 'OS Distribution' bar chart (Windows, Linux, macOS, iOS, Android with percentages), and a 'Devices over time' line chart.",
+        "fr": "Page d'accueil sombre 'Welcome to your dashboard'. Barre laterale groupant Overview, End-users (Onboarding, Engagement, Users, Groups), Endpoints (Workstations, CI/CD, Map), Security (Score, Compliance, Policies, Checks) et Notifications. En-tete avec boutons 'Create workspace' et 'Install EDAMAME'. Quatre cartes de stats, graphique de score sur 7h, tableau des appareils actifs, widget Engagement, tableau des appareils a surveiller, graphique de distribution OS et evolution des appareils."
+      },
+      "description": {
+        "en": "The domain home page provides an at-a-glance view of the organization's security posture with real-time stat cards, a 7-hour score history chart, a live devices list, an engagement (escalation) summary, a devices-requiring-attention list, an OS distribution breakdown, and a device count evolution trend.",
+        "fr": "La page d'accueil du domaine offre une vue d'ensemble instantanee de la posture de securite de l'organisation avec des cartes de statistiques en temps reel, un graphique d'historique de score sur 7 heures, une liste des appareils actifs, un resume d'engagement (escalades), une liste des appareils a surveiller, une repartition par OS et une tendance d'evolution du nombre d'appareils."
+      },
+      "sub_features": [
+        {
+          "name": "overview_main",
+          "path": "home",
+          "title": {
+            "en": "Dashboard Overview",
+            "fr": "Vue d'ensemble du tableau de bord"
+          },
+          "visual": {
+            "en": "Four stat cards at the top (Total Devices, Average Score, Active Devices, Live Avg Score), a 7-hour 'Global Security Score' line chart, a 'Live devices' table with OS icon, username, city, and score, an 'Engagement' widget with active escalation counts, a 'Devices requiring attention' table highlighting low-score devices, an 'OS Distribution' horizontal bar chart, and a 'Devices over time' line chart.",
+            "fr": "Quatre cartes de stats en haut, graphique 'Global Security Score' sur 7h, tableau 'Live devices' (OS, utilisateur, ville, score), widget 'Engagement' avec compteurs d'escalades, tableau 'Devices requiring attention', graphique 'OS Distribution' et graphique 'Devices over time'."
+          },
+          "description": {
+            "en": "The main dashboard displays four stat cards (Total Devices, Average Score, Active Devices, Live Average Score), a 7-hour score history line chart, a live devices list, an engagement summary, a devices-requiring-attention table, an OS distribution chart, and a device count evolution graph.",
+            "fr": "Le tableau de bord principal affiche quatre cartes de statistiques (Total Appareils, Score Moyen, Appareils Actifs, Score Moyen En Direct), un graphique d'historique de score sur 7 heures, la liste des appareils actifs, un resume d'engagement, un tableau des appareils a surveiller, un graphique de distribution par OS et un graphique d'evolution du nombre d'appareils."
+          },
+          "items": [
+            {
+              "name": "stat_cards",
+              "title": {
+                "en": "Stat Cards - Key Metrics at a Glance",
+                "fr": "Cartes de statistiques - Metriques cles en un coup d'oeil"
+              },
+              "visual": {
+                "en": "Four cards reading Total Devices (90), Average Score (4.27/5), Active Devices (47), and Live Avg Score (4.20/5).",
+                "fr": "Quatre cartes affichant Total Devices (90), Average Score (4.27/5), Active Devices (47) et Live Avg Score (4.20/5)."
+              },
+              "description": {
+                "en": "Four cards showing Total Devices, Average Score (all time, 0-5 star scale), Active Devices (currently online), and Live Average Score (online devices only).",
+                "fr": "Quatre cartes affichant le Total d'Appareils, le Score Moyen (historique, echelle 0-5 etoiles), les Appareils Actifs (actuellement en ligne) et le Score Moyen En Direct (appareils en ligne uniquement)."
+              }
+            },
+            {
+              "name": "score_history",
+              "title": {
+                "en": "Score History - 7-Hour Trend",
+                "fr": "Historique du score - Tendance sur 7 heures"
+              },
+              "visual": {
+                "en": "A line chart titled 'Global Security Score in the last 7 hours' plotting the domain average score over time.",
+                "fr": "Un graphique en ligne 'Global Security Score in the last 7 hours' tracant le score moyen du domaine dans le temps."
+              },
+              "description": {
+                "en": "A line chart showing the domain average security score over the past 7 hours, allowing quick detection of score drops.",
+                "fr": "Un graphique en ligne montrant le score moyen de securite du domaine sur les 7 dernieres heures, permettant la detection rapide de baisses de score."
+              }
+            },
+            {
+              "name": "escalation_summary",
+              "title": {
+                "en": "Engagement Summary",
+                "fr": "Resume d'engagement"
+              },
+              "visual": {
+                "en": "An 'Engagement' widget listing active escalation counts (Signal lost, Onboarding not completed, Policy violation) with an 'N active' footer.",
+                "fr": "Un widget 'Engagement' listant les compteurs d'escalades actives (Signal lost, Onboarding not completed, Policy violation) avec un pied 'N active'."
+              },
+              "description": {
+                "en": "A compact widget summarizing active escalations by type (e.g. Signal lost, Onboarding not completed, Policy violation) with a total active count.",
+                "fr": "Un widget compact resumant les escalades actives par type (ex. Signal lost, Onboarding not completed, Policy violation) avec un total d'escalades actives."
+              }
+            }
+          ]
+        },
+        {
+          "name": "overview_devices_attention",
+          "path": "home",
+          "title": {
+            "en": "Devices Requiring Attention",
+            "fr": "Appareils necessitant une attention"
+          },
+          "visual": {
+            "en": "The 'Devices requiring attention' panel on the home page: a compact table (OS icon, Username, City, Score) where low-score rows carry a red left-border accent, alongside the 'OS Distribution' and 'Devices over time' panels.",
+            "fr": "Le panneau 'Devices requiring attention' de la page d'accueil : un tableau compact (icone OS, utilisateur, ville, score) ou les lignes a faible score ont une bordure gauche rouge, aux cotes des panneaux 'OS Distribution' et 'Devices over time'."
+          },
+          "description": {
+            "en": "A dedicated list highlighting devices with policy violations or low security scores that need immediate admin attention, with direct navigation to device details.",
+            "fr": "Une liste dediee mettant en evidence les appareils avec des violations de politique ou des scores de securite bas necessitant une attention immediate, avec navigation directe vers les details de l'appareil."
+          }
+        }
+      ]
+    },
+    {
+      "name": "onboarding",
+      "title": {
+        "en": "Onboarding",
+        "fr": "Onboarding"
+      },
+      "visual": {
+        "en": "An 'Onboarding' page with four stat cards (Onboarding in progress, Onboarded users N/Max, Total users, Disabled users), a note pointing to Settings > Members for dashboard invitations, an 'Invite users to install the app' card with a self-onboard toggle and an '@acme.com' email input plus 'Add Users', filter tabs (All, Ready, In Progress, Completed, Disabled), and a paginated user table (Email, Status, Invited, Score, Last Seen, Actions).",
+        "fr": "Page 'Onboarding' avec quatre cartes de stats (Onboarding in progress, Onboarded users N/Max, Total users, Disabled users), une note vers Settings > Members, une carte 'Invite users to install the app' avec bascule auto-onboarding et champ email '@acme.com' plus 'Add Users', onglets de filtre (All, Ready, In Progress, Completed, Disabled) et un tableau utilisateurs pagine (Email, Status, Invited, Score, Last Seen, Actions)."
+      },
+      "description": {
+        "en": "Manage the end-user onboarding lifecycle for the EDAMAME Security app, from invitation to completion. Track onboarding progress, invite users (or let them self-onboard), filter by status, and monitor who has connected.",
+        "fr": "Gerez le cycle de vie de l'onboarding des utilisateurs finaux pour l'application EDAMAME Security, de l'invitation a la completion. Suivez la progression, invitez des utilisateurs (ou laissez-les s'auto-onboarder), filtrez par statut et surveillez qui s'est connecte."
+      },
+      "sub_features": [
+        {
+          "name": "onboarding_main",
+          "path": "onboarding",
+          "title": {
+            "en": "Onboarding Management",
+            "fr": "Gestion de l'onboarding"
+          },
+          "visual": {
+            "en": "Four stat cards (Onboarding in progress 0, Onboarded users 93/100, Total users 94, Disabled users 1). An invite card with a self-onboard toggle, an 'Invite a user' input suffixed with '@acme.com', and an 'Add Users' button. Filter tabs (All 94, Ready 0, In Progress 0, Completed 93, Disabled 1) above a table with Email, Status ('User connected'), Invited, Score, Last Seen, and per-row info/disable actions; pagination at the bottom.",
+            "fr": "Quatre cartes de stats (Onboarding in progress 0, Onboarded users 93/100, Total users 94, Disabled users 1). Carte d'invitation avec bascule auto-onboarding, champ 'Invite a user' suffixe '@acme.com' et bouton 'Add Users'. Onglets de filtre (All, Ready, In Progress, Completed, Disabled) au-dessus d'un tableau Email, Status ('User connected'), Invited, Score, Last Seen et actions info/desactiver par ligne ; pagination en bas."
+          },
+          "description": {
+            "en": "Shows onboarding statistics (in progress, onboarded vs. limit, total users, disabled), an invite form with self-onboard toggle, status filter tabs, and a paginated table of users with their connection status, score, and last-seen time. Includes info and disable actions per user.",
+            "fr": "Affiche les statistiques d'onboarding (en cours, onboardes vs limite, total, desactives), un formulaire d'invitation avec bascule auto-onboarding, des onglets de filtre par statut et un tableau pagine des utilisateurs avec leur statut de connexion, score et derniere connexion. Inclut des actions d'information et de desactivation par utilisateur."
+          },
+          "items": [
+            {
+              "name": "onboarding_stats",
+              "title": {
+                "en": "Onboarding Statistics",
+                "fr": "Statistiques d'onboarding"
+              },
+              "visual": {
+                "en": "Four cards: Onboarding in progress, Onboarded users (e.g. 93/100), Total users, and Disabled users.",
+                "fr": "Quatre cartes : Onboarding in progress, Onboarded users (ex. 93/100), Total users et Disabled users."
+              },
+              "description": {
+                "en": "Summary stats showing in-progress count, onboarded users against the plan limit, total users, and disabled count.",
+                "fr": "Statistiques resumees montrant le nombre en cours, les utilisateurs onboardes par rapport a la limite du plan, le total et le nombre de desactives."
+              }
+            },
+            {
+              "name": "invite_form",
+              "title": {
+                "en": "User Invitation Form",
+                "fr": "Formulaire d'invitation utilisateur"
+              },
+              "visual": {
+                "en": "An 'Invite users to install the app' card with a self-onboard toggle, an email input suffixed with the domain, and an 'Add Users' button (multiple users accepted, comma-separated).",
+                "fr": "Une carte 'Invite users to install the app' avec bascule auto-onboarding, champ email suffixe du domaine et bouton 'Add Users' (plusieurs utilisateurs separes par des virgules)."
+              },
+              "description": {
+                "en": "Form to invite end users by email to install the app and begin onboarding, with an option to enable self-onboarding without an invitation.",
+                "fr": "Formulaire pour inviter des utilisateurs finaux par email a installer l'application et commencer l'onboarding, avec une option pour activer l'auto-onboarding sans invitation."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "engagement",
+      "title": {
+        "en": "Engagement",
+        "fr": "Engagement"
+      },
+      "visual": {
+        "en": "An 'Engagement' page with five stat cards (New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, Policy Violation), followed by an 'Active' section (table: Username, Type, OS Type, Since, Actions) and a greyed-out 'Resolved' section. Escalation types include 'Signal lost', 'Policy violation: <policy>' (sometimes with an 'ENCRYPTED DISK DISABLED' tag), and 'Onboarding not completed'.",
+        "fr": "Page 'Engagement' avec cinq cartes de stats (New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, Policy Violation), suivies d'une section 'Active' (tableau : Username, Type, OS Type, Since, Actions) et d'une section 'Resolved' grisee. Les types incluent 'Signal lost', 'Policy violation: <politique>' (parfois avec un tag 'ENCRYPTED DISK DISABLED') et 'Onboarding not completed'."
+      },
+      "description": {
+        "en": "Monitor and manage security escalations across the domain. View counts by type, work the active queue (dismiss items), and review resolved escalations. Navigate directly to the related device, user, or policy from any entry.",
+        "fr": "Surveillez et gerez les escalades de securite a travers le domaine. Visualisez les compteurs par type, traitez la file active (ignorer des elements) et consultez les escalades resolues. Naviguez directement vers l'appareil, l'utilisateur ou la politique associe depuis n'importe quelle entree."
+      },
+      "sub_features": [
+        {
+          "name": "engagement_active",
+          "path": "engagement",
+          "title": {
+            "en": "Active Escalations",
+            "fr": "Escalades actives"
+          },
+          "visual": {
+            "en": "Five stat cards (New Alerts 3, Signal Lost 1, Inactive Device 0, Onboarding Not Completed 2, Policy Violation 2) above an 'Active' table (Username, Type, OS Type, Since, Actions) with a dismiss action per row. Rows show types such as 'Signal lost', 'Policy violation: Acme Demo Azure' (some with an 'ENCRYPTED DISK DISABLED' tag), and 'Onboarding not completed: Waiting for first report'.",
+            "fr": "Cinq cartes de stats (New Alerts 3, Signal Lost 1, Inactive Device 0, Onboarding Not Completed 2, Policy Violation 2) au-dessus d'un tableau 'Active' (Username, Type, OS Type, Since, Actions) avec action d'ignorance par ligne. Les lignes montrent des types comme 'Signal lost', 'Policy violation: Acme Demo Azure' (parfois avec tag 'ENCRYPTED DISK DISABLED') et 'Onboarding not completed: Waiting for first report'."
+          },
+          "description": {
+            "en": "Five stat cards showing counts by escalation type, followed by a table of active escalations with a dismiss action and direct navigation to the related device, user, or policy.",
+            "fr": "Cinq cartes de statistiques montrant les compteurs par type d'escalade, suivies d'un tableau d'escalades actives avec une action d'ignorance et une navigation directe vers l'appareil, l'utilisateur ou la politique associe."
+          },
+          "items": [
+            {
+              "name": "escalate_types",
+              "title": {
+                "en": "Escalation Type Cards",
+                "fr": "Cartes de types d'escalade"
+              },
+              "visual": {
+                "en": "Five stat cards: New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, and Policy Violation, each with a live count.",
+                "fr": "Cinq cartes de stats : New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed et Policy Violation, chacune avec un compteur en direct."
+              },
+              "description": {
+                "en": "Five stat cards for the escalation types (New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, Policy Violation) with live counts.",
+                "fr": "Cinq cartes de statistiques pour les types d'escalade (New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, Policy Violation) avec compteurs en direct."
+              }
+            }
+          ]
+        },
+        {
+          "name": "engagement_dismissed",
+          "path": "engagement",
+          "title": {
+            "en": "Dismissed & Resolved Escalations",
+            "fr": "Escalades ignorees et resolues"
+          },
+          "visual": {
+            "en": "Same Engagement page; below the Active queue, a 'Resolved' section lists historical escalations in a greyed-out, read-only table (Username, Type, OS Type, Resolved). A 'Dismissed' section appears here as well when items have been dismissed (restorable).",
+            "fr": "Meme page Engagement ; sous la file Active, une section 'Resolved' liste les escalades historiques dans un tableau grise en lecture seule (Username, Type, OS Type, Resolved). Une section 'Dismissed' apparait egalement ici lorsque des elements ont ete ignores (restaurables)."
+          },
+          "description": {
+            "en": "A read-only 'Resolved' table of historical escalations, plus a 'Dismissed' table (when items exist) whose entries can be restored or permanently deleted.",
+            "fr": "Un tableau 'Resolved' en lecture seule des escalades historiques, plus un tableau 'Dismissed' (lorsqu'il y a des elements) dont les entrees peuvent etre restaurees ou supprimees definitivement."
+          }
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "title": {
+        "en": "Users",
+        "fr": "Utilisateurs"
+      },
+      "visual": {
+        "en": "A 'Users' page with a 'Users over time' line chart, an 'All users / Live users' toggle, search, refresh, and a column selector, above a paginated table (Username, Number of Devices, Score, Country, Last Seen, First Seen) with sortable columns.",
+        "fr": "Page 'Users' avec un graphique 'Users over time', une bascule 'All users / Live users', recherche, rafraichissement et selecteur de colonnes, au-dessus d'un tableau pagine (Username, Number of Devices, Score, Country, Last Seen, First Seen) avec colonnes triables."
+      },
+      "description": {
+        "en": "View and manage domain users with an evolution trend, device counts, geographic information, and security scores. Toggle between all users and currently online users.",
+        "fr": "Visualisez et gerez les utilisateurs du domaine avec une tendance d'evolution, le nombre d'appareils, des informations geographiques et des scores de securite. Basculez entre tous les utilisateurs et ceux actuellement en ligne."
+      },
+      "sub_features": [
+        {
+          "name": "users_list",
+          "path": "users",
+          "title": {
+            "en": "User List",
+            "fr": "Liste des utilisateurs"
+          },
+          "visual": {
+            "en": "A 'Users over time' line chart, an 'All users / Live users' toggle with username search and refresh, and a paginated table with columns Username, Number of Devices, Score (0-5), Country (may list several), Last Seen, and First Seen. Several columns are sortable.",
+            "fr": "Un graphique 'Users over time', une bascule 'All users / Live users' avec recherche par nom et rafraichissement, et un tableau pagine avec colonnes Username, Number of Devices, Score (0-5), Country (parfois plusieurs), Last Seen et First Seen. Plusieurs colonnes sont triables."
+          },
+          "description": {
+            "en": "A user evolution chart followed by a paginated, sortable table (All Users / Live Users toggle) showing username, device count, score, country, last seen, and first seen.",
+            "fr": "Un graphique d'evolution des utilisateurs suivi d'un tableau pagine et triable (bascule All Users / Live Users) montrant le nom d'utilisateur, le nombre d'appareils, le score, le pays, la derniere et la premiere connexion."
+          }
+        },
+        {
+          "name": "users_detail",
+          "path": "user/{username}",
+          "title": {
+            "en": "User Detail",
+            "fr": "Detail utilisateur"
+          },
+          "visual": {
+            "en": "Not part of the static capture (dynamic username route). A user profile header with group memberships and auto-disable status, a device list table, and an interactive Leaflet map of device locations.",
+            "fr": "Hors capture statique (route dynamique par nom d'utilisateur). En-tete de profil avec appartenances aux groupes et statut auto-desactivation, tableau de la liste des appareils et carte Leaflet interactive des localisations."
+          },
+          "description": {
+            "en": "User profile header with group memberships and auto-disable status, a device list table (device ID, OS, score, IP, last seen, country, city), and an interactive Leaflet map showing device geolocations with click-to-navigate popups.",
+            "fr": "En-tete de profil utilisateur avec appartenances aux groupes et statut auto-desactivation, un tableau de la liste des appareils (ID, OS, score, IP, derniere connexion, pays, ville) et une carte Leaflet interactive des geolocalisations avec popups navigables."
+          }
+        }
+      ]
+    },
+    {
+      "name": "inventory",
+      "title": {
+        "en": "Endpoints",
+        "fr": "Terminaux"
+      },
+      "visual": {
+        "en": "The Endpoints section of the sidebar splits into Workstations, CI/CD, and Map. The 'Workstations' page shows a 'Workstations over time' line chart, an 'All workstations / Live workstations' toggle with search and refresh, and a paginated table (OS icon, Username with an online dot, Score, Device ID, IP, IPv6, Last Seen).",
+        "fr": "La section Endpoints de la barre laterale se divise en Workstations, CI/CD et Map. La page 'Workstations' affiche un graphique 'Workstations over time', une bascule 'All workstations / Live workstations' avec recherche et rafraichissement, et un tableau pagine (icone OS, Username avec pastille en ligne, Score, Device ID, IP, IPv6, Last Seen)."
+      },
+      "description": {
+        "en": "Browse and manage all monitored endpoints. Workstations and CI/CD runners each have their own view with an evolution chart, OS filters, an all/live toggle, search, and sorting. Drill into a device for its security score, threat analysis, and policy compliance.",
+        "fr": "Parcourez et gerez tous les terminaux surveilles. Les postes de travail et les runners CI/CD ont chacun leur vue avec un graphique d'evolution, des filtres OS, une bascule tous/en direct, la recherche et le tri. Explorez un appareil pour son score de securite, l'analyse des menaces et la conformite aux politiques."
+      },
+      "sub_features": [
+        {
+          "name": "inventory_list",
+          "path": "inventory",
+          "title": {
+            "en": "Workstations Inventory",
+            "fr": "Inventaire des postes de travail"
+          },
+          "visual": {
+            "en": "The 'Workstations' page: a 'Workstations over time' line chart, an 'All workstations / Live workstations' toggle, username search, refresh, and a column selector, then a paginated table with OS icon, Username (green online dot), Score, Device ID (UUID), IP, IPv6, and Last Seen. Item count and pagination are shown.",
+            "fr": "La page 'Workstations' : un graphique 'Workstations over time', une bascule 'All workstations / Live workstations', recherche par nom, rafraichissement et selecteur de colonnes, puis un tableau pagine avec icone OS, Username (pastille verte en ligne), Score, Device ID (UUID), IP, IPv6 et Last Seen. Le nombre d'elements et la pagination sont affiches."
+          },
+          "description": {
+            "en": "The Workstations endpoint table: an evolution chart and a paginated, searchable, sortable device table with an All/Live toggle. Columns include online indicator, OS, username, score, device ID, IP, IPv6, and last seen.",
+            "fr": "Le tableau des postes de travail : un graphique d'evolution et un tableau d'appareils pagine, avec recherche et tri, et une bascule Tous/En direct. Les colonnes incluent l'indicateur en ligne, l'OS, le nom d'utilisateur, le score, l'ID, l'IP, l'IPv6 et la derniere connexion."
+          }
+        },
+        {
+          "name": "inventory_detail",
+          "path": "inventory/{device_id}/{username}",
+          "title": {
+            "en": "Device Detail",
+            "fr": "Detail de l'appareil"
+          },
+          "visual": {
+            "en": "Not part of the static capture (dynamic device route). A device header with OS/IP/version/location and a 5-dimension score breakdown, scrollable passed/failed security-check lists, policy compliance, an event timeline, a score line chart, and an event scatter plot. On AI-capable devices an 'AI posture' card lists, per observed agent, its sandbox state, host amplifiers, whether it is observed and covered by a governance harness, and its MCP servers with their transport and authentication; each failing AI check shows its causes with an inline Accept action that authors an AI governance allowlist entry for that cause. Each failing AI check also carries a 'Frameworks:' line of chips, one per framework the check maps to -- OWASP Agentic (ASI ids), OWASP LLM (LLM ids), MITRE ATLAS (AML.T technique ids), Trust Controls (control ids), ISO/IEC 42001 and ISO 27001:2022 (clause ids) -- each linking to the published reference, derived on the device from the same crosswalk the app's Compliance scorecards use.",
+            "fr": "Hors capture statique (route dynamique par appareil). En-tete avec OS/IP/version/localisation et decomposition du score en 5 dimensions, listes deroulantes des verifications reussies/echouees, conformite aux politiques, chronologie des evenements, graphique de score et nuage de points des evenements. Sur les appareils compatibles IA, une carte 'AI posture' liste, par agent observe, son etat de sandbox, les amplificateurs de l'hote, s'il est observe et couvert par un harnais de gouvernance, et ses serveurs MCP avec transport et authentification ; chaque controle IA en echec montre ses causes avec une action Accept en ligne qui cree une entree de liste d'autorisation de gouvernance IA pour cette cause. Chaque controle IA en echec porte aussi une ligne 'Frameworks:' de puces, une par cadre auquel il correspond -- OWASP Agentic (ids ASI), OWASP LLM (ids LLM), MITRE ATLAS (ids de technique AML.T), Trust Controls (ids de controle), ISO/IEC 42001 et ISO 27001:2022 (ids de clause) -- chacune renvoyant a la reference publiee, derivee sur l'appareil de la meme table de correspondance que les tableaux de bord de conformite de l'application."
+          },
+          "description": {
+            "en": "Comprehensive device view: header (OS, IP, version, city, country, 5-dimension score breakdown), failed and passed security checks as scrollable lists, policy compliance with violation reasons, an event timeline, a security score line chart, and an event score scatter plot. The AI posture card is where an administrator reads one device's agents and accepts a specific cause without leaving the device.",
+            "fr": "Vue detaillee de l'appareil : en-tete (OS, IP, version, ville, pays, decomposition du score en 5 dimensions), verifications echouees et reussies en listes deroulantes, conformite aux politiques avec raisons de violation, chronologie des evenements, graphique de score et nuage de points des evenements. La carte AI posture est l'endroit ou un administrateur lit les agents d'un appareil et accepte une cause precise sans quitter l'appareil."
+          },
+          "items": [
+            {
+              "name": "score_breakdown",
+              "title": {
+                "en": "5-Dimension Security Score",
+                "fr": "Score de securite a 5 dimensions"
+              },
+              "visual": {
+                "en": "Security score broken down into Credentials, Network, System Services, System Integrity, and Applications.",
+                "fr": "Score de securite decompose en Credentials, Network, System Services, System Integrity et Applications."
+              },
+              "description": {
+                "en": "Security score broken down into Credentials, Network, System Services, System Integrity, and Applications dimensions.",
+                "fr": "Score de securite decompose en dimensions Identifiants, Reseau, Services Systeme, Integrite Systeme et Applications."
+              }
+            },
+            {
+              "name": "threat_lists",
+              "title": {
+                "en": "Security Checks - Passed and Failed",
+                "fr": "Verifications de securite - Reussies et echouees"
+              },
+              "visual": {
+                "en": "Two scrollable cards: failed checks (active threats, red) and passed checks (green), each row click-navigating to the security check detail.",
+                "fr": "Deux cartes deroulables : verifications echouees (menaces actives, rouge) et reussies (vert), chaque ligne menant au detail de la verification."
+              },
+              "description": {
+                "en": "Two scrollable cards showing failed checks (active threats, red) and passed checks (green) with click-to-navigate to security check details.",
+                "fr": "Deux cartes deroulables montrant les verifications echouees (menaces actives, rouge) et reussies (vert) avec navigation vers les details des verifications."
+              }
+            }
+          ]
+        },
+        {
+          "name": "inventory_cicd",
+          "path": "cicd",
+          "title": {
+            "en": "CI/CD Inventory",
+            "fr": "Inventaire CI/CD"
+          },
+          "visual": {
+            "en": "The 'CI/CD' page mirrors the Workstations layout but is filtered to CI/CD pipeline runners: a 'CI/CD over time' chart, an 'All CI/CD / Live CI/CD' toggle, and a table (OS, Username such as jenkins-self/gitlab-managed, Score, Device ID, IP, IPv6, Last Seen).",
+            "fr": "La page 'CI/CD' reprend la disposition des Workstations mais filtree sur les runners de pipeline CI/CD : un graphique 'CI/CD over time', une bascule 'All CI/CD / Live CI/CD' et un tableau (OS, Username comme jenkins-self/gitlab-managed, Score, Device ID, IP, IPv6, Last Seen)."
+          },
+          "description": {
+            "en": "Same layout as the Workstations inventory but filtered for CI/CD pipeline runners, with a CI/CD evolution chart and an All CI/CD / Live CI/CD toggle.",
+            "fr": "Meme disposition que l'inventaire des postes de travail mais filtre pour les runners de pipeline CI/CD, avec un graphique d'evolution CI/CD et une bascule Tous les CI/CD / CI/CD En Direct."
+          }
+        }
+      ]
+    },
+    {
+      "name": "security",
+      "title": {
+        "en": "Security Score",
+        "fr": "Score de securite"
+      },
+      "visual": {
+        "en": "The 'Security' page with top-right pill tabs (All devices, Live devices, History, Events). The current view shows a 'Global Security Score' card (overall 0-5 plus per-OS cards for macOS, Windows, Linux, iOS, Android with progress bars), an OS-type filter chip bar, 'Top 10 devices with best/worst Security Score' lists, and 'Top 10 failed/passed security checks' as ranked horizontal bar lists with a count and severity badge per row (including AI-agent posture checks).",
+        "fr": "La page 'Security' avec onglets pilules en haut a droite (All devices, Live devices, History, Events). La vue actuelle montre une carte 'Global Security Score' (note globale 0-5 plus cartes par OS macOS, Windows, Linux, iOS, Android avec barres), une barre de filtres par OS, des listes 'Top 10 devices with best/worst Security Score' et des listes classees horizontales 'Top 10 failed/passed security checks' avec compteur et badge de severite par ligne (dont des verifications de posture d'agent IA)."
+      },
+      "description": {
+        "en": "Comprehensive security score analytics with current, live, historical, and event-based views. Filter by OS and country, see best/worst devices and most failed/passed security checks, and track score changes over time.",
+        "fr": "Analyses completes du score de securite avec des vues actuelles, en direct, historiques et basees sur les evenements. Filtrez par OS et pays, consultez les meilleurs/pires appareils et les verifications les plus echouees/reussies, et suivez les changements de score dans le temps."
+      },
+      "sub_features": [
+        {
+          "name": "security_current",
+          "path": "security",
+          "title": {
+            "en": "Current Security Score",
+            "fr": "Score de securite actuel"
+          },
+          "visual": {
+            "en": "A 'Global Security Score' card with the overall score (e.g. 4.27/5) and per-OS cards (macOS, Windows, Linux, iOS, Android) each with a progress bar; an OS-type filter chip bar; 'Top 10 devices with best Security Score' and 'Top 10 devices with worst Security Score' two-column lists; and 'Top 10 failed security checks' and 'Top 10 passed security checks' shown as ranked horizontal bar lists with a device count and a severity badge (Low/Medium/High/Critical). AI-agent posture checks (e.g. Hermes/Cursor/Claude/OpenClaw agent unsecured, agent capability surface drift) appear among the failed checks.",
+            "fr": "Une carte 'Global Security Score' avec la note globale (ex. 4.27/5) et des cartes par OS (macOS, Windows, Linux, iOS, Android) avec barres ; une barre de filtres par OS ; des listes a deux colonnes 'Top 10 devices with best/worst Security Score' ; et 'Top 10 failed/passed security checks' sous forme de listes classees horizontales avec compteur d'appareils et badge de severite (Low/Medium/High/Critical). Des verifications de posture d'agent IA (ex. Hermes/Cursor/Claude/OpenClaw agent unsecured, derive de surface de capacite) figurent parmi les echecs."
+          },
+          "description": {
+            "en": "Global average security score (0-5) with a per-OS breakdown (macOS, Windows, Linux, iOS, Android) as progress bars, OS and country filters, Top 10 best and worst devices lists, and Top 10 most failed and most passed security checks as ranked horizontal bar lists.",
+            "fr": "Score moyen global de securite (0-5) avec decomposition par OS (macOS, Windows, Linux, iOS, Android) en barres de progression, filtres OS et pays, listes des 10 meilleurs et pires appareils, et Top 10 des verifications les plus echouees et reussies sous forme de listes classees horizontales."
+          }
+        },
+        {
+          "name": "security_live",
+          "path": "security/live",
+          "title": {
+            "en": "Live Security Score",
+            "fr": "Score de securite en direct"
+          },
+          "visual": {
+            "en": "Same layout as Current Security Score with the 'Live devices' tab active: global and per-OS scores, best/worst device lists, and ranked failed/passed check lists, all limited to devices online within the live window.",
+            "fr": "Meme disposition que le Score actuel avec l'onglet 'Live devices' actif : scores global et par OS, listes meilleurs/pires appareils et listes classees des verifications echouees/reussies, limitees aux appareils en ligne dans la fenetre en direct."
+          },
+          "description": {
+            "en": "Same layout as Current Security Score but filtered to only include devices currently online (within the 15-minute live window).",
+            "fr": "Meme disposition que le Score de Securite Actuel mais filtre pour n'inclure que les appareils actuellement en ligne (dans la fenetre de 15 minutes)."
+          }
+        },
+        {
+          "name": "security_history",
+          "path": "security/history",
+          "title": {
+            "en": "Security Score History",
+            "fr": "Historique du score de securite"
+          },
+          "visual": {
+            "en": "A 'History' card with From/To date pickers and an 'Update' button, followed by two line charts: 'Global Security Score for <domain>' (single line) and 'Global Security Score for your workspace by OS type' (one colored line per OS with a legend).",
+            "fr": "Une carte 'History' avec selecteurs de dates From/To et un bouton 'Update', suivie de deux graphiques en ligne : 'Global Security Score for <domaine>' (une ligne) et 'Global Security Score for your workspace by OS type' (une ligne coloree par OS avec legende)."
+          },
+          "description": {
+            "en": "A From/To date range selector with an Update button, followed by two line charts: the overall domain security score and a per-OS breakdown over the selected period.",
+            "fr": "Un selecteur de plage de dates From/To avec un bouton Update, suivi de deux graphiques en ligne : le score global du domaine et une decomposition par OS sur la periode selectionnee."
+          }
+        },
+        {
+          "name": "security_events",
+          "path": "security/events",
+          "title": {
+            "en": "Security Events",
+            "fr": "Evenements de securite"
+          },
+          "visual": {
+            "en": "A 'Security events' card with From/To date pickers, a 'Security Score threshold' stepper, an 'Affected device percentage threshold' stepper, and an 'Update' button, above a scatter plot of average score variation over time (positive events in green, negative in red).",
+            "fr": "Une carte 'Security events' avec selecteurs de dates From/To, un pas 'Security Score threshold', un pas 'Affected device percentage threshold' et un bouton 'Update', au-dessus d'un nuage de points de la variation moyenne de score dans le temps (evenements positifs en vert, negatifs en rouge)."
+          },
+          "description": {
+            "en": "Event analysis with a date range, a score-variation threshold, and an affected-device-percentage threshold. A scatter plot shows positive (green) and negative (red) score variations over time; click an event to open its details.",
+            "fr": "Analyse d'evenements avec une plage de dates, un seuil de variation de score et un seuil de pourcentage d'appareils affectes. Un nuage de points montre les variations positives (vert) et negatives (rouge) dans le temps ; cliquez sur un evenement pour ouvrir ses details."
+          }
+        }
+      ]
+    },
+    {
+      "name": "compliance",
+      "title": {
+        "en": "Compliance",
+        "fr": "Conformite"
+      },
+      "visual": {
+        "en": "The 'Compliance' page with a 'Select a tag to check its compliance ratio...' framework dropdown and All devices / Live devices / History pill tabs. Until a framework tag is selected it shows an empty state ('Please select a tag to check its compliance rate'); once selected it mirrors the Security Score layout (per-OS breakdown, best/worst devices, most failed/passed checks).",
+        "fr": "La page 'Compliance' avec un menu de cadre 'Select a tag to check its compliance ratio...' et des onglets pilules All devices / Live devices / History. Tant qu'aucun cadre n'est selectionne, elle affiche un etat vide ('Please select a tag to check its compliance rate') ; une fois selectionne, elle reprend la disposition du Score de securite (decomposition par OS, meilleurs/pires appareils, verifications les plus echouees/reussies)."
+      },
+      "description": {
+        "en": "Track compliance against industry frameworks (e.g. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Pick a framework tag to see current and live compliance, historical trends, and per-device and per-check rankings.",
+        "fr": "Suivez la conformite par rapport aux cadres industriels (ex. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Choisissez un cadre pour voir la conformite actuelle et en direct, les tendances historiques et les classements par appareil et par verification."
+      },
+      "sub_features": [
+        {
+          "name": "compliance_current",
+          "path": "compliance",
+          "title": {
+            "en": "Current Compliance",
+            "fr": "Conformite actuelle"
+          },
+          "visual": {
+            "en": "A compliance framework selector ('Select a tag to check its compliance ratio...') with All devices / Live devices / History tabs. Before a tag is chosen the body reads 'Please select a tag to check its compliance rate'. After selection it shows the global compliance rate, a per-OS breakdown, best/worst devices, and most failed/passed checks (same components as Security Score).",
+            "fr": "Un selecteur de cadre ('Select a tag to check its compliance ratio...') avec onglets All devices / Live devices / History. Avant le choix d'un cadre, le corps affiche 'Please select a tag to check its compliance rate'. Apres selection, il montre le taux global, une decomposition par OS, les meilleurs/pires appareils et les verifications les plus echouees/reussies (memes composants que le Score de securite)."
+          },
+          "description": {
+            "en": "Pick a compliance framework tag to view the global compliance rate with a per-OS breakdown, OS and country filters, Top 10 best and worst compliance devices, and Top 10 most failed and passed compliance checks. Until a tag is selected, the page prompts you to choose one.",
+            "fr": "Choisissez un cadre de conformite pour voir le taux global avec une decomposition par OS, des filtres OS et pays, le Top 10 des meilleurs et pires appareils et le Top 10 des verifications les plus echouees et reussies. Tant qu'aucun cadre n'est choisi, la page invite a en selectionner un."
+          }
+        },
+        {
+          "name": "compliance_live",
+          "path": "compliance/live",
+          "title": {
+            "en": "Live Compliance",
+            "fr": "Conformite en direct"
+          },
+          "visual": {
+            "en": "Same as Current Compliance with the 'Live devices' tab active; shows the 'select a tag' prompt until a framework is chosen, then restricts the breakdown to currently online devices.",
+            "fr": "Identique a la Conformite actuelle avec l'onglet 'Live devices' actif ; affiche l'invite 'select a tag' jusqu'au choix d'un cadre, puis limite la decomposition aux appareils actuellement en ligne."
+          },
+          "description": {
+            "en": "Same layout as Current Compliance but filtered to only include devices currently online.",
+            "fr": "Meme disposition que la Conformite Actuelle mais filtre pour n'inclure que les appareils actuellement en ligne."
+          }
+        },
+        {
+          "name": "compliance_history",
+          "path": "compliance/history",
+          "title": {
+            "en": "Compliance History",
+            "fr": "Historique de conformite"
+          },
+          "visual": {
+            "en": "Same Compliance page with the 'History' tab active and the framework selector at the top; once a framework tag is selected it renders compliance-rate line charts over the chosen period.",
+            "fr": "Meme page Compliance avec l'onglet 'History' actif et le selecteur de cadre en haut ; une fois un cadre selectionne, elle affiche des graphiques en ligne du taux de conformite sur la periode choisie."
+          },
+          "description": {
+            "en": "Historical compliance view: after selecting a framework tag, line charts show the domain-wide compliance rate and per-OS trends over the selected time range.",
+            "fr": "Vue historique de la conformite : apres selection d'un cadre, des graphiques en ligne montrent le taux de conformite du domaine et les tendances par OS sur la periode selectionnee."
+          }
+        }
+      ]
+    },
+    {
+      "name": "aigovernance",
+      "title": {
+        "en": "AI Governance",
+        "fr": "Gouvernance IA"
+      },
+      "visual": {
+        "en": "The 'AI Governance' page (Enterprise plan; other plans see an 'Available on the Enterprise plan' card) with four pill tabs: Overview, Devices, Inventory and Allowlists, and a 'Create allowlist' button. A banner warns when an allowlist is about to expire. Overview: an 'AI Governance score' card (score out of 5 with clean devices, sharing evidence, agents observed and harness coverage percentages, plus a point-deduction chip such as '-9 pts · MCP auth'), an 'AI posture over time' chart (24h / 7 days / 30 days), four stat tiles (AI-capable devices, agents observed, evidence shared, need attention), 'Runtime findings' (attack findings, divergence findings, escalated actions with severity chips and the agent + device), 'Devices to chase', 'Framework exposure' (OWASP Agentic, OWASP LLM, MITRE ATLAS, Trust Controls, ISO/IEC 42001, ISO 27001:2022 ids with device counts), 'Recurring evidence' (cause, devices, failing checks, an Accept button per cause) and 'Not permitted by any allowlist' (Allow button per item).",
+        "fr": "La page 'AI Governance' (offre Enterprise ; les autres offres voient une carte 'Available on the Enterprise plan') avec quatre onglets pilules : Overview, Devices, Inventory et Allowlists, et un bouton 'Create allowlist'. Un bandeau previent quand une liste va expirer. Overview : une carte 'AI Governance score' (score sur 5 avec les pourcentages d'appareils sains, de partage de preuves, d'agents observes et de couverture par harnais, plus une puce de deduction telle que '-9 pts · MCP auth'), un graphique 'AI posture over time' (24h / 7 jours / 30 jours), quatre tuiles (appareils compatibles IA, agents observes, preuves partagees, a surveiller), 'Runtime findings' (attaques, divergences, actions escaladees avec severite, agent et appareil), 'Devices to chase', 'Framework exposure' (identifiants OWASP Agentic, OWASP LLM, MITRE ATLAS, Trust Controls, ISO/IEC 42001, ISO 27001:2022 avec nombre d'appareils), 'Recurring evidence' (cause, appareils, controles en echec, bouton Accept par cause) et 'Not permitted by any allowlist' (bouton Allow par element)."
+      },
+      "description": {
+        "en": "Govern the AI agents running across your fleet from the evidence the devices report: which agents exist, whether a governance harness confines them, which MCP servers they reach, and which conditions keep failing an AI posture check. Exceptions are granted per cause, never per check: accepting a condition on one agent leaves every other cause failing, a new condition on an accepted agent fails the check again, and raw statuses are never rewritten, so score history stays truthful. Allowlists can also restrict what is allowed to exist (agents, MCP servers) and expire.",
+        "fr": "Gouvernez les agents IA de votre flotte a partir des preuves remontees par les appareils : quels agents existent, si un harnais de gouvernance les confine, quels serveurs MCP ils atteignent et quelles conditions font echouer un controle de posture IA. Les exceptions sont accordees par cause, jamais par controle : accepter une condition sur un agent laisse toutes les autres causes en echec, une nouvelle condition sur un agent accepte remet le controle en echec, et les statuts bruts ne sont jamais reecrits, donc l'historique des scores reste fidele. Les listes peuvent aussi restreindre ce qui a le droit d'exister (agents, serveurs MCP) et expirer."
+      },
+      "sub_features": [
+        {
+          "name": "aigovernance_overview",
+          "path": "aigovernance?demo=1",
+          "title": {
+            "en": "AI Governance Overview",
+            "fr": "Vue d'ensemble de la gouvernance IA"
+          },
+          "visual": {
+            "en": "Overview tab: the 'AI Governance score' card and the 'AI posture over time' chart side by side, four stat tiles, 'Runtime findings' next to 'Devices to chase', then 'Framework exposure', 'Recurring evidence' with an Accept button per cause, and 'Not permitted by any allowlist' with an Allow button per agent or MCP server.",
+            "fr": "Onglet Overview : la carte 'AI Governance score' et le graphique 'AI posture over time' cote a cote, quatre tuiles, 'Runtime findings' a cote de 'Devices to chase', puis 'Framework exposure', 'Recurring evidence' avec un bouton Accept par cause, et 'Not permitted by any allowlist' avec un bouton Allow par agent ou serveur MCP."
+          },
+          "description": {
+            "en": "Read the fleet's AI posture and triage it: find the recurring cause behind a check that fails on many devices, accept it once where it is expected, allow the agents and MCP servers you approve, and investigate the rest. The matrix answers, per device and per allowlist, whether the device fits that list -- a device is never marked against a list unrelated to its problem.",
+            "fr": "Lisez la posture IA de la flotte et triez-la : trouvez la cause recurrente derriere un controle qui echoue sur de nombreux appareils, acceptez-la une fois la ou elle est attendue, autorisez les agents et serveurs MCP que vous approuvez et enquetez sur le reste. La matrice repond, par appareil et par liste, si l'appareil correspond a cette liste -- un appareil n'est jamais marque contre une liste sans rapport avec son probleme."
+          },
+          "static": true
+        },
+        {
+          "name": "aigovernance_devices",
+          "path": "aigovernance?demo=1",
+          "static": true,
+          "actions": [
+            { "type": "click", "selector": "[data-cy=aiDevicesTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "title": {
+            "en": "AI Governance Devices",
+            "fr": "Appareils de la gouvernance IA"
+          },
+          "visual": {
+            "en": "Devices tab: the 'Devices and allowlists' matrix with an 'All devices / Needs attention' toggle. One row per AI-capable device (OS icon, device and user), its failing checks with severity chips, the number of causes, an Overall verdict and one column per allowlist reading Fits, Does not fit or incomplete, with the count of not-permitted and not-accepted items under each verdict.",
+            "fr": "Onglet Devices : la matrice 'Devices and allowlists' avec une bascule 'All devices / Needs attention'. Une ligne par appareil compatible IA (icone OS, appareil et utilisateur), ses controles en echec avec severite, le nombre de causes, un verdict Overall et une colonne par liste indiquant Fits, Does not fit ou incomplete, avec le nombre d'elements non permis et non acceptes sous chaque verdict."
+          },
+          "description": {
+            "en": "Read, per device and per allowlist, whether the device fits that list. Each column reports only what its own list says, so a device is never marked against a list unrelated to its problem; 'Needs attention' narrows the table to the devices with an open verdict.",
+            "fr": "Lisez, par appareil et par liste, si l'appareil correspond a cette liste. Chaque colonne ne rapporte que ce que dit sa propre liste, donc un appareil n'est jamais marque contre une liste sans rapport avec son probleme ; 'Needs attention' restreint le tableau aux appareils avec un verdict ouvert."
+          }
+        },
+        {
+          "name": "aigovernance_inventory",
+          "path": "aigovernance?demo=1",
+          "static": true,
+          "actions": [
+            { "type": "click", "selector": "[data-cy=aiInventoryTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "title": {
+            "en": "AI Governance Inventory",
+            "fr": "Inventaire de la gouvernance IA"
+          },
+          "visual": {
+            "en": "Inventory tab: 'Agent inventory (AI-BOM)' with one row per agent (Claude Code, Codex CLI, Cursor, OpenClaw): devices, sandbox state ('unsandboxed on N' / 'all sandboxed'), blast-radius amplifiers (secret_exposure, passwordless_root, critical_subprocess), MCP endpoint count, critical processes (ssh, sudo) and reachable secret classes (aws_secret, github_token, private_key). Below: 'Agent adoption' (observed / installed per agent with a percentage bar), 'Governance harnesses' (AgentField, nono, Rippletide, Anthropic Sandbox Runtime: detected on N devices or not detected, and 'Devices with a harness') and 'External services (MCP)' listing every server with agent, devices, authentication state, severity and an 'Allow in an allowlist' button.",
+            "fr": "Onglet Inventory : 'Agent inventory (AI-BOM)' avec une ligne par agent (Claude Code, Codex CLI, Cursor, OpenClaw) : appareils, etat du sandbox ('unsandboxed on N' / 'all sandboxed'), amplificateurs de blast radius (secret_exposure, passwordless_root, critical_subprocess), nombre d'endpoints MCP, process critiques (ssh, sudo) et classes de secrets accessibles (aws_secret, github_token, private_key). En dessous : 'Agent adoption' (observe / installe par agent avec une barre), 'Governance harnesses' (AgentField, nono, Rippletide, Anthropic Sandbox Runtime : detecte sur N appareils ou non detecte, et 'Devices with a harness') et 'External services (MCP)' listant chaque serveur avec agent, appareils, etat d'authentification, severite et un bouton 'Allow in an allowlist'."
+          },
+          "description": {
+            "en": "The fleet's AI bill of materials: what each inventoried agent carries (sandbox state, blast-radius amplifiers, MCP endpoints, critical subprocesses, reachable secret classes), which agents are observed versus merely installed, which governance harnesses confine them, and every external MCP service the agents can reach with its authentication state. The row answers what it would cost if this agent went rogue.",
+            "fr": "La nomenclature IA de la flotte : ce que porte chaque agent inventorie (etat du sandbox, amplificateurs de blast radius, endpoints MCP, process critiques, classes de secrets accessibles), quels agents sont observes ou seulement installes, quels harnais de gouvernance les confinent, et chaque service MCP externe que les agents peuvent atteindre avec son etat d'authentification. La ligne repond a ce que couterait un agent devenu incontrolable."
+          }
+        },
+        {
+          "name": "aigovernance_allowlists",
+          "path": "aigovernance?demo=1",
+          "title": {
+            "en": "AI Governance Allowlists",
+            "fr": "Listes d'autorisation de gouvernance IA"
+          },
+          "visual": {
+            "en": "Allowlists tab: the domain's AI governance allowlists (name, scope, expiry, audit-only or restricting), the 'about to expire' banner with a Review button, and the 'Create allowlist' button; an empty state reads 'No allowlists yet' with 'Create your first allowlist'.",
+            "fr": "Onglet Allowlists : les listes de gouvernance IA du domaine (nom, portee, expiration, audit seul ou restriction), le bandeau 'about to expire' avec un bouton Review et le bouton 'Create allowlist' ; l'etat vide indique 'No allowlists yet' avec 'Create your first allowlist'."
+          },
+          "description": {
+            "en": "Manage the domain-level AI governance allowlists, separate from the network exceptions in Policies. Write rules ahead of a rollout, scope them to a group or a device, give them an expiry, and tick 'Restrict what is allowed to exist' to turn an audit-only list into one that reports unlisted agents or MCP servers as not permitted.",
+            "fr": "Gerez les listes d'autorisation de gouvernance IA au niveau du domaine, distinctes des exceptions reseau de Policies. Ecrivez des regles avant un deploiement, limitez-les a un groupe ou a un appareil, donnez-leur une expiration et cochez 'Restrict what is allowed to exist' pour qu'une liste d'audit signale les agents ou serveurs MCP non listes comme non autorises."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=aiWhitelistsTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "static": true
+        }
+      ]
+    },
+    {
+      "name": "policies",
+      "title": {
+        "en": "Policies",
+        "fr": "Politiques"
+      },
+      "visual": {
+        "en": "The 'Policies' page with three pill tabs (Policies, Conditional access, Devices), a 'Conditional access wiki' external link, and 'Link conditional access' and 'Create a policy' buttons. The Policies tab lists each policy as a card showing its name, a green compliant count and a red non-compliant count, the bound integration icon, and a chevron.",
+        "fr": "La page 'Policies' avec trois onglets pilules (Policies, Conditional access, Devices), un lien externe 'Conditional access wiki' et des boutons 'Link conditional access' et 'Create a policy'. L'onglet Policies liste chaque politique sous forme de carte avec son nom, un compteur conforme (vert) et non-conforme (rouge), l'icone de l'integration liee et un chevron."
+      },
+      "description": {
+        "en": "Define and manage access control policies with conditional access rules, integration triggers, and a device-centric compliance view. Policies can be based on minimum scores, security checks, compliance tags, or group membership.",
+        "fr": "Definissez et gerez les politiques de controle d'acces avec des regles d'acces conditionnel, des declencheurs d'integration et une vue de conformite centree sur les appareils. Les politiques peuvent etre basees sur des scores minimaux, des verifications, des cadres de conformite ou l'appartenance a un groupe."
+      },
+      "sub_features": [
+        {
+          "name": "policies_list",
+          "path": "policies",
+          "title": {
+            "en": "Policies List",
+            "fr": "Liste des politiques"
+          },
+          "visual": {
+            "en": "Three pill tabs (Policies active, Conditional access, Devices) with a 'Conditional access wiki' link and 'Link conditional access' / 'Create a policy' buttons. Each policy is a card (e.g. 'Acme Demo Azure') showing a green compliant count and a red non-compliant count, the integration icon, and a chevron to open the policy detail.",
+            "fr": "Trois onglets pilules (Policies actif, Conditional access, Devices) avec un lien 'Conditional access wiki' et boutons 'Link conditional access' / 'Create a policy'. Chaque politique est une carte (ex. 'Acme Demo Azure') montrant un compteur conforme (vert) et non-conforme (rouge), l'icone de l'integration et un chevron vers le detail."
+          },
+          "description": {
+            "en": "Three-tab view (Policies, Conditional Access, Devices). The Policies tab lists policies as cards with compliant and non-compliant device counts and the bound integration; the header offers Create Policy and Link Conditional Access, plus a link to the Access Control wiki.",
+            "fr": "Vue a trois onglets (Policies, Conditional Access, Devices). L'onglet Policies liste les politiques en cartes avec le nombre d'appareils conformes et non-conformes et l'integration liee ; l'en-tete propose Creer une politique et Lier un acces conditionnel, plus un lien vers le wiki de controle d'acces."
+          }
+        },
+        {
+          "name": "policies_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Conditional Access Rules",
+            "fr": "Regles d'acces conditionnel"
+          },
+          "visual": {
+            "en": "The 'Conditional access' tab of the Policies page (the static capture shows the default Policies tab). It lists conditional access rules and their associated integration triggers.",
+            "fr": "L'onglet 'Conditional access' de la page Policies (la capture statique montre l'onglet Policies par defaut). Il liste les regles d'acces conditionnel et leurs declencheurs d'integration associes."
+          },
+          "description": {
+            "en": "Tab showing conditional access rules with associated triggers for integration enforcement (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Netskope, Custom). For Netskope, EDAMAME applies or removes a device tag from the device's policy result; the customer's Netskope Device Classification and Real-time Policy enforce access.",
+            "fr": "Onglet montrant les regles d'acces conditionnel avec les declencheurs associes pour l'application des integrations (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Netskope, Personnalise). Pour Netskope, EDAMAME applique ou retire un tag d'appareil selon le resultat de la politique de l'appareil ; la Device Classification et la Real-time Policy Netskope du client appliquent l'acces."
+          }
+        },
+        {
+          "name": "policies_devices",
+          "path": "policies",
+          "title": {
+            "en": "Device Policy Compliance",
+            "fr": "Conformite des appareils aux politiques"
+          },
+          "visual": {
+            "en": "The 'Devices' tab of the Policies page (the static capture shows the default Policies tab). A device-centric table with one dynamic column per policy showing Compliant/Non-compliant badges, with offline rows subtly highlighted.",
+            "fr": "L'onglet 'Devices' de la page Policies (la capture statique montre l'onglet Policies par defaut). Un tableau centre sur les appareils avec une colonne dynamique par politique affichant des badges Conforme/Non-conforme, les lignes hors ligne etant legerement surlignees."
+          },
+          "description": {
+            "en": "Device-centric view showing all devices with one dynamic column per policy displaying Compliant/Non-compliant badges. Offline device rows are subtly highlighted, non-compliant badges show violation reasons on hover, and CI/CD devices are excluded.",
+            "fr": "Vue centree sur les appareils montrant tous les appareils avec une colonne dynamique par politique affichant des badges Conforme/Non-conforme. Les lignes hors ligne sont legerement surlignees, les badges non-conformes affichent les raisons de violation au survol, et les appareils CI/CD sont exclus."
+          }
+        }
+      ]
+    },
+    {
+      "name": "securitychecks",
+      "title": {
+        "en": "Security Checks",
+        "fr": "Verifications de securite"
+      },
+      "visual": {
+        "en": "The 'Security checks' page with an OS-type filter chip bar (macOS, Windows, Linux, iOS, Android), search, refresh, a column selector, and a paginated table: Security Check, OS Type (icons), Severity (color badge), %Passed (green/red bar with percentage and count), Dimension (applications, credentials, system integrity), and Tag(s) (e.g. AI Agent Posture, CIS Benchmark Level 1, Personal Posture).",
+        "fr": "La page 'Security checks' avec une barre de filtres par OS (macOS, Windows, Linux, iOS, Android), recherche, rafraichissement, selecteur de colonnes, et un tableau pagine : Security Check, OS Type (icones), Severity (badge colore), %Passed (barre verte/rouge avec pourcentage et compte), Dimension (applications, credentials, system integrity) et Tag(s) (ex. AI Agent Posture, CIS Benchmark Level 1, Personal Posture)."
+      },
+      "description": {
+        "en": "Browse the catalog of security checks and benchmarks evaluated across all devices. Filter by OS, view pass rates, severity, dimension, and compliance framework tags, and drill into a check to see which devices pass or fail.",
+        "fr": "Parcourez le catalogue des verifications de securite et benchmarks evalues sur tous les appareils. Filtrez par OS, consultez les taux de reussite, la severite, la dimension et les cadres de conformite, et explorez une verification pour voir quels appareils reussissent ou echouent."
+      },
+      "sub_features": [
+        {
+          "name": "securitychecks_list",
+          "path": "securitychecks",
+          "title": {
+            "en": "Security Checks Catalog",
+            "fr": "Catalogue des verifications de securite"
+          },
+          "visual": {
+            "en": "An OS-type filter chip bar with search and a column selector, then a paginated table: Security Check (e.g. 'Automatic logon enabled', 'AI agents run without a governance harness'), OS Type icons, Severity badge (Low/Medium/High/Critical), %Passed bar (green when high, red when low) with a count, Dimension (applications/credentials/system integrity), and Tag(s) (AI Agent Posture, CIS Benchmark Level 1, Personal Posture).",
+            "fr": "Une barre de filtres par OS avec recherche et selecteur de colonnes, puis un tableau pagine : Security Check (ex. 'Automatic logon enabled', 'AI agents run without a governance harness'), icones OS Type, badge Severity (Low/Medium/High/Critical), barre %Passed (verte si eleve, rouge si faible) avec compte, Dimension (applications/credentials/system integrity) et Tag(s) (AI Agent Posture, CIS Benchmark Level 1, Personal Posture)."
+          },
+          "description": {
+            "en": "An OS-type filter with a table showing each check's name, compatible OS types, severity badge, pass rate (color-coded bar: green >=80%, orange 50-79%, red <50%), dimension, and tags. Supports server-side pagination, search, and sorting.",
+            "fr": "Un filtre par OS avec un tableau montrant le nom de chaque verification, les OS compatibles, le badge de severite, le taux de reussite (barre coloree : vert >=80%, orange 50-79%, rouge <50%), la dimension et les tags. Pagination, recherche et tri cote serveur."
+          }
+        },
+        {
+          "name": "securitychecks_detail",
+          "path": "securitychecks/{name}",
+          "title": {
+            "en": "Security Check Detail",
+            "fr": "Detail de la verification de securite"
+          },
+          "visual": {
+            "en": "Not part of the static capture (dynamic check route). A check info card (description, severity badge, pass rate bar) and two side-by-side cards listing failed devices (red) and passed devices (green).",
+            "fr": "Hors capture statique (route dynamique par verification). Une carte d'information (description, badge de severite, barre de taux de reussite) et deux cartes cote a cote listant les appareils echoues (rouge) et reussis (vert)."
+          },
+          "description": {
+            "en": "Check info card with description, severity badge, and pass rate bar, plus two side-by-side cards: Failed Devices (red, with OS icon, username, device ID, score) and Passed Devices (green). Click a device to open its detail.",
+            "fr": "Carte d'information (description, badge de severite, barre de taux de reussite) et deux cartes cote a cote : appareils echoues (rouge, avec icone OS, nom, ID, score) et appareils reussis (vert). Cliquez sur un appareil pour ouvrir son detail."
+          }
+        }
+      ]
+    },
+    {
+      "name": "groups",
+      "title": {
+        "en": "Groups",
+        "fr": "Groupes"
+      },
+      "visual": {
+        "en": "A 'Groups' page with a 'Create a group' button and a list of group cards, each showing the group name and a user count (e.g. 'admin - 2 users') with a chevron to open the group detail.",
+        "fr": "Une page 'Groups' avec un bouton 'Create a group' et une liste de cartes de groupes, chacune montrant le nom du groupe et un nombre d'utilisateurs (ex. 'admin - 2 users') avec un chevron vers le detail du groupe."
+      },
+      "description": {
+        "en": "Create and manage user groups for policy targeting. Groups organize users into logical sets that can be referenced in access control policies.",
+        "fr": "Creez et gerez des groupes d'utilisateurs pour le ciblage des politiques. Les groupes organisent les utilisateurs en ensembles logiques referencables dans les politiques de controle d'acces."
+      },
+      "sub_features": [
+        {
+          "name": "groups_list",
+          "path": "groups",
+          "title": {
+            "en": "Groups List",
+            "fr": "Liste des groupes"
+          },
+          "visual": {
+            "en": "A 'Create a group' button above a list of group cards; each card shows the group name and its member count (e.g. 'admin - 2 users') with a chevron.",
+            "fr": "Un bouton 'Create a group' au-dessus d'une liste de cartes de groupes ; chaque carte montre le nom du groupe et son nombre de membres (ex. 'admin - 2 users') avec un chevron."
+          },
+          "description": {
+            "en": "A list of groups showing each group name and its number of users, with a Create Group action that opens a modal.",
+            "fr": "Une liste de groupes montrant le nom de chaque groupe et son nombre d'utilisateurs, avec une action Creer un groupe qui ouvre une modale."
+          }
+        },
+        {
+          "name": "groups_detail",
+          "path": "groups/{group_name}",
+          "title": {
+            "en": "Group Detail",
+            "fr": "Detail du groupe"
+          },
+          "visual": {
+            "en": "Not part of the static capture (dynamic group route). A group header with name and member count and a members table with usernames.",
+            "fr": "Hors capture statique (route dynamique par groupe). Un en-tete de groupe avec nom et nombre de membres et un tableau de membres avec les noms d'utilisateurs."
+          },
+          "description": {
+            "en": "Group info header showing the group name and member count, and a members table where clicking a row navigates to the user detail.",
+            "fr": "En-tete d'information du groupe montrant le nom et le nombre de membres, et un tableau de membres ou cliquer sur une ligne mene au detail de l'utilisateur."
+          }
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "title": {
+        "en": "Map",
+        "fr": "Carte"
+      },
+      "visual": {
+        "en": "A 'Map' page with an 'All devices / Live devices' toggle and a full-width dark Leaflet/OpenStreetMap world map. Zoom controls sit top-left, and OS-icon markers (Windows, macOS, Linux, Android, iOS) are clustered by region across the continents, with OpenStreetMap attribution bottom-right.",
+        "fr": "Une page 'Map' avec une bascule 'All devices / Live devices' et une carte du monde sombre Leaflet/OpenStreetMap pleine largeur. Les controles de zoom sont en haut a gauche, et des marqueurs a icone OS (Windows, macOS, Linux, Android, iOS) sont regroupes par region sur les continents, avec l'attribution OpenStreetMap en bas a droite."
+      },
+      "description": {
+        "en": "Interactive geographic map showing the physical location of all monitored devices. Toggle between all and live devices and click markers to view device details.",
+        "fr": "Carte geographique interactive montrant l'emplacement physique de tous les appareils surveilles. Basculez entre tous les appareils et ceux en direct et cliquez sur les marqueurs pour voir les details."
+      },
+      "sub_features": [
+        {
+          "name": "map_overview",
+          "path": "map",
+          "title": {
+            "en": "Device Map",
+            "fr": "Carte des appareils"
+          },
+          "visual": {
+            "en": "A full-width dark Leaflet map with zoom controls and an 'All devices / Live devices' toggle. OS-icon markers (Windows, macOS, Linux, Android, iOS) are clustered by geographic region; popups open device/user info with click-to-navigate.",
+            "fr": "Une carte Leaflet sombre pleine largeur avec controles de zoom et bascule 'All devices / Live devices'. Des marqueurs a icone OS (Windows, macOS, Linux, Android, iOS) sont regroupes par region ; les popups ouvrent les infos appareil/utilisateur avec navigation."
+          },
+          "description": {
+            "en": "Full-width Leaflet map with device location markers and an All/Live toggle. Marker popups show device and user information with click-to-navigate to the device detail.",
+            "fr": "Carte Leaflet pleine largeur avec marqueurs de localisation et bascule Tous/En direct. Les popups des marqueurs montrent les infos appareil et utilisateur avec navigation vers le detail."
+          }
+        }
+      ]
+    },
+    {
+      "name": "settings",
+      "title": {
+        "en": "Settings",
+        "fr": "Parametres"
+      },
+      "visual": {
+        "en": "The 'Workspace settings' page with four tabs (Members, Billing and plans, Integrations, Notifications). Each tab has a title and short subtitle and renders its own form/table content below the tab bar.",
+        "fr": "La page 'Workspace settings' avec quatre onglets (Members, Billing and plans, Integrations, Notifications). Chaque onglet a un titre et un court sous-titre et affiche son propre contenu (formulaire/tableau) sous la barre d'onglets."
+      },
+      "description": {
+        "en": "Workspace administration across four tabs: Members (invite, manage roles, remove), Billing and plans (subscription, upgrade/downgrade), Integrations (connect Vanta and GitHub), and Notifications (configure alert channels and thresholds). Netskope is a shipped conditional-access trigger configured from Policies rather than this Integrations tab.",
+        "fr": "Administration de l'espace de travail via quatre onglets : Members (inviter, gerer les roles, retirer), Billing and plans (abonnement, mise a niveau/retrogradation), Integrations (connecter Vanta et GitHub) et Notifications (configurer les canaux d'alerte et les seuils). Netskope est un declencheur d'acces conditionnel livre, configure depuis Policies plutot que depuis cet onglet Integrations."
+      },
+      "sub_features": [
+        {
+          "name": "settings_members",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Members Management",
+            "fr": "Gestion des membres"
+          },
+          "visual": {
+            "en": "The Members tab: an 'Invite new members' card with a notice that only users who already have an account can be invited, an E-mail field, a Role dropdown (e.g. DomainAdmin), 'Add another member', and 'Send invitation(s)'. Below are 'Team members / Pending invitations' sub-tabs with an Email/Role table, a 'Guided Tutorial' card with a 'Start Tutorial' button, and a red 'Danger Zone' with 'Delete my workspace'.",
+            "fr": "L'onglet Members : une carte 'Invite new members' avec un avis indiquant que seuls les utilisateurs disposant deja d'un compte peuvent etre invites, un champ E-mail, un menu Role (ex. DomainAdmin), 'Add another member' et 'Send invitation(s)'. En dessous, des sous-onglets 'Team members / Pending invitations' avec un tableau Email/Role, une carte 'Guided Tutorial' avec un bouton 'Start Tutorial', et une 'Danger Zone' rouge avec 'Delete my workspace'."
+          },
+          "description": {
+            "en": "Invite members by email (with a role dropdown), manage Team Members and Pending Invitations in sub-tabs, start a guided tutorial, and delete the workspace from the Danger Zone. Invitations currently require the invitee to already have an account.",
+            "fr": "Invitez des membres par email (avec menu de role), gerez les Team Members et Pending Invitations en sous-onglets, lancez un tutoriel guide et supprimez l'espace de travail depuis la Danger Zone. Les invitations exigent actuellement que l'invite dispose deja d'un compte."
+          }
+        },
+        {
+          "name": "settings_billing",
+          "path": "settings?tab=billing",
+          "title": {
+            "en": "Billing & Plans",
+            "fr": "Facturation et plans"
+          },
+          "visual": {
+            "en": "The 'Billing and plans' tab: a 'Current plan' banner (e.g. Enterprise) with 'Manage plan', a 'Monthly billing / Yearly billing (save 20%)' toggle, and three plan cards - Free (0EUR/year), Business (1440EUR/year, POPULAR), and Enterprise (1920EUR/year) - each listing user and device limits, history retention, analytics/conditional access, and support tiers.",
+            "fr": "L'onglet 'Billing and plans' : une banniere 'Current plan' (ex. Enterprise) avec 'Manage plan', une bascule 'Monthly / Yearly (save 20%)' et trois cartes de plans - Free (0EUR/an), Business (1440EUR/an, POPULAR) et Enterprise (1920EUR/an) - chacune listant les limites d'utilisateurs et d'appareils, la retention d'historique, l'analytique/acces conditionnel et les niveaux de support."
+          },
+          "description": {
+            "en": "Shows the current plan with a manage action, a monthly/yearly billing toggle (yearly saves 20%), and Free, Business, and Enterprise plan cards with pricing, user/device limits, history retention, and support tiers.",
+            "fr": "Affiche le plan actuel avec une action de gestion, une bascule mensuel/annuel (l'annuel economise 20%) et des cartes Free, Business et Enterprise avec tarifs, limites d'utilisateurs/appareils, retention d'historique et niveaux de support."
+          }
+        },
+        {
+          "name": "settings_integrations",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Integrations",
+            "fr": "Integrations"
+          },
+          "visual": {
+            "en": "The Integrations tab: a table (Name, Description, Status) listing Vanta ('Track security compliance across devices within your organization.') and GitHub ('Audit your GitHub organization activity and security events.'), each with a 'NOT CONNECTED' status badge and a 'Connect' button.",
+            "fr": "L'onglet Integrations : un tableau (Name, Description, Status) listant Vanta ('Track security compliance across devices within your organization.') et GitHub ('Audit your GitHub organization activity and security events.'), chacun avec un badge 'NOT CONNECTED' et un bouton 'Connect'."
+          },
+          "description": {
+            "en": "A table of Settings integrations (Vanta, GitHub) with description and a Connected/Not Connected status, plus a Connect action. Once GitHub is connected, audit actions (with a lookback selector) become available. Netskope is configured separately as a conditional-access trigger under Policies: EDAMAME manages the device tag, while the customer's Netskope policy enforces access.",
+            "fr": "Un tableau des integrations Settings (Vanta, GitHub) avec description et statut Connecte/Non connecte, plus une action Connecter. Une fois GitHub connecte, les actions d'audit (avec selecteur de retrospective) deviennent disponibles. Netskope se configure separement comme declencheur d'acces conditionnel sous Policies : EDAMAME gere le tag d'appareil, tandis que la politique Netskope du client applique l'acces."
+          }
+        },
+        {
+          "name": "settings_notifications",
+          "path": "settings?tab=notifications",
+          "title": {
+            "en": "Notification Preferences",
+            "fr": "Preferences de notification"
+          },
+          "visual": {
+            "en": "The 'Notification preferences' tab with two grouped tables - 'Identity and Licensing' (New user added, New device for a user, User limit for the workspace, Conditional access error) and 'Score and Compliance' (Spikes in your workspace's security score, Spikes in your workspace's compliance ratio, Engagement events). Each row has a Notification Center toggle, an 'Add an email' action, an 'Add phone number' action, and a Threshold control (e.g. up/down 10%). A 'Save' button persists changes.",
+            "fr": "L'onglet 'Notification preferences' avec deux tableaux groupes - 'Identity and Licensing' (New user added, New device for a user, User limit for the workspace, Conditional access error) et 'Score and Compliance' (Spikes in your workspace's security score, Spikes in your workspace's compliance ratio, Engagement events). Chaque ligne a une bascule Notification Center, une action 'Add an email', une action 'Add phone number' et un controle de seuil (ex. +/- 10%). Un bouton 'Save' persiste les changements."
+          },
+          "description": {
+            "en": "Two notification groups - Identity and Licensing (New user, New device, Workspace user limit, Conditional access error) and Score and Compliance (security score spikes, compliance ratio spikes, engagement events). Each row toggles the notification center, adds email and phone recipients, and sets thresholds; a Save button persists all changes.",
+            "fr": "Deux groupes de notifications - Identity and Licensing (nouvel utilisateur, nouvel appareil, limite d'utilisateurs, erreur d'acces conditionnel) et Score and Compliance (pics du score de securite, pics du taux de conformite, evenements d'engagement). Chaque ligne active le centre de notifications, ajoute des destinataires email et telephone et definit des seuils ; un bouton Save persiste les changements."
+          }
+        }
+      ]
+    },
+    {
+      "name": "notifications",
+      "title": {
+        "en": "Notifications",
+        "fr": "Notifications"
+      },
+      "visual": {
+        "en": "A 'Notifications' page with three stat cards (Total, Unread, Read) and a settings gear, a note that notifications are removed 7 days after they occur, and an 'All notifications' card. When empty it shows a 'No notifications found' placeholder; when populated it shows a paginated Title/Description table.",
+        "fr": "Une page 'Notifications' avec trois cartes de stats (Total, Unread, Read) et un engrenage de parametres, une note indiquant que les notifications sont supprimees 7 jours apres leur survenue, et une carte 'All notifications'. Vide, elle affiche un etat 'No notifications found' ; remplie, un tableau pagine Title/Description."
+      },
+      "description": {
+        "en": "View and manage all domain notifications. Track total, unread, and read counts, mark notifications as read, delete them, or click to open the related resource. Notifications are automatically removed 7 days after they occur.",
+        "fr": "Visualisez et gerez toutes les notifications du domaine. Suivez les totaux, non-lus et lus, marquez les notifications comme lues, supprimez-les ou cliquez pour ouvrir la ressource associee. Les notifications sont automatiquement supprimees 7 jours apres leur survenue."
+      },
+      "sub_features": [
+        {
+          "name": "notifications_list",
+          "path": "notifications",
+          "title": {
+            "en": "Notification Center",
+            "fr": "Centre de notifications"
+          },
+          "visual": {
+            "en": "Three stat cards (Total, Unread, Read) with a settings gear and a 7-day auto-removal note, above an 'All notifications' card. In the demo it shows an empty state ('No notifications found / Try adjusting your search or filters'); when populated it lists Title (with an unread dot) and Description with mark-as-read and delete actions.",
+            "fr": "Trois cartes de stats (Total, Unread, Read) avec un engrenage et une note de suppression automatique a 7 jours, au-dessus d'une carte 'All notifications'. Dans la demo, elle affiche un etat vide ('No notifications found / Try adjusting your search or filters') ; remplie, elle liste le Titre (avec pastille non-lu) et la Description avec actions marquer-comme-lu et supprimer."
+          },
+          "description": {
+            "en": "Three stat cards (Total, Unread, Read) and a paginated table of notifications (Title with unread indicator, Description) with mark-as-read and delete actions; clicking a row opens the linked resource. Shows an empty state when there are no notifications.",
+            "fr": "Trois cartes de stats (Total, Unread, Read) et un tableau pagine de notifications (Titre avec indicateur non-lu, Description) avec actions marquer-comme-lu et supprimer ; cliquer sur une ligne ouvre la ressource liee. Affiche un etat vide en l'absence de notifications."
+          }
+        }
+      ]
+    },
+    {
+      "name": "audit",
+      "title": {
+        "en": "GitHub Audit",
+        "fr": "Audit GitHub"
+      },
+      "visual": {
+        "en": "Not part of the static capture (dynamic audit route, reached from Settings > Integrations after connecting GitHub). The results page shows an audit score, stat cards (Total/Human/Non-Human events, Unique Actors, Unique IPs), a severity distribution, top actors and IP lists, an activity map, category filter pills, and a full events table.",
+        "fr": "Hors capture statique (route d'audit dynamique, accessible depuis Settings > Integrations apres connexion de GitHub). La page de resultats montre un score d'audit, des cartes de stats (evenements Total/Humains/Non-humains, acteurs uniques, IP uniques), une distribution de severite, des listes des principaux acteurs et IP, une carte d'activite, des pilules de filtre par categorie et un tableau complet des evenements."
+      },
+      "description": {
+        "en": "Comprehensive GitHub organization audit trail. Triggered from Settings > Integrations, it analyzes GitHub events for security-relevant activity including boundary changes, PAT usage, trust modifications, membership changes, and git operations.",
+        "fr": "Piste d'audit complete de l'organisation GitHub. Declenchee depuis Settings > Integrations, elle analyse les evenements GitHub pour les activites pertinentes en securite : changements de perimetre, usage de PAT, modifications de confiance, changements d'adhesion et operations git."
+      },
+      "sub_features": [
+        {
+          "name": "audit_result",
+          "path": "audit/{auditId}",
+          "title": {
+            "en": "Audit Results",
+            "fr": "Resultats de l'audit"
+          },
+          "visual": {
+            "en": "Not part of the static capture (dynamic audit route). An audit score (circular progress), five stat cards (Total/Human/Non-Human events, Unique Actors, Unique IPs), a score breakdown by factor, a severity distribution bar, Top Actors and IP Addresses lists, a Leaflet activity map, category filter pills (All, Boundary, PAT, Trust, Membership, GitOps, Other), and an events table (Severity, Timestamp, Actor, Action, Category, Repo).",
+            "fr": "Hors capture statique (route d'audit dynamique). Un score d'audit (progression circulaire), cinq cartes de stats (evenements Total/Humains/Non-humains, acteurs uniques, IP uniques), une decomposition du score par facteur, une barre de distribution de severite, des listes des principaux acteurs et IP, une carte d'activite Leaflet, des pilules de filtre par categorie (All, Boundary, PAT, Trust, Membership, GitOps, Other) et un tableau d'evenements (Severite, Horodatage, Acteur, Action, Categorie, Depot)."
+          },
+          "description": {
+            "en": "Audit score as a circular progress, five stat cards (Total Events, Human Events, Non-Human Events, Unique Actors, Unique IPs), a score breakdown by factor, a severity distribution bar, Top Actors and IP Addresses lists, a Leaflet activity map of IP geolocations, category filter pills (All, Boundary, PAT, Trust, Membership, GitOps, Other), and a full events table (Severity, Timestamp, Actor, Action, Category, Repo).",
+            "fr": "Score d'audit en progression circulaire, cinq cartes de stats (Total des evenements, evenements humains, evenements non-humains, acteurs uniques, IP uniques), decomposition du score par facteur, barre de distribution de severite, listes des principaux acteurs et IP, carte d'activite Leaflet des geolocalisations IP, pilules de filtre par categorie (All, Boundary, PAT, Trust, Membership, GitOps, Other) et tableau complet des evenements (Severite, Horodatage, Acteur, Action, Categorie, Depot)."
+          }
+        }
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "name": "invite_users",
+      "feature": "onboarding",
+      "title": {
+        "en": "Invite and onboard end users",
+        "fr": "Inviter et onboarder des utilisateurs finaux"
+      },
+      "description": {
+        "en": "Step-by-step guide to inviting end users to install the EDAMAME Security app and start onboarding, either by sending invitations or enabling self-onboarding. This walkthrough stops before actually sending invitations so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape pour inviter des utilisateurs finaux a installer l'application EDAMAME Security et commencer l'onboarding, soit en envoyant des invitations, soit en activant l'auto-onboarding. Ce tutoriel s'arrete avant l'envoi reel des invitations, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_onboarding",
+          "path": "onboarding",
+          "title": {
+            "en": "Open the Onboarding page",
+            "fr": "Ouvrir la page Onboarding"
+          },
+          "instruction": {
+            "en": "Open the Onboarding page from the End-users section of the sidebar. The stat cards at the top (highlighted) track onboarding progress: in progress, onboarded users vs. plan limit, total users, and disabled users.",
+            "fr": "Ouvrez la page Onboarding depuis la section End-users de la barre laterale. Les cartes de stats en haut (en surbrillance) suivent l'avancement de l'onboarding : en cours, utilisateurs onboardes vs limite du plan, total et desactives."
+          },
+          "highlight": ".chakra-stat"
+        },
+        {
+          "name": "toggle_self_onboard",
+          "path": "onboarding",
+          "title": {
+            "en": "Choose invitation or self-onboarding",
+            "fr": "Choisir invitation ou auto-onboarding"
+          },
+          "instruction": {
+            "en": "In the 'Invite users to install the app' card (highlighted), the self-onboard toggle lets users onboard themselves without an explicit invitation. Leave it off to invite users by email in the next step.",
+            "fr": "Dans la carte 'Invite users to install the app' (en surbrillance), la bascule d'auto-onboarding permet aux utilisateurs de s'onboarder eux-memes sans invitation explicite. Laissez-la desactivee pour inviter des utilisateurs par email a l'etape suivante."
+          },
+          "highlight": "[data-tutorial=invite-form]"
+        },
+        {
+          "name": "fill_invite_email",
+          "path": "onboarding",
+          "title": {
+            "en": "Enter emails and send invitations",
+            "fr": "Saisir les emails et envoyer les invitations"
+          },
+          "instruction": {
+            "en": "Type one or more usernames/emails (comma-separated) into the invite field. Each user receives an email to install the app. Review the entry, then click 'Add Users' (highlighted) to send the invitations.",
+            "fr": "Saisissez un ou plusieurs identifiants/emails (separes par des virgules) dans le champ d'invitation. Chaque utilisateur recoit un email pour installer l'application. Verifiez la saisie, puis cliquez sur 'Add Users' (en surbrillance) pour envoyer les invitations."
+          },
+          "actions": [
+            { "type": "fill", "selector": "[data-cy=inviteOnboardInput]", "value": "new.user" }
+          ],
+          "highlight": "[data-cy=inviteOnboardButton]"
+        }
+      ]
+    },
+    {
+      "name": "create_policy",
+      "feature": "policies",
+      "title": {
+        "en": "Create a policy",
+        "fr": "Creer une politique"
+      },
+      "description": {
+        "en": "Step-by-step guide to opening the policy creation flow. Policies can be based on minimum security scores, specific security checks, compliance tags, or group membership, and can be bound to an integration trigger (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Custom). This walkthrough stops before saving the policy so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape pour ouvrir le flux de creation de politique. Les politiques peuvent etre basees sur des scores minimaux, des verifications specifiques, des cadres de conformite ou l'appartenance a un groupe, et peuvent etre liees a un declencheur d'integration (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Personnalise). Ce tutoriel s'arrete avant l'enregistrement de la politique, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_policies",
+          "path": "policies",
+          "title": {
+            "en": "Open the Policies page",
+            "fr": "Ouvrir la page Policies"
+          },
+          "instruction": {
+            "en": "Open the Policies page from the Security section of the sidebar. The Policies tab lists existing policies as cards with compliant and non-compliant device counts. Click 'Create a policy' (highlighted) to start.",
+            "fr": "Ouvrez la page Policies depuis la section Security de la barre laterale. L'onglet Policies liste les politiques existantes sous forme de cartes avec les nombres d'appareils conformes et non-conformes. Cliquez sur 'Create a policy' (en surbrillance) pour commencer."
+          },
+          "highlight": "[data-cy=createPoliciesButton]"
+        },
+        {
+          "name": "open_create_form",
+          "title": {
+            "en": "Fill in the policy creation form",
+            "fr": "Remplir le formulaire de creation de politique"
+          },
+          "instruction": {
+            "en": "The 'Create a policy' modal opens. Give the policy a name, choose its criteria (minimum score, security check, compliance tag, or group), and optionally bind an integration trigger. Click the final create/save button to persist it.",
+            "fr": "La fenetre 'Create a policy' s'ouvre. Donnez un nom a la politique, choisissez ses criteres (score minimal, verification, cadre de conformite ou groupe) et liez eventuellement un declencheur d'integration. Cliquez sur le bouton final de creation/enregistrement pour la persister."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=createPoliciesButton]" },
+            { "type": "wait", "ms": 1500 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "check_compliance",
+      "feature": "compliance",
+      "title": {
+        "en": "Check compliance against a framework",
+        "fr": "Verifier la conformite par rapport a un cadre"
+      },
+      "description": {
+        "en": "Step-by-step guide to measuring your fleet's compliance against an industry framework (e.g. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Selecting a framework tag is read-only, so this walkthrough is safe to run end-to-end.",
+        "fr": "Guide etape par etape pour mesurer la conformite de votre parc par rapport a un cadre industriel (ex. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). La selection d'un cadre est en lecture seule, ce tutoriel est donc sans risque de bout en bout."
+      },
+      "steps": [
+        {
+          "name": "open_compliance",
+          "path": "compliance",
+          "title": {
+            "en": "Open the Compliance page",
+            "fr": "Ouvrir la page Compliance"
+          },
+          "instruction": {
+            "en": "Open the Compliance page from the Security section of the sidebar. Before a framework is selected the page is empty and prompts you to choose one. Click the framework selector at the top (highlighted) to get started.",
+            "fr": "Ouvrez la page Compliance depuis la section Security de la barre laterale. Avant la selection d'un cadre, la page est vide et vous invite a en choisir un. Cliquez sur le selecteur de cadre en haut (en surbrillance) pour commencer."
+          },
+          "highlight": "[data-cy=selectTag]"
+        },
+        {
+          "name": "open_framework_dropdown",
+          "path": "compliance",
+          "title": {
+            "en": "Pick a framework from the dropdown",
+            "fr": "Choisir un cadre dans la liste deroulante"
+          },
+          "instruction": {
+            "en": "The framework selector opens as a dropdown listing every framework available in your workspace (in the demo: ISO 27001, NIST 800-53, PCI-DSS, and SOC 2). Click the framework you want to measure your fleet against.",
+            "fr": "Le selecteur s'ouvre en liste deroulante affichant tous les cadres disponibles dans votre espace (dans la demo : ISO 27001, NIST 800-53, PCI-DSS et SOC 2). Cliquez sur le cadre par rapport auquel vous voulez mesurer votre parc."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=selectTag]" },
+            { "type": "wait", "ms": 500 },
+            { "type": "press", "key": "ArrowDown" },
+            { "type": "wait", "ms": 1000 }
+          ]
+        },
+        {
+          "name": "view_compliance_breakdown",
+          "path": "compliance?tag=SVNPIDI3MDAx",
+          "title": {
+            "en": "Review the compliance breakdown",
+            "fr": "Consulter la decomposition de conformite"
+          },
+          "instruction": {
+            "en": "With a framework selected (here ISO 27001), the page fills in: the global compliance ratio (highlighted), a per-OS breakdown, the top 10 best and worst devices, and the top 10 failed and passed compliance checks. Use the All devices / Live devices / History tabs to switch views.",
+            "fr": "Une fois un cadre selectionne (ici ISO 27001), la page se remplit : le taux de conformite global (en surbrillance), une decomposition par OS, le top 10 des meilleurs et pires appareils, et le top 10 des verifications de conformite echouees et reussies. Utilisez les onglets All devices / Live devices / History pour changer de vue."
+          },
+          "actions": [
+            { "type": "wait", "ms": 3000 }
+          ],
+          "highlight": "[data-cy=complianceRate]"
+        }
+      ]
+    },
+    {
+      "name": "run_github_audit",
+      "feature": "audit",
+      "title": {
+        "en": "Run a GitHub organization audit",
+        "fr": "Lancer un audit d'organisation GitHub"
+      },
+      "description": {
+        "en": "Step-by-step guide to running a GitHub organization audit from Settings > Integrations. The audit analyzes GitHub events for security-relevant activity (boundary changes, PAT usage, trust modifications, membership changes, git operations). In the demo workspace the GitHub connection and audit are simulated, so this walkthrough runs the full flow end-to-end safely.",
+        "fr": "Guide etape par etape pour lancer un audit d'organisation GitHub depuis Settings > Integrations. L'audit analyse les evenements GitHub pour les activites pertinentes en securite (changements de perimetre, usage de PAT, modifications de confiance, changements d'adhesion, operations git). Dans l'espace de demonstration, la connexion GitHub et l'audit sont simules, ce tutoriel deroule donc tout le flux de bout en bout sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_integrations",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Open Settings > Integrations",
+            "fr": "Ouvrir Settings > Integrations"
+          },
+          "instruction": {
+            "en": "Open Settings and select the Integrations tab. You will see a table of available integrations, including GitHub ('Audit your GitHub organization activity and security events.') with a 'Connect' button (highlighted).",
+            "fr": "Ouvrez Settings et selectionnez l'onglet Integrations. Vous verrez un tableau des integrations disponibles, dont GitHub ('Audit your GitHub organization activity and security events.') avec un bouton 'Connect' (en surbrillance)."
+          },
+          "highlight": "tr:has-text('Github') button:has-text('Connect')"
+        },
+        {
+          "name": "connect_github",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Connect GitHub",
+            "fr": "Connecter GitHub"
+          },
+          "instruction": {
+            "en": "Click 'Connect' on the GitHub row. In production this opens GitHub's app authorization; in the demo workspace clicking Connect instantly connects GitHub (no GitHub login required). Once connected, an 'Audit' button (highlighted) appears on the GitHub row.",
+            "fr": "Cliquez sur 'Connect' sur la ligne GitHub. En production, cela ouvre l'autorisation de l'application GitHub ; dans l'espace de demonstration, cliquer sur Connect connecte instantanement GitHub (aucune connexion GitHub requise). Une fois connecte, un bouton 'Audit' (en surbrillance) apparait sur la ligne GitHub."
+          },
+          "actions": [
+            { "type": "click", "selector": "tr:has-text('Github') button:has-text('Connect')" },
+            { "type": "wait", "ms": 2500 }
+          ],
+          "highlight": "button:has-text('Audit')"
+        },
+        {
+          "name": "start_audit",
+          "title": {
+            "en": "Open the Audit menu and start",
+            "fr": "Ouvrir le menu Audit et lancer"
+          },
+          "instruction": {
+            "en": "Click the 'Audit' button on the GitHub row to open the popover, pick a lookback window (7, 30, 90, or 180 days), then click 'Start audit' (highlighted). The audit runs and opens the results page.",
+            "fr": "Cliquez sur le bouton 'Audit' de la ligne GitHub pour ouvrir le menu, choisissez une periode retrospective (7, 30, 90 ou 180 jours), puis cliquez sur 'Start audit' (en surbrillance). L'audit s'execute et ouvre la page de resultats."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text('Audit')" },
+            { "type": "wait", "ms": 800 }
+          ],
+          "highlight": "button:has-text('Start audit')"
+        },
+        {
+          "name": "view_audit_results",
+          "path": "audit/demo-github-audit",
+          "title": {
+            "en": "Review the audit results",
+            "fr": "Consulter les resultats de l'audit"
+          },
+          "instruction": {
+            "en": "The audit results page shows an overall audit score, stat cards (Total/Human/Non-Human events, Unique Actors, Unique IPs), a severity distribution, top actors and IPs, an activity map, category filter pills, and a full events table. You can return to it any time via 'View last audit' on the GitHub row.",
+            "fr": "La page de resultats affiche un score d'audit global, des cartes de stats (evenements Total/Humains/Non-humains, acteurs uniques, IP uniques), une distribution de severite, les principaux acteurs et IP, une carte d'activite, des pilules de filtre par categorie et un tableau complet des evenements. Vous pouvez y revenir a tout moment via 'View last audit' sur la ligne GitHub."
+          },
+          "actions": [
+            { "type": "wait", "ms": 6000 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "review_dashboard",
+      "feature": "overview",
+      "title": {
+        "en": "Review your security dashboard",
+        "fr": "Consulter votre tableau de bord de securite"
+      },
+      "description": {
+        "en": "Quick tour of the domain home page to read your organization's security posture at a glance and spot devices that need attention. Read-only and safe to run end-to-end.",
+        "fr": "Tour rapide de la page d'accueil du domaine pour lire la posture de securite de votre organisation en un coup d'oeil et reperer les appareils a surveiller. En lecture seule et sans risque de bout en bout."
+      },
+      "steps": [
+        {
+          "name": "open_home",
+          "path": "home",
+          "title": {
+            "en": "Open the dashboard home",
+            "fr": "Ouvrir l'accueil du tableau de bord"
+          },
+          "instruction": {
+            "en": "Open the Overview home page. Start with the stat cards row (highlighted): Total Devices, Average Score, Active Devices, and Live Avg Score. The 7-hour Global Security Score chart below tracks recent posture.",
+            "fr": "Ouvrez la page d'accueil Overview. Commencez par la rangee de cartes de stats (en surbrillance) : Total Devices, Average Score, Active Devices et Live Avg Score. Le graphique Global Security Score sur 7h en dessous suit la posture recente."
+          },
+          "highlight": "[data-tutorial=overview-stats]"
+        },
+        {
+          "name": "review_attention",
+          "path": "home",
+          "title": {
+            "en": "Spot devices requiring attention",
+            "fr": "Reperer les appareils a surveiller"
+          },
+          "instruction": {
+            "en": "Scroll to the 'Devices requiring attention' panel (highlighted); low-score rows carry a red accent. Click a device row to open its detail, or check the Engagement widget for active escalations.",
+            "fr": "Faites defiler jusqu'au panneau 'Devices requiring attention' (en surbrillance) ; les lignes a faible score ont un accent rouge. Cliquez sur une ligne pour ouvrir le detail de l'appareil, ou consultez le widget Engagement pour les escalades actives."
+          },
+          "highlight": "text=Devices requiring attention"
+        }
+      ]
+    },
+    {
+      "name": "handle_escalation",
+      "feature": "engagement",
+      "title": {
+        "en": "Handle a security escalation",
+        "fr": "Traiter une escalade de securite"
+      },
+      "description": {
+        "en": "Work the engagement queue: review active escalations by type, navigate to the related device/user/policy, and dismiss items you have addressed. This walkthrough stops before dismissing so it is safe to run against the live demo workspace.",
+        "fr": "Traitez la file d'engagement : consultez les escalades actives par type, naviguez vers l'appareil/utilisateur/politique associe et ignorez les elements traites. Ce tutoriel s'arrete avant l'ignorance, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_engagement",
+          "path": "engagement",
+          "title": {
+            "en": "Open the Engagement page",
+            "fr": "Ouvrir la page Engagement"
+          },
+          "instruction": {
+            "en": "Open Engagement from the End-users section. The stat cards at the top (highlighted) summarize open escalations by type: New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed, and Policy Violation.",
+            "fr": "Ouvrez Engagement depuis la section End-users. Les cartes de stats en haut (en surbrillance) resument les escalades ouvertes par type : New Alerts, Signal Lost, Inactive Device, Onboarding Not Completed et Policy Violation."
+          },
+          "highlight": ".chakra-stat"
+        },
+        {
+          "name": "review_active_queue",
+          "path": "engagement",
+          "title": {
+            "en": "Review the active queue",
+            "fr": "Consulter la file active"
+          },
+          "instruction": {
+            "en": "The 'Active' table (highlighted) lists open escalations (Username, Type, OS Type, Since). Click any row to jump to the related device, user, or policy and investigate the cause.",
+            "fr": "Le tableau 'Active' (en surbrillance) liste les escalades ouvertes (Username, Type, OS Type, Since). Cliquez sur une ligne pour aller vers l'appareil, l'utilisateur ou la politique associe et investiguer la cause."
+          },
+          "highlight": "[data-cy=table-body]"
+        },
+        {
+          "name": "dismiss_escalation",
+          "path": "engagement",
+          "title": {
+            "en": "Dismiss or resolve an item",
+            "fr": "Ignorer ou resoudre un element"
+          },
+          "instruction": {
+            "en": "Use the dismiss action at the end of a row (highlighted) to clear an escalation you have addressed. Dismissed items move to the 'Dismissed' section where they can be restored; resolved escalations appear read-only under 'Resolved'.",
+            "fr": "Utilisez l'action d'ignorance en fin de ligne (en surbrillance) pour retirer une escalade traitee. Les elements ignores passent dans la section 'Dismissed' ou ils peuvent etre restaures ; les escalades resolues apparaissent en lecture seule sous 'Resolved'."
+          },
+          "highlight": "button[aria-label=Dismiss]"
+        }
+      ]
+    },
+    {
+      "name": "investigate_user",
+      "feature": "users",
+      "title": {
+        "en": "Find and investigate a user",
+        "fr": "Trouver et investiguer un utilisateur"
+      },
+      "description": {
+        "en": "Locate a user in the domain and open their profile to review devices, group memberships, scores, and locations. Read-only and safe to run.",
+        "fr": "Localisez un utilisateur du domaine et ouvrez son profil pour consulter appareils, appartenances aux groupes, scores et localisations. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_users",
+          "path": "users",
+          "title": {
+            "en": "Open the Users list",
+            "fr": "Ouvrir la liste des utilisateurs"
+          },
+          "instruction": {
+            "en": "Open the Users page. Use the search box (highlighted) and the sortable columns (Score, Number of Devices, Country, Last Seen) to find the user you are looking for, or toggle All users / Live users.",
+            "fr": "Ouvrez la page Users. Utilisez la recherche (en surbrillance) et les colonnes triables (Score, Number of Devices, Country, Last Seen) pour trouver l'utilisateur recherche, ou basculez All users / Live users."
+          },
+          "highlight": "input[placeholder='Username']"
+        },
+        {
+          "name": "open_user_detail",
+          "path": "users",
+          "title": {
+            "en": "Open the user profile",
+            "fr": "Ouvrir le profil utilisateur"
+          },
+          "instruction": {
+            "en": "Click a user row to open their profile: group memberships, auto-disable status, a device list, and an interactive map of device locations.",
+            "fr": "Cliquez sur une ligne d'utilisateur pour ouvrir son profil : appartenances aux groupes, statut d'auto-desactivation, liste des appareils et carte interactive des localisations."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=table-row]" },
+            { "type": "wait", "ms": 3500 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "investigate_device",
+      "feature": "inventory",
+      "title": {
+        "en": "Investigate an endpoint",
+        "fr": "Investiguer un terminal"
+      },
+      "description": {
+        "en": "Browse the Workstations inventory and open a device to review its 5-dimension security score, failed/passed checks, policy compliance, and event history. Read-only and safe to run.",
+        "fr": "Parcourez l'inventaire des postes de travail et ouvrez un appareil pour consulter son score de securite a 5 dimensions, les verifications reussies/echouees, la conformite aux politiques et l'historique des evenements. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_workstations",
+          "path": "inventory",
+          "title": {
+            "en": "Open the Workstations inventory",
+            "fr": "Ouvrir l'inventaire des postes de travail"
+          },
+          "instruction": {
+            "en": "Open Endpoints > Workstations. Use search, the OS filters, and the All/Live toggle to narrow the device table (highlighted): OS, Username, Score, Device ID, IP, Last Seen.",
+            "fr": "Ouvrez Endpoints > Workstations. Utilisez la recherche, les filtres OS et la bascule All/Live pour affiner le tableau (en surbrillance) : OS, Username, Score, Device ID, IP, Last Seen."
+          },
+          "highlight": "[data-tutorial=device-table]"
+        },
+        {
+          "name": "open_device_detail",
+          "path": "inventory",
+          "title": {
+            "en": "Open the device detail",
+            "fr": "Ouvrir le detail de l'appareil"
+          },
+          "instruction": {
+            "en": "Click a device row to open its detail: header (OS, IP, version, location), the 5-dimension score breakdown, failed and passed security checks, policy compliance, an event timeline, and score charts.",
+            "fr": "Cliquez sur une ligne d'appareil pour ouvrir son detail : en-tete (OS, IP, version, localisation), decomposition du score en 5 dimensions, verifications echouees et reussies, conformite aux politiques, chronologie des evenements et graphiques de score."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=table-row]" },
+            { "type": "wait", "ms": 3500 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explore_security_score",
+      "feature": "security",
+      "title": {
+        "en": "Explore the security score",
+        "fr": "Explorer le score de securite"
+      },
+      "description": {
+        "en": "Analyze your fleet's security score: overall and per-OS breakdown, best/worst devices, most failed/passed checks, and score history over time. Read-only and safe to run end-to-end.",
+        "fr": "Analysez le score de securite de votre parc : note globale et par OS, meilleurs/pires appareils, verifications les plus echouees/reussies et historique du score. En lecture seule et sans risque de bout en bout."
+      },
+      "steps": [
+        {
+          "name": "open_security",
+          "path": "security",
+          "title": {
+            "en": "Open the Security Score page",
+            "fr": "Ouvrir la page Score de securite"
+          },
+          "instruction": {
+            "en": "Open Security > Score. The Global Security Score (highlighted) is your fleet's overall score out of 5; the per-OS cards beside it break it down by platform. Use the OS-type filter chips to focus on one platform.",
+            "fr": "Ouvrez Security > Score. Le Global Security Score (en surbrillance) est le score global de votre parc sur 5 ; les cartes par OS a cote le decomposent par plateforme. Utilisez les filtres par OS pour vous concentrer sur une plateforme."
+          },
+          "highlight": "[data-cy=scoreSecurity]"
+        },
+        {
+          "name": "review_rankings",
+          "path": "security",
+          "title": {
+            "en": "Review best/worst devices and top checks",
+            "fr": "Consulter meilleurs/pires appareils et top verifications"
+          },
+          "instruction": {
+            "en": "Scroll to the Top 10 best/worst devices (highlighted) and the Top 10 failed/passed security checks (each with a device count and severity badge) to prioritize remediation.",
+            "fr": "Faites defiler jusqu'aux Top 10 meilleurs/pires appareils (en surbrillance) et aux Top 10 verifications echouees/reussies (avec compteur d'appareils et badge de severite) pour prioriser la remediation."
+          },
+          "highlight": "[data-cy=top10SecurityList]"
+        },
+        {
+          "name": "view_score_history",
+          "path": "security/history",
+          "title": {
+            "en": "View the score history",
+            "fr": "Consulter l'historique du score"
+          },
+          "instruction": {
+            "en": "Open the History tab, pick a From/To range, and click Update to see the overall and per-OS score trends over the selected period (chart highlighted).",
+            "fr": "Ouvrez l'onglet History, choisissez une plage From/To et cliquez sur Update pour voir les tendances du score global et par OS sur la periode (graphique en surbrillance)."
+          },
+          "highlight": "[data-cy=historicalSecurityGraph]"
+        }
+      ]
+    },
+    {
+      "name": "investigate_security_check",
+      "feature": "securitychecks",
+      "title": {
+        "en": "Investigate a security check",
+        "fr": "Investiguer une verification de securite"
+      },
+      "description": {
+        "en": "Browse the security checks catalog, filter and find a failing check, and open it to see which devices pass or fail. Read-only and safe to run.",
+        "fr": "Parcourez le catalogue des verifications, filtrez et trouvez une verification en echec, puis ouvrez-la pour voir quels appareils reussissent ou echouent. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_catalog",
+          "path": "securitychecks",
+          "title": {
+            "en": "Open the Security Checks catalog",
+            "fr": "Ouvrir le catalogue des verifications"
+          },
+          "instruction": {
+            "en": "Open Security > Checks. Use the OS filter and search, then read each row of the catalog (highlighted): severity, %Passed bar, dimension, and tags (e.g. AI Agent Posture, CIS Benchmark Level 1).",
+            "fr": "Ouvrez Security > Checks. Utilisez le filtre OS et la recherche, puis lisez chaque ligne du catalogue (en surbrillance) : severite, barre %Passed, dimension et tags (ex. AI Agent Posture, CIS Benchmark Level 1)."
+          },
+          "highlight": "[data-cy=table-body]"
+        },
+        {
+          "name": "open_check_detail",
+          "path": "securitychecks",
+          "title": {
+            "en": "Open a check detail",
+            "fr": "Ouvrir le detail d'une verification"
+          },
+          "instruction": {
+            "en": "Click a check row to open its detail: description, severity, pass-rate bar, and two lists of failed (red) and passed (green) devices. From there you can click a device to open its detail.",
+            "fr": "Cliquez sur une ligne de verification pour ouvrir son detail : description, severite, barre de taux de reussite et deux listes d'appareils echoues (rouge) et reussis (vert). De la, vous pouvez cliquer sur un appareil pour ouvrir son detail."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=table-row]" },
+            { "type": "wait", "ms": 3000 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setup_conditional_access",
+      "feature": "policies",
+      "title": {
+        "en": "Set up conditional access",
+        "fr": "Configurer l'acces conditionnel"
+      },
+      "description": {
+        "en": "Two-part flow: first CREATE a conditional access integration (choose the integration type and enter its credentials), then LINK that integration to a policy from the policy's menu. Once linked, non-compliant devices are blocked from that integration (GitHub, GitLab, Azure, Google, Fortigate, NetBird, Tailscale, or Custom). This walkthrough stops before saving in both modals, so it is safe to run against the live demo workspace. Credentials for each integration are documented in the Access control wiki: https://github.com/edamametechnologies/integrations/wiki/Access-control-Documentation",
+        "fr": "Flux en deux parties : d'abord CREER une integration d'acces conditionnel (choisir le type d'integration et saisir ses identifiants), puis LIER cette integration a une politique depuis le menu de la politique. Une fois liee, les appareils non-conformes sont bloques de cette integration (GitHub, GitLab, Azure, Google, Fortigate, NetBird, Tailscale ou Custom). Ce tutoriel s'arrete avant l'enregistrement dans les deux modales, il est donc sans risque sur l'espace de demonstration. Les identifiants de chaque integration sont documentes dans le wiki Access control : https://github.com/edamametechnologies/integrations/wiki/Access-control-Documentation"
+      },
+      "steps": [
+        {
+          "name": "open_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Open the Conditional access tab",
+            "fr": "Ouvrir l'onglet Acces conditionnel"
+          },
+          "instruction": {
+            "en": "On the Policies page, switch to the 'Conditional access' tab. It lists your existing integration triggers. To add one, click 'Link conditional access' (highlighted) - despite the name, this button opens a modal that CREATES a new integration.",
+            "fr": "Sur la page Policies, basculez sur l'onglet 'Conditional access'. Il liste vos declencheurs d'integration existants. Pour en ajouter un, cliquez sur 'Link conditional access' (en surbrillance) - malgre son nom, ce bouton ouvre une modale qui CREE une nouvelle integration."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=conditionalAccessTab]" },
+            { "type": "wait", "ms": 900 }
+          ],
+          "highlight": "[data-cy=createConditionalAccess]"
+        },
+        {
+          "name": "create_conditional_access",
+          "path": "policies",
+          "title": {
+            "en": "Create the integration: pick a type and enter credentials",
+            "fr": "Creer l'integration : choisir un type et saisir les identifiants"
+          },
+          "instruction": {
+            "en": "The 'Create conditional access' modal opens. First pick a 'Conditional access type' - available types are Github, Gitlab, Azure, Google, Fortigate, Netbird, Tailscale, and Custom (shown here with Github selected). Each type then reveals the credential fields it needs (for Github: an access token and organization name). Give it a name, fill the required secrets/variables, then submit ('Test and create conditional access', or 'Create conditional access' for Fortigate/Custom). The exact credentials for every integration are documented in the Access control wiki.",
+            "fr": "La modale 'Create conditional access' s'ouvre. Choisissez d'abord un 'Conditional access type' - les types disponibles sont Github, Gitlab, Azure, Google, Fortigate, Netbird, Tailscale et Custom (ici avec Github selectionne). Chaque type revele ensuite les champs d'identifiants necessaires (pour Github : un access token et un nom d'organisation). Donnez-lui un nom, remplissez les secrets/variables requis, puis validez ('Test and create conditional access', ou 'Create conditional access' pour Fortigate/Custom). Les identifiants exacts de chaque integration sont documentes dans le wiki Access control."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=createConditionalAccess]" },
+            { "type": "wait", "ms": 1200 },
+            { "type": "fill", "selector": "[data-cy=conditionalAccessModal] input[id^=react-select]", "value": "Github" },
+            { "type": "wait", "ms": 600 },
+            { "type": "press", "key": "Enter" },
+            { "type": "wait", "ms": 900 }
+          ],
+          "highlight": "[data-cy=conditionalAccessModal]"
+        },
+        {
+          "name": "open_policy",
+          "path": "policies",
+          "title": {
+            "en": "Open a policy to link the integration to",
+            "fr": "Ouvrir une politique a laquelle lier l'integration"
+          },
+          "instruction": {
+            "en": "Creating the integration does not attach it to anything yet - you link it from a policy. Go back to the 'Policies' tab and click a policy to open its detail page. On the top-right of the policy card, open the menu (the vertical three-dot / burger button, highlighted).",
+            "fr": "Creer l'integration ne l'attache encore a rien - vous la liez depuis une politique. Revenez sur l'onglet 'Policies' et cliquez sur une politique pour ouvrir sa page de detail. En haut a droite de la carte de politique, ouvrez le menu (le bouton a trois points verticaux / burger, en surbrillance)."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=policiesTab]" },
+            { "type": "wait", "ms": 700 },
+            { "type": "click", "selector": "[data-cy=policy-row]" },
+            { "type": "wait", "ms": 3000 }
+          ],
+          "highlight": "[data-cy=menuPolicyButton]"
+        },
+        {
+          "name": "open_policy_menu",
+          "title": {
+            "en": "Open the policy menu and choose Edit",
+            "fr": "Ouvrir le menu de la politique et choisir Edit"
+          },
+          "instruction": {
+            "en": "Click the top-right burger menu to open it. It offers 'Add exception', 'Edit', notification toggles, and 'Delete policy'. Choose 'Edit' (highlighted) to open the policy's update form.",
+            "fr": "Cliquez sur le menu burger en haut a droite pour l'ouvrir. Il propose 'Add exception', 'Edit', des bascules de notification et 'Delete policy'. Choisissez 'Edit' (en surbrillance) pour ouvrir le formulaire de mise a jour de la politique."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=menuPolicyButton]" },
+            { "type": "wait", "ms": 800 }
+          ],
+          "highlight": "[data-cy=editPolicyButton]"
+        },
+        {
+          "name": "link_conditional_access",
+          "title": {
+            "en": "Link the conditional access to the policy",
+            "fr": "Lier l'acces conditionnel a la politique"
+          },
+          "instruction": {
+            "en": "The 'Update policy' modal opens. In the 'Selection conditional access(es)' field (highlighted), search for and select the integration you created, then click 'Update policy' to confirm. Non-compliant devices will then be denied access through that integration. Note: a conditional access can currently be linked to a single policy only.",
+            "fr": "La modale 'Update policy' s'ouvre. Dans le champ 'Selection conditional access(es)' (en surbrillance), recherchez et selectionnez l'integration que vous avez creee, puis cliquez sur 'Update policy' pour confirmer. Les appareils non-conformes se verront alors refuser l'acces via cette integration. Note : un acces conditionnel ne peut actuellement etre lie qu'a une seule politique."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=editPolicyButton]" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "highlight": "[data-cy=controlledProviderSelect]"
+        }
+      ]
+    },
+    {
+      "name": "create_group",
+      "feature": "groups",
+      "title": {
+        "en": "Create a user group",
+        "fr": "Creer un groupe d'utilisateurs"
+      },
+      "description": {
+        "en": "Create a group to organize users into logical sets that can be targeted by access control policies. This walkthrough stops before creating so it is safe to run against the live demo workspace.",
+        "fr": "Creez un groupe pour organiser les utilisateurs en ensembles logiques ciblables par les politiques de controle d'acces. Ce tutoriel s'arrete avant la creation, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_groups",
+          "path": "groups",
+          "title": {
+            "en": "Open the Groups page",
+            "fr": "Ouvrir la page Groupes"
+          },
+          "instruction": {
+            "en": "Open End-users > Groups. Existing groups appear as cards showing the name and member count (e.g. 'admin - 2 users'). Click 'Create a group' (highlighted) to add a new one.",
+            "fr": "Ouvrez End-users > Groups. Les groupes existants apparaissent en cartes avec le nom et le nombre de membres (ex. 'admin - 2 users'). Cliquez sur 'Create a group' (en surbrillance) pour en ajouter un."
+          },
+          "highlight": "[data-cy=createGroupButton]"
+        },
+        {
+          "name": "open_create_group",
+          "path": "groups",
+          "title": {
+            "en": "Fill in the create-group modal",
+            "fr": "Remplir la modale de creation de groupe"
+          },
+          "instruction": {
+            "en": "The 'Create a group' modal opens. Give the group a name, add members, and confirm. The group can then be referenced when creating a policy.",
+            "fr": "La modale 'Create a group' s'ouvre. Donnez un nom au groupe, ajoutez des membres et confirmez. Le groupe pourra ensuite etre reference lors de la creation d'une politique."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=createGroupButton]" },
+            { "type": "wait", "ms": 1200 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "explore_device_map",
+      "feature": "map",
+      "title": {
+        "en": "Explore the device map",
+        "fr": "Explorer la carte des appareils"
+      },
+      "description": {
+        "en": "Use the geographic map to see where your monitored devices are located and open a marker to jump to a device. Read-only and safe to run.",
+        "fr": "Utilisez la carte geographique pour voir ou se trouvent vos appareils surveilles et ouvrez un marqueur pour aller vers un appareil. En lecture seule et sans risque."
+      },
+      "steps": [
+        {
+          "name": "open_map",
+          "path": "map",
+          "title": {
+            "en": "Open the device map",
+            "fr": "Ouvrir la carte des appareils"
+          },
+          "instruction": {
+            "en": "Open Endpoints > Map. Use the All devices / Live devices toggle (highlighted) to switch datasets, zoom into a region, and click an OS-icon marker to open its device/user popup and navigate to the detail.",
+            "fr": "Ouvrez Endpoints > Map. Utilisez la bascule All devices / Live devices (en surbrillance) pour changer de jeu de donnees, zoomez sur une region et cliquez sur un marqueur a icone OS pour ouvrir son popup appareil/utilisateur et aller vers le detail."
+          },
+          "highlight": "button:has-text('All devices')"
+        }
+      ]
+    },
+    {
+      "name": "manage_team_members",
+      "feature": "settings",
+      "title": {
+        "en": "Manage dashboard team members",
+        "fr": "Gerer les membres de l'equipe du tableau de bord"
+      },
+      "description": {
+        "en": "Invite administrators to the dashboard, assign roles, and manage existing members and pending invitations. This is distinct from end-user onboarding. This walkthrough stops before sending invitations so it is safe to run against the live demo workspace.",
+        "fr": "Invitez des administrateurs au tableau de bord, attribuez des roles et gerez les membres existants et les invitations en attente. Distinct de l'onboarding des utilisateurs finaux. Ce tutoriel s'arrete avant l'envoi des invitations, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_members",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Open Settings > Members",
+            "fr": "Ouvrir Settings > Members"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select the Members tab (highlighted). This is where you manage dashboard administrators. Note that only users who already have an account can currently be invited as members.",
+            "fr": "Ouvrez Workspace settings et selectionnez l'onglet Members (en surbrillance). C'est ici que vous gerez les administrateurs du tableau de bord. Notez que seuls les utilisateurs disposant deja d'un compte peuvent actuellement etre invites comme membres."
+          },
+          "highlight": "[data-cy=membersTab]"
+        },
+        {
+          "name": "fill_member_invite",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Invite a member and pick a role",
+            "fr": "Inviter un membre et choisir un role"
+          },
+          "instruction": {
+            "en": "In the 'Invite new members' form (highlighted), enter the member's email, choose a role (e.g. Admin), optionally 'Add another member', then click 'Send invitation(s)'.",
+            "fr": "Dans le formulaire 'Invite new members' (en surbrillance), saisissez l'email du membre, choisissez un role (ex. Admin), eventuellement 'Add another member', puis cliquez sur 'Send invitation(s)'."
+          },
+          "actions": [
+            { "type": "fill", "selector": "[data-cy=inviteMemberForm] input", "value": "admin.colleague@acme.com" }
+          ],
+          "highlight": "[data-cy=inviteMemberForm]"
+        },
+        {
+          "name": "manage_existing_members",
+          "path": "settings?tab=members",
+          "title": {
+            "en": "Manage members and invitations",
+            "fr": "Gerer les membres et invitations"
+          },
+          "instruction": {
+            "en": "Use the 'Team members' and 'Pending invitations' sub-tabs (Pending invitations highlighted) to review and adjust roles. The Danger Zone at the bottom lets an owner delete the workspace.",
+            "fr": "Utilisez les sous-onglets 'Team members' et 'Pending invitations' (Pending invitations en surbrillance) pour consulter et ajuster les roles. La Danger Zone en bas permet a un proprietaire de supprimer l'espace de travail."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text('Pending invitations')" },
+            { "type": "wait", "ms": 700 }
+          ],
+          "highlight": "button:has-text('Pending invitations')"
+        }
+      ]
+    },
+    {
+      "name": "connect_integration",
+      "feature": "settings",
+      "title": {
+        "en": "Connect an integration",
+        "fr": "Connecter une integration"
+      },
+      "description": {
+        "en": "Connect a third-party integration (e.g. Vanta for compliance tracking, GitHub for audits) from Settings. This walkthrough stops before authorizing so it is safe to run against the live demo workspace.",
+        "fr": "Connectez une integration tierce (ex. Vanta pour le suivi de conformite, GitHub pour les audits) depuis Settings. Ce tutoriel s'arrete avant l'autorisation, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_integrations",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Open Settings > Integrations",
+            "fr": "Ouvrir Settings > Integrations"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select the Integrations tab. The table lists each integration with a description and a Connected/Not connected status; the Vanta row is highlighted here.",
+            "fr": "Ouvrez Workspace settings et selectionnez l'onglet Integrations. Le tableau liste chaque integration avec une description et un statut Connecte/Non connecte ; la ligne Vanta est en surbrillance ici."
+          },
+          "highlight": "tr:has-text('Vanta')"
+        },
+        {
+          "name": "connect_provider",
+          "path": "settings?tab=integrations",
+          "title": {
+            "en": "Connect a provider",
+            "fr": "Connecter un fournisseur"
+          },
+          "instruction": {
+            "en": "Click 'Connect' on the integration you want (e.g. the Vanta 'Connect' button, highlighted) and complete the provider's authorization flow. Once connected, the status badge flips to Connected and provider-specific actions become available.",
+            "fr": "Cliquez sur 'Connect' sur l'integration souhaitee (ex. le bouton 'Connect' de Vanta, en surbrillance) et completez le flux d'autorisation du fournisseur. Une fois connectee, le badge passe a Connecte et des actions specifiques deviennent disponibles."
+          },
+          "highlight": "tr:has-text('Vanta') button:has-text('Connect')"
+        }
+      ]
+    },
+    {
+      "name": "manage_billing",
+      "feature": "settings",
+      "title": {
+        "en": "Review billing and plans",
+        "fr": "Consulter la facturation et les plans"
+      },
+      "description": {
+        "en": "Review your current subscription and compare the Free, Business, and Enterprise plans (user/device limits, history retention, support). This walkthrough stops before changing the plan so it is safe to run against the live demo workspace.",
+        "fr": "Consultez votre abonnement actuel et comparez les plans Free, Business et Enterprise (limites utilisateurs/appareils, retention d'historique, support). Ce tutoriel s'arrete avant tout changement de plan, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_billing",
+          "path": "settings?tab=billing",
+          "title": {
+            "en": "Open Settings > Billing and plans",
+            "fr": "Ouvrir Settings > Facturation et plans"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select 'Billing and plans'. The Current plan banner (highlighted) shows your subscription and billing period, with a 'Manage plan' action for paid plans.",
+            "fr": "Ouvrez Workspace settings et selectionnez 'Billing and plans'. La banniere Current plan (en surbrillance) affiche votre abonnement et la periode de facturation, avec une action 'Manage plan' pour les plans payants."
+          },
+          "highlight": "text=Current plan"
+        },
+        {
+          "name": "compare_plans",
+          "path": "settings?tab=billing",
+          "title": {
+            "en": "Compare plans",
+            "fr": "Comparer les plans"
+          },
+          "instruction": {
+            "en": "In the plans comparison (highlighted), toggle Monthly / Yearly billing (yearly saves 20%) and compare the Free, Business, and Enterprise cards. Use each card's action to upgrade or downgrade when ready.",
+            "fr": "Dans la comparaison des plans (en surbrillance), basculez la facturation Mensuelle / Annuelle (l'annuel economise 20%) et comparez les cartes Free, Business et Enterprise. Utilisez l'action de chaque carte pour mettre a niveau ou retrograder le moment venu."
+          },
+          "highlight": "[data-cy=pricingPlans]"
+        }
+      ]
+    },
+    {
+      "name": "configure_notifications",
+      "feature": "settings",
+      "title": {
+        "en": "Configure notification preferences",
+        "fr": "Configurer les preferences de notification"
+      },
+      "description": {
+        "en": "Choose which events notify you (identity/licensing and score/compliance), add email and phone recipients, and set thresholds. This walkthrough stops before saving so it is safe to run against the live demo workspace.",
+        "fr": "Choisissez quels evenements vous notifient (identite/licences et score/conformite), ajoutez des destinataires email et telephone et definissez des seuils. Ce tutoriel s'arrete avant l'enregistrement, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_notification_settings",
+          "path": "settings?tab=notifications",
+          "title": {
+            "en": "Open Settings > Notifications",
+            "fr": "Ouvrir Settings > Notifications"
+          },
+          "instruction": {
+            "en": "Open Workspace settings and select the Notifications tab. Preferences are grouped into 'Identity and Licensing' (highlighted) and 'Score and Compliance'. Each row has Notification center, Email, SMS, and Threshold columns.",
+            "fr": "Ouvrez Workspace settings et selectionnez l'onglet Notifications. Les preferences sont groupees en 'Identity and Licensing' (en surbrillance) et 'Score and Compliance'. Chaque ligne a des colonnes Notification center, Email, SMS et Threshold."
+          },
+          "highlight": "text=Identity and Licensing"
+        },
+        {
+          "name": "set_thresholds",
+          "path": "settings?tab=notifications",
+          "title": {
+            "en": "Set channels and thresholds",
+            "fr": "Definir canaux et seuils"
+          },
+          "instruction": {
+            "en": "For each row, toggle the Notification center, add email/phone recipients, and set a threshold (e.g. a score change of 10%). Click 'Save' (highlighted) to persist your changes.",
+            "fr": "Pour chaque ligne, activez le Notification center, ajoutez des destinataires email/telephone et definissez un seuil (ex. variation de score de 10%). Cliquez sur 'Save' (en surbrillance) pour persister vos changements."
+          },
+          "highlight": "button:has-text('Save')"
+        }
+      ]
+    },
+    {
+      "name": "manage_notifications",
+      "feature": "notifications",
+      "title": {
+        "en": "Work the notification center",
+        "fr": "Utiliser le centre de notifications"
+      },
+      "description": {
+        "en": "Review, open, mark as read, and delete domain notifications from the Notification Center. This walkthrough stops before deleting so it is safe to run against the live demo workspace.",
+        "fr": "Consultez, ouvrez, marquez comme lues et supprimez les notifications du domaine depuis le Centre de notifications. Ce tutoriel s'arrete avant la suppression, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_notification_center",
+          "path": "notifications",
+          "title": {
+            "en": "Open the Notification Center",
+            "fr": "Ouvrir le Centre de notifications"
+          },
+          "instruction": {
+            "en": "Open Notifications. The Total / Unread / Read stat cards (highlighted) summarize your notifications; note they are auto-removed 7 days after they occur.",
+            "fr": "Ouvrez Notifications. Les cartes Total / Unread / Read (en surbrillance) resument vos notifications ; notez qu'elles sont supprimees automatiquement 7 jours apres leur survenue."
+          },
+          "highlight": ".chakra-stat"
+        },
+        {
+          "name": "work_notifications",
+          "path": "notifications",
+          "title": {
+            "en": "Read, open, or clear notifications",
+            "fr": "Lire, ouvrir ou effacer des notifications"
+          },
+          "instruction": {
+            "en": "In the 'All notifications' table (highlighted), click a row to open the linked resource, use mark-as-read to clear the unread dot, or delete notifications you no longer need.",
+            "fr": "Dans le tableau 'All notifications' (en surbrillance), cliquez sur une ligne pour ouvrir la ressource liee, utilisez marquer-comme-lu pour retirer la pastille non-lu, ou supprimez les notifications inutiles."
+          },
+          "highlight": "[data-cy=table-body]"
+        }
+      ]
+    }
+  ]
+}
