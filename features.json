@@ -763,13 +763,17 @@
         {
           "name": "policies_conditional_access",
           "path": "policies",
+          "actions": [
+            { "type": "click", "selector": "[data-cy=conditionalAccessTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
           "title": {
             "en": "Conditional Access Rules",
             "fr": "Regles d'acces conditionnel"
           },
           "visual": {
-            "en": "The 'Conditional access' tab of the Policies page (the static capture shows the default Policies tab). It lists conditional access rules and their associated integration triggers.",
-            "fr": "L'onglet 'Conditional access' de la page Policies (la capture statique montre l'onglet Policies par defaut). Il liste les regles d'acces conditionnel et leurs declencheurs d'integration associes."
+            "en": "The 'Conditional access' tab of the Policies page. It lists conditional access rules and their associated integration triggers.",
+            "fr": "L'onglet 'Conditional access' de la page Policies. Il liste les regles d'acces conditionnel et leurs declencheurs d'integration associes."
           },
           "description": {
             "en": "Tab showing conditional access rules with associated triggers for integration enforcement (GitHub, Azure, Google, GitLab, Fortigate, NetBird, Tailscale, Netskope, Custom). For Netskope, EDAMAME applies or removes a device tag from the device's policy result; the customer's Netskope Device Classification and Real-time Policy enforce access.",
@@ -779,13 +783,17 @@
         {
           "name": "policies_devices",
           "path": "policies",
+          "actions": [
+            { "type": "click", "selector": "[data-cy=devicesTab]" },
+            { "type": "wait", "ms": 1500 }
+          ],
           "title": {
             "en": "Device Policy Compliance",
             "fr": "Conformite des appareils aux politiques"
           },
           "visual": {
-            "en": "The 'Devices' tab of the Policies page (the static capture shows the default Policies tab). A device-centric table with one dynamic column per policy showing Compliant/Non-compliant badges, with offline rows subtly highlighted.",
-            "fr": "L'onglet 'Devices' de la page Policies (la capture statique montre l'onglet Policies par defaut). Un tableau centre sur les appareils avec une colonne dynamique par politique affichant des badges Conforme/Non-conforme, les lignes hors ligne etant legerement surlignees."
+            "en": "The 'Devices' tab of the Policies page. A device-centric table with one dynamic column per policy showing Compliant/Non-compliant badges, with offline rows subtly highlighted.",
+            "fr": "L'onglet 'Devices' de la page Policies. Un tableau centre sur les appareils avec une colonne dynamique par politique affichant des badges Conforme/Non-conforme, les lignes hors ligne etant legerement surlignees."
           },
           "description": {
             "en": "Device-centric view showing all devices with one dynamic column per policy displaying Compliant/Non-compliant badges. Offline device rows are subtly highlighted, non-compliant badges show violation reasons on hover, and CI/CD devices are excluded.",
