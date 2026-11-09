@@ -1951,8 +1951,8 @@
             "fr": "Affiner avec More options"
           },
           "instruction": {
-            "en": "With a group chosen, 'More options' narrows the configuration to one app (All targets, EDAMAME app, CI/CD runners, EDAMAME Posture) and one operating system, and sets its priority, a whole number between -1000 and 1000. Priority only decides between configurations of the same kinds, such as two groups a person belongs to: the higher wins. Who the configuration is for, the app and the operating system cannot be changed after saving.",
-            "fr": "Une fois le groupe choisi, 'More options' restreint la configuration a une application (All targets, application EDAMAME, runners CI/CD, EDAMAME Posture) et a un systeme d'exploitation, et regle sa priorite, un nombre entier entre -1000 et 1000. La priorite ne departage que des configurations de memes types, comme deux groupes auxquels appartient une personne : la plus elevee l'emporte. Le public, l'application et le systeme d'exploitation ne peuvent plus etre changes apres l'enregistrement."
+            "en": "With a group chosen, 'More options' narrows the configuration to one app (All targets, EDAMAME app, CI/CD runners, EDAMAME Posture) and one operating system, and sets its priority, a whole number between -1000 and 1000. Priority only decides between configurations of the same kinds, such as two groups a person belongs to: the higher wins. A group has one configuration per app and operating system: to add another for the same people, narrow it to one operating system, as here. Who the configuration is for, the app and the operating system cannot be changed after saving.",
+            "fr": "Une fois le groupe choisi, 'More options' restreint la configuration a une application (All targets, application EDAMAME, runners CI/CD, EDAMAME Posture) et a un systeme d'exploitation, et regle sa priorite, un nombre entier entre -1000 et 1000. La priorite ne departage que des configurations de memes types, comme deux groupes auxquels appartient une personne : la plus elevee l'emporte. Un groupe a une configuration par application et systeme d'exploitation : pour en ajouter une autre pour les memes personnes, restreignez-la a un systeme d'exploitation, comme ici. Le public, l'application et le systeme d'exploitation ne peuvent plus etre changes apres l'enregistrement."
           },
           "actions": [
             { "type": "click", "selector": "button:has-text(\"New configuration\")" },
@@ -1965,10 +1965,14 @@
             { "type": "wait", "ms": 1000 },
             { "type": "click", "selector": "[data-cy=managedAudienceGroup]" },
             { "type": "wait", "ms": 1000 },
-            { "type": "press", "selector": ".chakra-modal__content input[id^=\"react-select\"]", "key": "ArrowDown" },
+            { "type": "press", "selector": ".chakra-modal__content input[aria-autocomplete=\"list\"]", "key": "ArrowDown" },
             { "type": "press", "key": "Enter" },
             { "type": "wait", "ms": 500 },
             { "type": "click", "selector": ".chakra-modal__content button:has-text(\"More options\")" },
+            { "type": "wait", "ms": 500 },
+            { "type": "press", "selector": ":nth-match(.chakra-modal__content input[aria-autocomplete=\"list\"], 3)", "key": "ArrowDown" },
+            { "type": "press", "key": "ArrowDown" },
+            { "type": "press", "key": "Enter" },
             { "type": "wait", "ms": 500 }
           ]
         },
@@ -1994,7 +1998,13 @@
             { "type": "wait", "ms": 1000 },
             { "type": "click", "selector": "[data-cy=managedAudienceGroup]" },
             { "type": "wait", "ms": 1000 },
-            { "type": "press", "selector": ".chakra-modal__content input[id^=\"react-select\"]", "key": "ArrowDown" },
+            { "type": "press", "selector": ".chakra-modal__content input[aria-autocomplete=\"list\"]", "key": "ArrowDown" },
+            { "type": "press", "key": "Enter" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"More options\")" },
+            { "type": "wait", "ms": 500 },
+            { "type": "press", "selector": ":nth-match(.chakra-modal__content input[aria-autocomplete=\"list\"], 3)", "key": "ArrowDown" },
+            { "type": "press", "key": "ArrowDown" },
             { "type": "press", "key": "Enter" },
             { "type": "wait", "ms": 500 },
             { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
@@ -2041,7 +2051,7 @@
             "fr": "Dans 'Preview a person' (en surbrillance), choisissez une personne. Une pilule par appareil montre ce qu'il devrait executer, la configuration d'ou vient chaque reglage et ce que son application EDAMAME execute vraiment. Une personne dans plusieurs groupes recoit leurs configurations combinees : c'est ici que l'on voit le resultat."
           },
           "actions": [
-            { "type": "press", "selector": "[data-cy=managedConfigPreview] input", "key": "ArrowDown" },
+            { "type": "press", "selector": "[data-cy=managedConfigPreview] input[aria-autocomplete=\"list\"]", "key": "ArrowDown" },
             { "type": "press", "key": "Enter" },
             { "type": "wait", "ms": 1000 }
           ],
