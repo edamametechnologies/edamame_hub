@@ -100,6 +100,39 @@ OWASP LLM, MITRE ATLAS and ISO/IEC 42001 items.
   or any system driven by a custom IP or MAC allow list. Setup guides:
   [integrations](https://github.com/edamametechnologies/integrations).
 
+### Managed configuration
+
+Set the EDAMAME app and EDAMAME Posture settings for your whole team from the
+Hub. The Hub manages the EDAMAME software's own settings, never the device
+itself, and each person accepts the configuration in their EDAMAME app.
+
+- **What you can set:** Protection (the Assistant, attack pattern detection
+  and intent divergence detection), the Assistant level (**Review**: each fix
+  is confirmed by the person; **Auto**: safe fixes are applied and can be
+  undone), network capture, the file monitor, LAN auto-scan, and sharing AI
+  failure details with the Hub. A setting left *Not managed* stays as each
+  person set it.
+- **Who gets what:** a configuration applies to everyone or to one user group,
+  and can be narrowed to one app (EDAMAME app, EDAMAME Posture, CI/CD runners)
+  and one operating system. The Hub combines the configurations that apply to
+  a device, setting by setting, and the most specific one wins. **Who gets
+  what** and **Preview a person** show the result before anyone is asked.
+- **Templates:** start from *Office staff* (monitoring, no AI), *Developers*
+  (Protection, the Assistant in Review mode, all the monitoring) or *Locked
+  down* (the Developers settings, locked and required), or from scratch.
+- **Locks and acceptance:** lock the Protection or Monitoring settings so
+  people cannot change them once they accept, and make a configuration
+  required to stay in the workspace. Otherwise people accept it as a whole and
+  can still change any setting you did not lock.
+- **What really runs:** the **Devices** tab and each device's page show, per
+  setting, whether it is applied, changed by the user, not running, or kept by
+  an administrator policy on the device (EDAMAME 2.2.4 or later).
+- **AI key (Enterprise plan):** a configuration that turns Protection on gives
+  each person an EDAMAME Portal key once they accept it. **Settings > Billing
+  and plans** shows the usage per person, never what people ask the AI.
+- Applies to members who joined the workspace with their PIN; devices enrolled
+  from an MDM with an enrollment token are not managed.
+
 ### Onboarding, engagement and notifications
 
 - **Onboarding:** invite users by email or let them self-onboard, and follow who
@@ -197,6 +230,10 @@ The wiki walks through the common tasks screen by screen, including:
 - [Check compliance against a framework](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-check_compliance)
 - [Create a policy](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-create_policy)
   and [set up conditional access](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-setup_conditional_access)
+- [Create a managed configuration](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-create_managed_configuration),
+  [give a group its own configuration](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-managed_configuration_for_group),
+  [check what people and devices run](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-check_managed_configuration)
+  and [edit or delete one](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-edit_managed_configuration)
 - [Handle a security escalation](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-handle_escalation)
 - [Run a GitHub organization audit](https://github.com/edamametechnologies/edamame_hub/wiki/workflow-run_github_audit)
 

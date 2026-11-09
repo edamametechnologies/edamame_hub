@@ -71,6 +71,15 @@
       "policies_devices": {
         "prefix": "08"
       },
+      "managedconfig_configurations": {
+        "prefix": "08b"
+      },
+      "managedconfig_devices": {
+        "prefix": "08b"
+      },
+      "managedconfig_settings": {
+        "prefix": "08b"
+      },
       "securitychecks_list": {
         "prefix": "09"
       },
@@ -428,12 +437,12 @@
             "fr": "Detail de l'appareil"
           },
           "visual": {
-            "en": "Not part of the static capture (dynamic device route). A device header with OS/IP/version/location and a 5-dimension score breakdown, scrollable passed/failed security-check lists, policy compliance, an event timeline, a score line chart, and an event scatter plot. On AI-capable devices an 'AI posture' card lists, per observed agent, its sandbox state, host amplifiers, whether it is observed and covered by a governance harness, and its MCP servers with their transport and authentication; each failing AI check shows its causes with an inline Accept action that authors an AI governance allowlist entry for that cause. Each failing AI check also carries a 'Frameworks:' line of chips, one per framework the check maps to -- OWASP Agentic (ASI ids), OWASP LLM (LLM ids), MITRE ATLAS (AML.T technique ids), Trust Controls (control ids), ISO/IEC 42001 and ISO 27001:2022 (clause ids) -- each linking to the published reference, derived on the device from the same crosswalk the app's Compliance scorecards use.",
-            "fr": "Hors capture statique (route dynamique par appareil). En-tete avec OS/IP/version/localisation et decomposition du score en 5 dimensions, listes deroulantes des verifications reussies/echouees, conformite aux politiques, chronologie des evenements, graphique de score et nuage de points des evenements. Sur les appareils compatibles IA, une carte 'AI posture' liste, par agent observe, son etat de sandbox, les amplificateurs de l'hote, s'il est observe et couvert par un harnais de gouvernance, et ses serveurs MCP avec transport et authentification ; chaque controle IA en echec montre ses causes avec une action Accept en ligne qui cree une entree de liste d'autorisation de gouvernance IA pour cette cause. Chaque controle IA en echec porte aussi une ligne 'Frameworks:' de puces, une par cadre auquel il correspond -- OWASP Agentic (ids ASI), OWASP LLM (ids LLM), MITRE ATLAS (ids de technique AML.T), Trust Controls (ids de controle), ISO/IEC 42001 et ISO 27001:2022 (ids de clause) -- chacune renvoyant a la reference publiee, derivee sur l'appareil de la meme table de correspondance que les tableaux de bord de conformite de l'application."
+            "en": "Not part of the static capture (dynamic device route). A device header with OS/IP/version/location and a 5-dimension score breakdown, scrollable passed/failed security-check lists, policy compliance, an event timeline, a score line chart, and an event scatter plot. On AI-capable devices an 'AI posture' card lists, per observed agent, its sandbox state, host amplifiers, whether it is observed and covered by a governance harness, and its MCP servers with their transport and authentication; each failing AI check shows its causes with an inline Accept action that authors an AI governance allowlist entry for that cause. Each failing AI check also carries a 'Frameworks:' line of chips, one per framework the check maps to -- OWASP Agentic (ASI ids), OWASP LLM (LLM ids), MITRE ATLAS (AML.T technique ids), Trust Controls (control ids), ISO/IEC 42001 and ISO 27001:2022 (clause ids) -- each linking to the published reference, derived on the device from the same crosswalk the app's Compliance scorecards use. When a managed configuration applies to the device, a 'Managed configuration' card shows, setting by setting, what its EDAMAME app should run, which configuration each setting comes from and what it runs, with its locks, whether it must accept, its AI key state, and a link to all devices in Managed configuration.",
+            "fr": "Hors capture statique (route dynamique par appareil). En-tete avec OS/IP/version/localisation et decomposition du score en 5 dimensions, listes deroulantes des verifications reussies/echouees, conformite aux politiques, chronologie des evenements, graphique de score et nuage de points des evenements. Sur les appareils compatibles IA, une carte 'AI posture' liste, par agent observe, son etat de sandbox, les amplificateurs de l'hote, s'il est observe et couvert par un harnais de gouvernance, et ses serveurs MCP avec transport et authentification ; chaque controle IA en echec montre ses causes avec une action Accept en ligne qui cree une entree de liste d'autorisation de gouvernance IA pour cette cause. Chaque controle IA en echec porte aussi une ligne 'Frameworks:' de puces, une par cadre auquel il correspond -- OWASP Agentic (ids ASI), OWASP LLM (ids LLM), MITRE ATLAS (ids de technique AML.T), Trust Controls (ids de controle), ISO/IEC 42001 et ISO 27001:2022 (ids de clause) -- chacune renvoyant a la reference publiee, derivee sur l'appareil de la meme table de correspondance que les tableaux de bord de conformite de l'application. Quand une configuration geree s'applique a l'appareil, une carte 'Managed configuration' montre, reglage par reglage, ce que son application EDAMAME devrait executer, la configuration d'ou vient chaque reglage et ce qu'elle execute, avec ses verrous, s'il doit accepter, l'etat de sa cle IA et un lien vers tous les appareils dans Managed configuration."
           },
           "description": {
-            "en": "Comprehensive device view: header (OS, IP, version, city, country, 5-dimension score breakdown), failed and passed security checks as scrollable lists, policy compliance with violation reasons, an event timeline, a security score line chart, and an event score scatter plot. The AI posture card is where an administrator reads one device's agents and accepts a specific cause without leaving the device.",
-            "fr": "Vue detaillee de l'appareil : en-tete (OS, IP, version, ville, pays, decomposition du score en 5 dimensions), verifications echouees et reussies en listes deroulantes, conformite aux politiques avec raisons de violation, chronologie des evenements, graphique de score et nuage de points des evenements. La carte AI posture est l'endroit ou un administrateur lit les agents d'un appareil et accepte une cause precise sans quitter l'appareil."
+            "en": "Comprehensive device view: header (OS, IP, version, city, country, 5-dimension score breakdown), failed and passed security checks as scrollable lists, policy compliance with violation reasons, an event timeline, a security score line chart, and an event score scatter plot. The AI posture card is where an administrator reads one device's agents and accepts a specific cause without leaving the device. The Managed configuration card tells whether the device's EDAMAME app answered the current version of its configuration and follows it.",
+            "fr": "Vue detaillee de l'appareil : en-tete (OS, IP, version, ville, pays, decomposition du score en 5 dimensions), verifications echouees et reussies en listes deroulantes, conformite aux politiques avec raisons de violation, chronologie des evenements, graphique de score et nuage de points des evenements. La carte AI posture est l'endroit ou un administrateur lit les agents d'un appareil et accepte une cause precise sans quitter l'appareil. La carte Managed configuration indique si l'application EDAMAME de l'appareil a repondu a la version actuelle de sa configuration et si elle la suit."
           },
           "items": [
             {
@@ -803,6 +812,85 @@
       ]
     },
     {
+      "name": "managedconfig",
+      "title": {
+        "en": "Managed Configuration",
+        "fr": "Configuration geree"
+      },
+      "visual": {
+        "en": "The 'Managed configuration' page (Security section of the sidebar, after Policies) with two pill tabs (Configurations, Devices) and, for workspace owners and admins, a 'New configuration' button on the tabs' row. The Configurations tab shows 'Who gets what', 'Preview a person', the 'All configurations' table and a 'How a device's configuration is built' card.",
+        "fr": "La page 'Managed configuration' (section Security de la barre laterale, apres Policies) avec deux onglets pilules (Configurations, Devices) et, pour les proprietaires et administrateurs de l'espace, un bouton 'New configuration' sur la ligne des onglets. L'onglet Configurations affiche 'Who gets what', 'Preview a person', le tableau 'All configurations' et une carte 'How a device's configuration is built'."
+      },
+      "description": {
+        "en": "Manage the settings of the EDAMAME app and EDAMAME Posture from the Hub: Protection (the Assistant, attack pattern detection and intent divergence detection), the Assistant level (Review or Auto), network capture, the file monitor, LAN auto-scan and sharing AI failure details with the Hub. The Hub manages the EDAMAME software's own settings, never the device itself, and each person accepts the configuration in their EDAMAME app. Each configuration is a layer that selects a target (All targets, EDAMAME app, CI/CD runners, EDAMAME Posture), an operating system and a user group. For each device, the Hub combines every layer that applies to it, setting by setting, and the more specific layer wins. People accept a configuration as a whole and can still change a setting that is not locked; the Devices tab shows, per device and per setting, what the EDAMAME app really runs. Start from a template (Office staff, Developers, Locked down) or from scratch. Only members who joined the workspace with their PIN are managed this way. Every role can read the page; owners and admins create, edit and delete configurations.",
+        "fr": "Gerez les reglages de l'application EDAMAME et d'EDAMAME Posture depuis le Hub : Protection (l'Assistant, la detection des schemas d'attaque et la detection de divergence d'intention), le niveau de l'Assistant (Review ou Auto), la capture reseau, la surveillance des fichiers, le scan automatique du reseau local et le partage des details d'echec IA avec le Hub. Le Hub gere les reglages propres au logiciel EDAMAME, jamais l'appareil lui-meme, et chaque personne accepte la configuration dans son application EDAMAME. Chaque configuration est une couche qui selectionne une cible (All targets, application EDAMAME, runners CI/CD, EDAMAME Posture), un systeme d'exploitation et un groupe d'utilisateurs. Pour chaque appareil, le Hub combine toutes les couches qui le concernent, reglage par reglage, et la couche la plus specifique l'emporte. Les personnes acceptent une configuration en bloc et peuvent encore modifier un reglage non verrouille ; l'onglet Devices montre, par appareil et par reglage, ce que l'application EDAMAME execute reellement. Partez d'un modele (Office staff, Developers, Locked down) ou de zero. Seuls les membres qui ont rejoint l'espace avec leur PIN sont geres ainsi. Tous les roles peuvent lire la page ; les proprietaires et administrateurs creent, modifient et suppriment les configurations."
+      },
+      "sub_features": [
+        {
+          "name": "managedconfig_configurations",
+          "path": "managedconfig",
+          "title": {
+            "en": "Configurations",
+            "fr": "Configurations"
+          },
+          "visual": {
+            "en": "The Configurations tab. 'Who gets what' has one column per audience (every member, then each group) with the merged value of each setting, where an inherited value comes from, the locks, 'Must accept' and the AI key. 'Preview a person' shows, device by device, what a chosen person should run. 'All configurations' lists the layers in merge order (Applies to, Priority, Organization, Acceptance, Managed settings, Last change), followed by the precedence rules. With no configuration yet, the tab shows an empty state.",
+            "fr": "L'onglet Configurations. 'Who gets what' a une colonne par public (tous les membres, puis chaque groupe) avec la valeur combinee de chaque reglage, l'origine d'une valeur heritee, les verrous, 'Must accept' et la cle IA. 'Preview a person' montre, appareil par appareil, ce qu'une personne choisie devrait executer. 'All configurations' liste les couches dans l'ordre de combinaison (Applies to, Priority, Organization, Acceptance, Managed settings, Last change), suivies des regles de priorite. Sans configuration, l'onglet affiche un etat vide."
+          },
+          "description": {
+            "en": "Layers are combined from the most general to the most specific: a user group outweighs an operating system, which outweighs a target, which outweighs 'All targets'. Priority only decides between layers of the same kinds, such as two groups a user belongs to. Locks add up across layers, and a configuration is required as soon as one matching layer requires it: refusing it then means leaving the workspace. On the Enterprise plan, a configuration that turns Protection on gives each person an EDAMAME Portal AI key once they accept it. Owners and admins edit a configuration with its pencil icon and delete it with its bin icon. Who it is for, the app and the operating system cannot be changed afterwards: create a new configuration and delete the old one. When a configuration is deleted, its devices get what the other configurations give them, and are asked again if that changes their configuration; where nothing applies any more, the settings stay as they are and their users own them again. Other roles see the page read-only.",
+            "fr": "Les couches se combinent de la plus generale a la plus specifique : un groupe d'utilisateurs l'emporte sur un systeme d'exploitation, qui l'emporte sur une cible, qui l'emporte sur 'All targets'. La priorite ne departage que des couches de memes types, comme deux groupes auxquels appartient un utilisateur. Les verrous s'additionnent d'une couche a l'autre, et une configuration est obligatoire des qu'une couche concernee l'exige : la refuser revient alors a quitter l'espace. Avec l'offre Enterprise, une configuration qui active Protection donne a chaque personne une cle IA EDAMAME Portal une fois qu'elle l'accepte. Les proprietaires et administrateurs modifient une configuration avec son icone crayon et la suppriment avec son icone corbeille. Le public, l'application et le systeme d'exploitation ne peuvent plus etre changes ensuite : creez une nouvelle configuration et supprimez l'ancienne. Quand une configuration est supprimee, ses appareils recoivent ce que leur donnent les autres configurations, et sont de nouveau sollicites si leur configuration change ; la ou plus rien ne s'applique, les reglages restent tels quels et leurs utilisateurs en reprennent la main. Les autres roles voient la page en lecture seule."
+          }
+        },
+        {
+          "name": "managedconfig_settings",
+          "path": "managedconfig",
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_developers]" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Confirm\")" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": "[data-cy=managedAudienceEveryone]" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 }
+          ],
+          "title": {
+            "en": "Settings a Configuration Manages",
+            "fr": "Reglages geres par une configuration"
+          },
+          "visual": {
+            "en": "The Settings step of the 'New configuration' wizard, from the Developers template, before saving. An 'Applies to:' line, then three sections: Protection (Protection, Assistant level), Monitoring (Network capture, File monitor, LAN auto-scan) and Sharing with this Hub (AI failure details). Each setting has the EDAMAME app's icon for it, a short description and choice pills (Not managed / On / Off, or Not managed / Review / Auto for the Assistant level); Protection and Monitoring each have a lock checkbox. Below, 'What users see' holds the Organization name and the Required switch.",
+            "fr": "L'etape Settings de l'assistant 'New configuration', depuis le modele Developers, avant l'enregistrement. Une ligne 'Applies to:', puis trois sections : Protection (Protection, Assistant level), Monitoring (Network capture, File monitor, LAN auto-scan) et Sharing with this Hub (AI failure details). Chaque reglage a l'icone de l'application EDAMAME, une courte description et des pilules de choix (Not managed / On / Off, ou Not managed / Review / Auto pour le niveau de l'Assistant) ; Protection et Monitoring ont chacune une case de verrouillage. En dessous, 'What users see' contient le nom de l'organisation et l'interrupteur Required."
+          },
+          "description": {
+            "en": "What each setting does in the EDAMAME app. Protection turns the Assistant, attack pattern detection and intent divergence detection on or off together; they use AI. Assistant level: in Review, the Assistant proposes each fix and the person confirms it before anything changes; in Auto, it applies the safe fixes by itself and leaves the risky ones for the person to review, every fix can be undone, and the app asks the person to confirm Auto when they accept. Network capture captures the device's network sessions to detect threats. File monitor watches file events to detect tampering. LAN auto-scan scans the local networks the device joins. AI failure details adds the device's AI setup and its failing AI checks to the reports the Hub receives, never prompts, file contents or secrets. 'Not managed' leaves a setting to each person, unless another configuration that applies to them sets it. Locking Protection or Monitoring stops people from changing those settings in the app once they accept; a lock needs at least one setting of its section managed. The Organization name is shown when people are asked to accept; left empty, it comes from a more general configuration, otherwise from the workspace name. A Required configuration must be accepted to stay in the workspace; otherwise people may decline it and keep their own settings. On the Enterprise plan, turning Protection on first asks 'Give these people an AI key?': each person whose configuration turns Protection on gets an EDAMAME Portal key once they accept it, counted in the plan's allowance, and the monitoring detection relies on is turned on with it, without being locked.",
+            "fr": "Ce que fait chaque reglage dans l'application EDAMAME. Protection active ou desactive ensemble l'Assistant, la detection des schemas d'attaque et la detection de divergence d'intention ; ils utilisent l'IA. Niveau de l'Assistant : en Review, l'Assistant propose chaque correction et la personne la confirme avant tout changement ; en Auto, il applique seul les corrections sures et laisse les risquees a la personne, chaque correction peut etre annulee, et l'application demande a la personne de confirmer Auto quand elle accepte. Network capture capture les sessions reseau de l'appareil pour detecter les menaces. File monitor surveille les evenements de fichiers pour detecter les alterations. LAN auto-scan analyse les reseaux locaux que rejoint l'appareil. AI failure details ajoute la configuration IA de l'appareil et ses verifications IA en echec aux rapports que recoit le Hub, jamais de prompts, de contenu de fichiers ni de secrets. 'Not managed' laisse un reglage a chaque personne, sauf si une autre configuration qui la concerne le definit. Verrouiller Protection ou Monitoring empeche les personnes de modifier ces reglages dans l'application une fois la configuration acceptee ; un verrou demande au moins un reglage gere dans sa section. Le nom de l'organisation est affiche quand on demande aux personnes d'accepter ; laisse vide, il vient d'une configuration plus generale, sinon du nom de l'espace. Une configuration Required doit etre acceptee pour rester dans l'espace ; sinon les personnes peuvent la refuser et garder leurs propres reglages. Avec l'offre Enterprise, activer Protection demande d'abord 'Give these people an AI key?' : chaque personne dont la configuration active Protection recoit une cle EDAMAME Portal une fois qu'elle l'accepte, comptee dans l'allocation de l'offre, et la surveillance dont depend la detection est activee avec, sans etre verrouillee."
+          }
+        },
+        {
+          "name": "managedconfig_devices",
+          "path": "managedconfig?tab=devices",
+          "title": {
+            "en": "Configuration per Device",
+            "fr": "Configuration par appareil"
+          },
+          "visual": {
+            "en": "The Devices tab. Four counters (Devices, Answered the current version, With a difference, Declined), an 'Only devices with a difference' filter, a State filter and a search box, above a table with one row per device (User, Host, OS, Target, State, Current version, Portal account, Last seen) and one column per managed setting.",
+            "fr": "L'onglet Devices. Quatre compteurs (Devices, Answered the current version, With a difference, Declined), un filtre 'Only devices with a difference', un filtre State et une recherche, au-dessus d'un tableau avec une ligne par appareil (User, Host, OS, Target, State, Current version, Portal account, Last seen) et une colonne par reglage gere."
+          },
+          "description": {
+            "en": "What each EDAMAME app answered (Pending, Accepted, Declined) and what it runs now, setting by setting: Applied, Changed by user (an unlocked setting changed after accepting), Not running (set, but the service is not running, or the Portal account is not set up yet), Set by the device (an administrator policy on the device keeps its own value) or Not measured. 'Current version' tells whether the answer is for the configuration the Hub resolves for that device now; after a change, the app asks again. Click a row to open the device page, which shows the same detail. The per-setting detail needs EDAMAME 2.2.4 or later; devices enrolled from an MDM with an enrollment token are not managed.",
+            "fr": "Ce que chaque application EDAMAME a repondu (Pending, Accepted, Declined) et ce qu'elle execute maintenant, reglage par reglage : Applied, Changed by user (un reglage non verrouille modifie apres acceptation), Not running (defini, mais le service ne tourne pas, ou le compte Portal n'est pas encore pret), Set by the device (une politique d'administration sur l'appareil garde sa propre valeur) ou Not measured. 'Current version' indique si la reponse porte sur la configuration que le Hub calcule maintenant pour cet appareil ; apres un changement, l'application demande de nouveau. Cliquez sur une ligne pour ouvrir la page de l'appareil, qui montre le meme detail. Le detail par reglage demande EDAMAME 2.2.4 ou plus recent ; les appareils enroles depuis un MDM avec un jeton d'enrolement ne sont pas geres."
+          }
+        }
+      ]
+    },
+    {
       "name": "securitychecks",
       "title": {
         "en": "Security Checks",
@@ -972,12 +1060,12 @@
             "fr": "Facturation et plans"
           },
           "visual": {
-            "en": "The 'Billing and plans' tab: a 'Current plan' banner (e.g. Enterprise) with 'Manage plan', a 'Monthly billing / Yearly billing (save 20%)' toggle, and three plan cards - Free (0EUR/year), Business (1440EUR/year, POPULAR), and Enterprise (1920EUR/year) - each listing user and device limits, history retention, analytics/conditional access, and support tiers.",
-            "fr": "L'onglet 'Billing and plans' : une banniere 'Current plan' (ex. Enterprise) avec 'Manage plan', une bascule 'Monthly / Yearly (save 20%)' et trois cartes de plans - Free (0EUR/an), Business (1440EUR/an, POPULAR) et Enterprise (1920EUR/an) - chacune listant les limites d'utilisateurs et d'appareils, la retention d'historique, l'analytique/acces conditionnel et les niveaux de support."
+            "en": "The 'Billing and plans' tab: a 'Current plan' banner (e.g. Enterprise) with 'Manage plan', a 'Monthly billing / Yearly billing (save 20%)' toggle, and three plan cards - Free (0EUR/year), Business (1440EUR/year, POPULAR), and Enterprise (1920EUR/year) - each listing user and device limits, history retention, analytics/conditional access, and support tiers. On the Enterprise plan, an 'AI Assistant · EDAMAME Portal' card counts the devices that accepted, are waiting for an answer or declined, the devices with a key, the people and the tokens used this month, lists usage per person (Devices, Tokens this month, Resets on, Last used), and links to Portal ('Open in Portal') and to each device in Managed configuration.",
+            "fr": "L'onglet 'Billing and plans' : une banniere 'Current plan' (ex. Enterprise) avec 'Manage plan', une bascule 'Monthly / Yearly (save 20%)' et trois cartes de plans - Free (0EUR/an), Business (1440EUR/an, POPULAR) et Enterprise (1920EUR/an) - chacune listant les limites d'utilisateurs et d'appareils, la retention d'historique, l'analytique/acces conditionnel et les niveaux de support. Avec l'offre Enterprise, une carte 'AI Assistant · EDAMAME Portal' compte les appareils qui ont accepte, attendent une reponse ou ont refuse, les appareils avec une cle, les personnes et les tokens utilises ce mois-ci, liste l'usage par personne (Devices, Tokens this month, Resets on, Last used) et renvoie vers Portal ('Open in Portal') et vers chaque appareil dans Managed configuration."
           },
           "description": {
-            "en": "Shows the current plan with a manage action, a monthly/yearly billing toggle (yearly saves 20%), and Free, Business, and Enterprise plan cards with pricing, user/device limits, history retention, and support tiers.",
-            "fr": "Affiche le plan actuel avec une action de gestion, une bascule mensuel/annuel (l'annuel economise 20%) et des cartes Free, Business et Enterprise avec tarifs, limites d'utilisateurs/appareils, retention d'historique et niveaux de support."
+            "en": "Shows the current plan with a manage action, a monthly/yearly billing toggle (yearly saves 20%), and Free, Business, and Enterprise plan cards with pricing, user/device limits, history retention, and support tiers. On the Enterprise plan, it also shows the AI Assistant usage per person: each member who joined with their PIN and whose managed configuration turns Protection on gets an EDAMAME Portal account once their EDAMAME app accepts it; devices enrolled from an MDM do not get one. Usage is counted in tokens; what people ask the AI is never shown.",
+            "fr": "Affiche le plan actuel avec une action de gestion, une bascule mensuel/annuel (l'annuel economise 20%) et des cartes Free, Business et Enterprise avec tarifs, limites d'utilisateurs/appareils, retention d'historique et niveaux de support. Avec l'offre Enterprise, il montre aussi l'usage de l'Assistant IA par personne : chaque membre qui a rejoint avec son PIN et dont la configuration geree active Protection recoit un compte EDAMAME Portal une fois que son application EDAMAME l'accepte ; les appareils enroles depuis un MDM n'en recoivent pas. L'usage est compte en tokens ; ce que les personnes demandent a l'IA n'est jamais affiche."
           }
         },
         {
@@ -1691,6 +1779,378 @@
             { "type": "wait", "ms": 1500 }
           ],
           "highlight": "[data-cy=controlledProviderSelect]"
+        }
+      ]
+    },
+    {
+      "name": "create_managed_configuration",
+      "feature": "managedconfig",
+      "title": {
+        "en": "Create a managed configuration",
+        "fr": "Creer une configuration geree"
+      },
+      "description": {
+        "en": "Step-by-step guide to the 'New configuration' wizard: pick a template, choose who gets the configuration, then review its settings. Workspace owners and admins can create configurations. This walkthrough stops before saving the configuration so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape de l'assistant 'New configuration' : choisir un modele, choisir qui recoit la configuration, puis verifier ses reglages. Les proprietaires et administrateurs de l'espace peuvent creer des configurations. Ce tutoriel s'arrete avant l'enregistrement de la configuration, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_managed_configuration",
+          "path": "managedconfig",
+          "title": {
+            "en": "Open the Managed configuration page",
+            "fr": "Ouvrir la page Managed configuration"
+          },
+          "instruction": {
+            "en": "Open 'Managed configuration' from the Security section of the sidebar. The Configurations tab shows what each audience gets and lists the existing configurations. Click 'New configuration' (highlighted) to start.",
+            "fr": "Ouvrez 'Managed configuration' depuis la section Security de la barre laterale. L'onglet Configurations montre ce que recoit chaque public et liste les configurations existantes. Cliquez sur 'New configuration' (en surbrillance) pour commencer."
+          },
+          "highlight": "button:has-text(\"New configuration\")"
+        },
+        {
+          "name": "choose_template",
+          "path": "managedconfig",
+          "title": {
+            "en": "Choose a template",
+            "fr": "Choisir un modele"
+          },
+          "instruction": {
+            "en": "The wizard opens on its Template step. Pick the template closest to the people the configuration is for: Office staff (monitoring, Protection off), Developers (Protection, the Assistant in Review mode, all the monitoring) or Locked down (the Developers settings, locked and required, with AI failure details shared). You can still change every setting before saving, or switch to 'From scratch'. On the Enterprise plan, a template that turns Protection on asks before giving each person an AI key.",
+            "fr": "L'assistant s'ouvre sur son etape Template. Choisissez le modele le plus proche des personnes concernees : Office staff (surveillance, Protection desactivee), Developers (Protection, l'Assistant en mode Review, toute la surveillance) ou Locked down (les reglages Developers, verrouilles et obligatoires, avec le partage des details d'echec IA). Vous pouvez encore modifier chaque reglage avant d'enregistrer, ou passer a 'From scratch'. Avec l'offre Enterprise, un modele qui active Protection demande confirmation avant de donner une cle IA a chaque personne."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "highlight": "[data-cy=managedTemplate_developers]"
+        },
+        {
+          "name": "choose_audience",
+          "path": "managedconfig",
+          "title": {
+            "en": "Choose who gets it",
+            "fr": "Choisir qui la recoit"
+          },
+          "instruction": {
+            "en": "Click 'Next'. On the 'Who gets it' step, choose 'Everyone' or 'A specific group'; a group's configuration wins over the one for everyone. 'More options' sets the app, the operating system and the priority.",
+            "fr": "Cliquez sur 'Next'. A l'etape 'Who gets it', choisissez 'Everyone' ou 'A specific group' ; la configuration d'un groupe l'emporte sur celle de tout le monde. 'More options' regle l'application, le systeme d'exploitation et la priorite."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_office]" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 }
+          ],
+          "highlight": "[data-cy=managedAudienceEveryone]"
+        },
+        {
+          "name": "review_settings",
+          "path": "managedconfig",
+          "title": {
+            "en": "Review the settings",
+            "fr": "Verifier les reglages"
+          },
+          "instruction": {
+            "en": "Click 'Next'. The Settings step lists the Protection, Monitoring and Sharing settings the template set. A setting left 'Not managed' stays as each person set it. Lock a group of settings so people cannot change it once they accept, and make the configuration required if refusing it should mean leaving the workspace. Click 'Save' to create it: each person's EDAMAME app then asks them to accept it.",
+            "fr": "Cliquez sur 'Next'. L'etape Settings liste les reglages Protection, Monitoring et Sharing definis par le modele. Un reglage laisse sur 'Not managed' reste tel que chaque personne l'a regle. Verrouillez un groupe de reglages pour que les personnes ne puissent plus le changer une fois la configuration acceptee, et rendez-la obligatoire si la refuser doit signifier quitter l'espace. Cliquez sur 'Save' pour la creer : l'application EDAMAME de chaque personne lui demande alors de l'accepter."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_office]" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": "[data-cy=managedAudienceEveryone]" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "managed_configuration_for_group",
+      "feature": "managedconfig",
+      "title": {
+        "en": "Give a group its own configuration",
+        "fr": "Donner a un groupe sa propre configuration"
+      },
+      "description": {
+        "en": "Step-by-step guide to a configuration for one user group, here from the Developers template: what a group's configuration sets wins over the configuration for everyone. This walkthrough stops before saving the configuration so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape d'une configuration pour un groupe d'utilisateurs, ici a partir du modele Developers : ce que definit la configuration d'un groupe l'emporte sur la configuration pour tout le monde. Ce tutoriel s'arrete avant l'enregistrement de la configuration, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "open_wizard",
+          "path": "managedconfig",
+          "title": {
+            "en": "Open the wizard",
+            "fr": "Ouvrir l'assistant"
+          },
+          "instruction": {
+            "en": "On the Managed configuration page, click 'New configuration'. Pick the 'Developers' template (highlighted): Protection, the Assistant in Review mode and all the monitoring, for people who write code or use AI agents such as Cursor or Claude Code.",
+            "fr": "Sur la page Managed configuration, cliquez sur 'New configuration'. Choisissez le modele 'Developers' (en surbrillance) : Protection, l'Assistant en mode Review et toute la surveillance, pour les personnes qui codent ou utilisent des agents IA comme Cursor ou Claude Code."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 }
+          ],
+          "highlight": "[data-cy=managedTemplate_developers]"
+        },
+        {
+          "name": "confirm_ai_key",
+          "path": "managedconfig",
+          "title": {
+            "en": "Confirm the AI key",
+            "fr": "Confirmer la cle IA"
+          },
+          "instruction": {
+            "en": "On the Enterprise plan, a template that turns Protection on first asks 'Give these people an AI key?'. Each person whose configuration turns Protection on gets an EDAMAME Portal key once they accept it, counted in the plan's allowance, and network capture, the file monitor and LAN auto-scan are turned on with it. Click 'Confirm' to keep the template. On other plans, the template applies at once.",
+            "fr": "Avec l'offre Enterprise, un modele qui active Protection demande d'abord 'Give these people an AI key?'. Chaque personne dont la configuration active Protection recoit une cle EDAMAME Portal une fois qu'elle l'accepte, comptee dans l'allocation de l'offre, et la capture reseau, la surveillance des fichiers et le scan du reseau local sont actives avec. Cliquez sur 'Confirm' pour garder le modele. Avec les autres offres, le modele s'applique directement."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_developers]" },
+            { "type": "wait", "ms": 1000 }
+          ]
+        },
+        {
+          "name": "choose_group",
+          "path": "managedconfig",
+          "title": {
+            "en": "Choose 'A specific group'",
+            "fr": "Choisir 'A specific group'"
+          },
+          "instruction": {
+            "en": "Click 'Next', then 'A specific group' (highlighted). Choose the group in the list, which shows each group's member count. A workspace without groups links to the Groups page to create one.",
+            "fr": "Cliquez sur 'Next', puis sur 'A specific group' (en surbrillance). Choisissez le groupe dans la liste, qui affiche le nombre de membres de chaque groupe. Un espace sans groupe propose un lien vers la page Groups pour en creer un."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_developers]" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Confirm\")" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": "[data-cy=managedAudienceGroup]" },
+            { "type": "wait", "ms": 1000 }
+          ],
+          "highlight": "[data-cy=managedAudienceGroup]"
+        },
+        {
+          "name": "more_options",
+          "path": "managedconfig",
+          "title": {
+            "en": "Narrow it down with More options",
+            "fr": "Affiner avec More options"
+          },
+          "instruction": {
+            "en": "With a group chosen, 'More options' narrows the configuration to one app (All targets, EDAMAME app, CI/CD runners, EDAMAME Posture) and one operating system, and sets its priority, a whole number between -1000 and 1000. Priority only decides between configurations of the same kinds, such as two groups a person belongs to: the higher wins. Who the configuration is for, the app and the operating system cannot be changed after saving.",
+            "fr": "Une fois le groupe choisi, 'More options' restreint la configuration a une application (All targets, application EDAMAME, runners CI/CD, EDAMAME Posture) et a un systeme d'exploitation, et regle sa priorite, un nombre entier entre -1000 et 1000. La priorite ne departage que des configurations de memes types, comme deux groupes auxquels appartient une personne : la plus elevee l'emporte. Le public, l'application et le systeme d'exploitation ne peuvent plus etre changes apres l'enregistrement."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_developers]" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Confirm\")" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": "[data-cy=managedAudienceGroup]" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "press", "selector": ".chakra-modal__content input[id^=\"react-select\"]", "key": "ArrowDown" },
+            { "type": "press", "key": "Enter" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"More options\")" },
+            { "type": "wait", "ms": 500 }
+          ]
+        },
+        {
+          "name": "lock_group_settings",
+          "path": "managedconfig",
+          "title": {
+            "en": "Lock the group's settings",
+            "fr": "Verrouiller les reglages du groupe"
+          },
+          "instruction": {
+            "en": "Click 'Next'. The settings come from the template, and you can change any of them. 'Lock the protection settings' (highlighted) stops the group's members from turning Protection off in their EDAMAME app once they accept. Click 'Save' to create the configuration: the members' EDAMAME app asks them to accept it.",
+            "fr": "Cliquez sur 'Next'. Les reglages viennent du modele et vous pouvez tous les modifier. 'Lock the protection settings' (en surbrillance) empeche les membres du groupe de desactiver Protection dans leur application EDAMAME une fois la configuration acceptee. Cliquez sur 'Save' pour creer la configuration : l'application EDAMAME des membres leur demande de l'accepter."
+          },
+          "actions": [
+            { "type": "click", "selector": "button:has-text(\"New configuration\")" },
+            { "type": "wait", "ms": 1500 },
+            { "type": "click", "selector": "[data-cy=managedTemplate_developers]" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Confirm\")" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "click", "selector": "[data-cy=managedAudienceGroup]" },
+            { "type": "wait", "ms": 1000 },
+            { "type": "press", "selector": ".chakra-modal__content input[id^=\"react-select\"]", "key": "ArrowDown" },
+            { "type": "press", "key": "Enter" },
+            { "type": "wait", "ms": 500 },
+            { "type": "click", "selector": ".chakra-modal__content button:has-text(\"Next\")" },
+            { "type": "wait", "ms": 1000 }
+          ],
+          "highlight": "label:has-text(\"Lock the protection settings\")"
+        }
+      ]
+    },
+    {
+      "name": "check_managed_configuration",
+      "feature": "managedconfig",
+      "title": {
+        "en": "Check what people and devices run",
+        "fr": "Verifier ce qu'executent les personnes et les appareils"
+      },
+      "description": {
+        "en": "Step-by-step guide to checking a managed configuration: what each audience gets, what one person's devices should run, and which devices differ from their configuration. Read-only: it changes nothing.",
+        "fr": "Guide etape par etape pour verifier une configuration geree : ce que recoit chaque public, ce que les appareils d'une personne devraient executer, et quels appareils s'ecartent de leur configuration. Lecture seule : rien n'est modifie."
+      },
+      "steps": [
+        {
+          "name": "who_gets_what",
+          "path": "managedconfig",
+          "title": {
+            "en": "Read 'Who gets what'",
+            "fr": "Lire 'Who gets what'"
+          },
+          "instruction": {
+            "en": "'Who gets what' (highlighted) has one column for every member, then one per group, with what their EDAMAME app ends up with once the configurations are combined. Bold values come from that column's own configuration, grey ones from a more general configuration (hover to see which), and '—' means not managed. The last rows show the locks, whether people must accept, and the AI key.",
+            "fr": "'Who gets what' (en surbrillance) a une colonne pour tous les membres, puis une par groupe, avec ce que recoit leur application EDAMAME une fois les configurations combinees. Les valeurs en gras viennent de la configuration de la colonne, les grises d'une configuration plus generale (survolez pour voir laquelle), et '—' signifie non gere. Les dernieres lignes montrent les verrous, l'obligation d'accepter et la cle IA."
+          },
+          "highlight": "[data-cy=managedConfigMatrix]"
+        },
+        {
+          "name": "preview_person",
+          "path": "managedconfig",
+          "title": {
+            "en": "Preview a person",
+            "fr": "Apercu d'une personne"
+          },
+          "instruction": {
+            "en": "In 'Preview a person' (highlighted), choose someone. One pill per device shows what it should run, which configuration each setting comes from, and what its EDAMAME app actually runs. Someone in several groups gets their configurations combined: this is where to see the result.",
+            "fr": "Dans 'Preview a person' (en surbrillance), choisissez une personne. Une pilule par appareil montre ce qu'il devrait executer, la configuration d'ou vient chaque reglage et ce que son application EDAMAME execute vraiment. Une personne dans plusieurs groupes recoit leurs configurations combinees : c'est ici que l'on voit le resultat."
+          },
+          "actions": [
+            { "type": "press", "selector": "[data-cy=managedConfigPreview] input", "key": "ArrowDown" },
+            { "type": "press", "key": "Enter" },
+            { "type": "wait", "ms": 1000 }
+          ],
+          "highlight": "[data-cy=managedConfigPreview]"
+        },
+        {
+          "name": "devices_tab",
+          "path": "managedconfig?tab=devices",
+          "title": {
+            "en": "Open the Devices tab",
+            "fr": "Ouvrir l'onglet Devices"
+          },
+          "instruction": {
+            "en": "The Devices tab counts the devices, those that answered the current version, those with a difference and those that declined. The table has one row per device, with its answer (Pending, Accepted, Declined) and one column per managed setting.",
+            "fr": "L'onglet Devices compte les appareils, ceux qui ont repondu a la version actuelle, ceux qui presentent une difference et ceux qui ont refuse. Le tableau a une ligne par appareil, avec sa reponse (Pending, Accepted, Declined) et une colonne par reglage gere."
+          },
+          "highlight": "label[for=managed-config-only-differences]"
+        },
+        {
+          "name": "only_differences",
+          "path": "managedconfig?tab=devices",
+          "title": {
+            "en": "Show only the devices with a difference",
+            "fr": "N'afficher que les appareils avec une difference"
+          },
+          "instruction": {
+            "en": "Turn on 'Only devices with a difference'. Each setting cell says why it differs: Changed by user (an unlocked setting changed after accepting), Not running (set, but the service is not running), or Set by the device (an administrator policy on the device keeps its own value). The State filter and the search box narrow the list further.",
+            "fr": "Activez 'Only devices with a difference'. Chaque cellule de reglage indique la raison de l'ecart : Changed by user (un reglage non verrouille modifie apres acceptation), Not running (defini, mais le service ne tourne pas) ou Set by the device (une politique d'administration sur l'appareil garde sa propre valeur). Le filtre State et la recherche affinent encore la liste."
+          },
+          "actions": [
+            { "type": "click", "selector": "label[for=managed-config-only-differences]" },
+            { "type": "wait", "ms": 1000 }
+          ]
+        },
+        {
+          "name": "open_device",
+          "path": "managedconfig?tab=devices",
+          "title": {
+            "en": "Open a device",
+            "fr": "Ouvrir un appareil"
+          },
+          "instruction": {
+            "en": "Click a device to open its page. Its 'Managed configuration' card (highlighted) shows the same detail for that device, whether it answered the current version, and a link back to all devices.",
+            "fr": "Cliquez sur un appareil pour ouvrir sa page. Sa carte 'Managed configuration' (en surbrillance) montre le meme detail pour cet appareil, s'il a repondu a la version actuelle, et un lien vers tous les appareils."
+          },
+          "actions": [
+            { "type": "click", "selector": "tbody tr" },
+            { "type": "wait", "ms": 2500 }
+          ],
+          "highlight": "[data-cy=deviceManagedConfiguration]"
+        }
+      ]
+    },
+    {
+      "name": "edit_managed_configuration",
+      "feature": "managedconfig",
+      "title": {
+        "en": "Edit or delete a managed configuration",
+        "fr": "Modifier ou supprimer une configuration geree"
+      },
+      "description": {
+        "en": "Step-by-step guide to editing and deleting a managed configuration. Workspace owners and admins can do both. This walkthrough stops before saving or confirming the deletion so it is safe to run against the live demo workspace.",
+        "fr": "Guide etape par etape pour modifier et supprimer une configuration geree. Les proprietaires et administrateurs de l'espace peuvent faire les deux. Ce tutoriel s'arrete avant l'enregistrement ou la confirmation de la suppression, il est donc sans risque sur l'espace de demonstration."
+      },
+      "steps": [
+        {
+          "name": "all_configurations",
+          "path": "managedconfig",
+          "title": {
+            "en": "Find the configuration",
+            "fr": "Trouver la configuration"
+          },
+          "instruction": {
+            "en": "'All configurations' (highlighted) lists the configurations in the order a device combines them: each one overrides the ones above it that also apply to the device. Each row shows who it applies to, its priority, organization name, acceptance, managed settings and last change, with a pencil and a bin icon at the end.",
+            "fr": "'All configurations' (en surbrillance) liste les configurations dans l'ordre ou un appareil les combine : chacune remplace celles au-dessus qui s'appliquent aussi a l'appareil. Chaque ligne montre a qui elle s'applique, sa priorite, le nom d'organisation, l'acceptation, les reglages geres et la derniere modification, avec une icone crayon et une icone corbeille en fin de ligne."
+          },
+          "highlight": "[data-cy=managedConfigLayers]"
+        },
+        {
+          "name": "edit_configuration",
+          "path": "managedconfig",
+          "title": {
+            "en": "Edit it",
+            "fr": "La modifier"
+          },
+          "instruction": {
+            "en": "Click the pencil icon. 'Edit the configuration' shows who it is for, its settings and what users see. Who it is for, the app and the operating system identify the configuration and cannot be changed: to change them, create a new configuration and delete this one. Click 'Save': a new revision is made only when something changed, and the devices whose resulting configuration changed are asked to accept it again. If someone else saved it meanwhile, the form asks you to reload first.",
+            "fr": "Cliquez sur l'icone crayon. 'Edit the configuration' montre a qui elle s'adresse, ses reglages et ce que voient les utilisateurs. Le public, l'application et le systeme d'exploitation identifient la configuration et ne peuvent pas etre changes : pour les changer, creez une nouvelle configuration et supprimez celle-ci. Cliquez sur 'Save' : une nouvelle revision n'est creee que si quelque chose a change, et les appareils dont la configuration resultante a change sont de nouveau invites a l'accepter. Si quelqu'un d'autre l'a enregistree entre-temps, le formulaire demande de recharger d'abord."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=managedConfigLayers] button[aria-label^=\"Edit \"]" },
+            { "type": "wait", "ms": 1500 }
+          ]
+        },
+        {
+          "name": "delete_configuration",
+          "path": "managedconfig",
+          "title": {
+            "en": "Delete it",
+            "fr": "La supprimer"
+          },
+          "instruction": {
+            "en": "Click the bin icon. 'Delete this configuration?' explains what happens: the devices it applies to get what the other configurations give them, and are asked again if that changes their configuration. Where nothing remains, their settings stay as they are and their users own them again. Click 'Confirm' to delete it.",
+            "fr": "Cliquez sur l'icone corbeille. 'Delete this configuration?' explique ce qui se passe : les appareils concernes recoivent ce que leur donnent les autres configurations, et sont de nouveau sollicites si leur configuration change. La ou plus rien ne s'applique, leurs reglages restent tels quels et leurs utilisateurs en reprennent la main. Cliquez sur 'Confirm' pour la supprimer."
+          },
+          "actions": [
+            { "type": "click", "selector": "[data-cy=managedConfigLayers] button[aria-label^=\"Delete \"]" },
+            { "type": "wait", "ms": 1000 }
+          ]
         }
       ]
     },
