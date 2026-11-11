@@ -587,8 +587,8 @@
         "fr": "La page 'Compliance' avec un menu de cadre 'Select a tag to check its compliance ratio...' et des onglets pilules All devices / Live devices / History. Tant qu'aucun cadre n'est selectionne, elle affiche un etat vide ('Please select a tag to check its compliance rate') ; une fois selectionne, elle reprend la disposition du Score de securite (decomposition par OS, meilleurs/pires appareils, verifications les plus echouees/reussies)."
       },
       "description": {
-        "en": "Track compliance against industry frameworks (e.g. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Pick a framework tag to see current and live compliance, historical trends, and per-device and per-check rankings.",
-        "fr": "Suivez la conformite par rapport aux cadres industriels (ex. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Choisissez un cadre pour voir la conformite actuelle et en direct, les tendances historiques et les classements par appareil et par verification."
+        "en": "Track compliance against industry frameworks (e.g. SOC 2, ISO 27001, CIS). Pick a framework tag to see current and live compliance, historical trends, and per-device and per-check rankings.",
+        "fr": "Suivez la conformite par rapport aux cadres industriels (ex. SOC 2, ISO 27001, CIS). Choisissez un cadre pour voir la conformite actuelle et en direct, les tendances historiques et les classements par appareil et par verification."
       },
       "sub_features": [
         {
@@ -1276,8 +1276,8 @@
         "fr": "Verifier la conformite par rapport a un cadre"
       },
       "description": {
-        "en": "Step-by-step guide to measuring your fleet's compliance against an industry framework (e.g. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). Selecting a framework tag is read-only, so this walkthrough is safe to run end-to-end.",
-        "fr": "Guide etape par etape pour mesurer la conformite de votre parc par rapport a un cadre industriel (ex. PCI-DSS, ISO 27001, SOC 2, CIS, HIPAA). La selection d'un cadre est en lecture seule, ce tutoriel est donc sans risque de bout en bout."
+        "en": "Step-by-step guide to measuring your fleet's compliance against an industry framework (e.g. SOC 2, ISO 27001, CIS). Selecting a framework tag is read-only, so this walkthrough is safe to run end-to-end.",
+        "fr": "Guide etape par etape pour mesurer la conformite de votre parc par rapport a un cadre industriel (ex. SOC 2, ISO 27001, CIS). La selection d'un cadre est en lecture seule, ce tutoriel est donc sans risque de bout en bout."
       },
       "steps": [
         {
@@ -1301,8 +1301,8 @@
             "fr": "Choisir un cadre dans la liste deroulante"
           },
           "instruction": {
-            "en": "The framework selector opens as a dropdown listing every framework available in your workspace (in the demo: ISO 27001, NIST 800-53, PCI-DSS, and SOC 2). Click the framework you want to measure your fleet against.",
-            "fr": "Le selecteur s'ouvre en liste deroulante affichant tous les cadres disponibles dans votre espace (dans la demo : ISO 27001, NIST 800-53, PCI-DSS et SOC 2). Cliquez sur le cadre par rapport auquel vous voulez mesurer votre parc."
+            "en": "The framework selector opens as a dropdown listing every framework tag available in your workspace (in the demo workspace, simulated tags such as ISO 27001 and SOC 2). Click the framework you want to measure your fleet against.",
+            "fr": "Le selecteur s'ouvre en liste deroulante affichant tous les cadres disponibles dans votre espace (dans l'espace de demo, des tags simules comme ISO 27001 et SOC 2). Cliquez sur le cadre par rapport auquel vous voulez mesurer votre parc."
           },
           "actions": [
             { "type": "click", "selector": "[data-cy=selectTag]" },
