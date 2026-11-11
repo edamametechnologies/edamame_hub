@@ -1,12 +1,12 @@
 # EDAMAME Hub
 
-> **EDAMAME** is the developer-first, agent-first runtime security layer for the SDLC. **EDAMAME Security** protects workstations and local coding sessions, **EDAMAME Posture** secures CI/CD runners, build hosts, and self-hosted agent hosts, **EDAMAME Hub** gives teams fleet visibility and proof, and **EDAMAME Portal** handles account access and managed LLM subscription.
+> **EDAMAME** is the trust layer for AI agents and the machines they run on, proven by both security posture and runtime behavior. **EDAMAME Security** protects workstations and the AI agents on them, **EDAMAME Posture** secures CI/CD runners and any server running AI agents, cloud or self-hosted, **EDAMAME Hub** gives teams fleet visibility, AI governance and proof, and **EDAMAME Portal** handles account access and the managed LLM subscription.
 
 ## Overview
 
 EDAMAME Hub is the no-MDM security dashboard for your organization. It brings
-together the security posture of every developer workstation, CI/CD runner and
-AI coding agent that runs EDAMAME, so you can see where you stand, prove it to
+together the security posture of every workstation, CI/CD runner and AI
+agent that runs EDAMAME, so you can see where you stand, prove it to
 auditors and customers, and grant access to sensitive systems only to devices
 that meet your policies.
 
@@ -19,6 +19,7 @@ with a demo workspace you can explore before enrolling a single device)
 
 **Learn more:** [Feature wiki](https://github.com/edamametechnologies/edamame_hub/wiki)
 | [Step-by-step guides](#step-by-step-guides)
+| [Videos](#videos)
 | [Zero Trust integrations](https://github.com/edamametechnologies/integrations)
 
 ![EDAMAME Hub overview](screenshots/01_overview_main.png)
@@ -27,10 +28,10 @@ with a demo workspace you can explore before enrolling a single device)
 
 - **Security and IT teams** that need one view of endpoint security across
   workstations, CI/CD runners and servers, without deploying an MDM.
-- **Engineering leaders** who want development environments and AI coding
-  agents to meet a common bar, and to see when they drift.
-- **Compliance owners** who need evidence for SOC 2, ISO 27001, PCI-DSS, HIPAA
-  or CIS-based programs, per device and over time.
+- **Engineering leaders** who want development environments and AI agents
+  to meet a common bar, and to see when they drift.
+- **Compliance owners** who need evidence for SOC 2, ISO 27001 or CIS-based
+  programs, per device and over time.
 - **Organizations working with contractors and BYOD**, where remote control of
   a device is neither possible nor wanted.
 
@@ -77,13 +78,14 @@ with a demo workspace you can explore before enrolling a single device)
 
 ### Compliance
 
-Pick a framework (ISO 27001, SOC 2, PCI-DSS, HIPAA, CIS, NIST and more) and see
-the fleet's current, live and historical compliance rate, with per-device and
+Pick a framework tag (SOC 2, ISO 27001, CIS Benchmarks, and for AI agent checks
+OWASP GenAI, MITRE ATLAS and ISO/IEC 42001) and see the fleet's current, live and
+historical compliance rate, with per-device and
 per-check rankings.
 
 ### AI Governance
 
-See the AI coding agents running across your fleet (Cursor, Claude Code, Claude
+See the AI agents running across your fleet (Cursor, Claude Code, Claude
 Desktop, OpenClaw, Codex, Hermes): which agents are present, whether a
 governance harness confines them, which MCP servers they reach, and which
 conditions keep failing an AI posture check. Accept an expected condition once
@@ -164,6 +166,22 @@ simulated data, and are refreshed automatically each time a new version of the
 Hub is deployed. Every page is documented, with screenshots, in the
 [feature wiki](https://github.com/edamametechnologies/edamame_hub/wiki).
 
+## Videos
+
+<a href="https://youtu.be/-URqsN_ZFuo"><img src="https://img.youtube.com/vi/-URqsN_ZFuo/maxresdefault.jpg" alt="Watch the EDAMAME Hub walkthrough: your fleet's posture and AI agents in one place" width="640"></a>
+
+[EDAMAME Hub walkthrough: your fleet's posture and AI agents in one place](https://youtu.be/-URqsN_ZFuo)
+
+| Feature | Video |
+|---|---|
+| AI Governance | [AI governance for every AI agent in your fleet: discover, audit, approve](https://youtu.be/qH0jquHwPNw) |
+| Policies and conditional access | [Zero Trust conditional access for GitHub, GitLab, Netskope and more](https://youtu.be/4acoytI6v-U) |
+| Compliance | [SOC 2 and ISO 27001 evidence from every device, without MDM](https://youtu.be/BxjwoYJHzlQ) |
+| Managed configuration | [Managed configuration: set the EDAMAME app for your whole team](https://youtu.be/Q3_HJ36lHlQ) |
+| Onboarding | [Roll EDAMAME out to your team: invite, self-onboard, track](https://youtu.be/OK2BmJj1m8g) |
+
+All of them: the [EDAMAME Hub playlist](https://www.youtube.com/playlist?list=PLFHRv2443cm4). The videos use the Hub's demo workspace, with simulated data.
+
 ## Security checks
 
 The Hub aggregates the checks that EDAMAME Security and EDAMAME Posture
@@ -173,8 +191,9 @@ and Compliance views.
 
 Checks come from the open-source
 [EDAMAME threat models](https://github.com/edamametechnologies/threatmodels):
-industry benchmarks such as CIS and NIST, mapped to ISO 27001, SOC 2, PCI-DSS
-and HIPAA. They fall into four kinds:
+industry benchmarks such as CIS, mapped to SOC 2 and ISO 27001; the AI agent
+checks map to OWASP GenAI, MITRE ATLAS, Agentic Trust Controls, ISO/IEC 42001 and
+ISO 27001. They fall into four kinds:
 
 - **System checks:** direct inspection of system configuration, files and
   settings.
@@ -183,10 +202,10 @@ and HIPAA. They fall into four kinds:
 - **Internal checks:** evaluated by EDAMAME itself:
   - **AI agent posture** (`unsecured_cursor`, `unsecured_claude_code`,
     `unsecured_claude_desktop`, `unsecured_openclaw`, `unsecured_codex`,
-    `unsecured_hermes`), in the Applications dimension: an AI coding agent is
-    installed on the endpoint while EDAMAME's monitoring of that agent is
+    `unsecured_hermes`), in the Applications dimension: an AI agent is installed
+    on the endpoint while EDAMAME's monitoring of that agent is
     paused. See EDAMAME Security's
-    [Agent Detection & Response](https://github.com/edamametechnologies/edamame_security#agent-visibility-agent-detection--response).
+    [Agent Visibility](https://github.com/edamametechnologies/edamame_security#agent-visibility).
   - **EDAMAME Helper status**, in the System Services dimension: the
     privileged [helper](https://github.com/edamametechnologies/edamame_helper)
     needed for full analysis and remediation is not running or out of date.
