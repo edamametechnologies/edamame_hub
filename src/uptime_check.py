@@ -52,7 +52,8 @@ REMIND_HOURS = 6
 ATTEMPTS = int(os.environ.get("UPTIME_ATTEMPTS", "3"))
 RETRY_SECONDS = 20
 TIMEOUT = 20
-SLACK_CHANNEL = os.environ.get("SLACK_CHANNEL", "C072J0U9TH7")  # #qa-alerts
+# The SLACK_ALERTS_CHANNEL organization variable (uptime.yml passes it); #qa-alerts until it is set.
+SLACK_CHANNEL = os.environ.get("SLACK_CHANNEL") or "C072J0U9TH7"
 RUN_URL = (
     f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/"
     f"{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}"
