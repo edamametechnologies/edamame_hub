@@ -93,7 +93,7 @@ then captures. A dispatch for another environment is ignored.
 | `HUB_SCREENSHOT_BASE_URL` | variable, optional | Hub origin; empty = production |
 | `DEV_GITHUB_TOKEN` | organization secret | Screenshot push to `main`, wiki clone and push |
 | `EDAMAME_POSTURE_*` | organization secret / variables | EDAMAME Posture on the runner (also admits it through the organization IP allow list) |
-| `SLACK_BOT_TOKEN` | secret | Uptime alerts to #qa-alerts (`uptime.yml`) |
+| `SLACK_BOT_TOKEN` | organization secret | Uptime alerts to #qa-alerts (`uptime.yml`); the bot token every repository uses |
 
 ## Uptime alerts
 
