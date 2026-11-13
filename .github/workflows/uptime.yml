@@ -1,0 +1,88 @@
+name: Hub and Portal uptime
+
+# Every 15 minutes, checks that hub.edamame.tech and portal.edamame.tech
+# work the way a browser uses them (src/uptime_check.py): a certificate for
+# the right name, the app's page and deep links, assets loadable cross-origin
+# (CORS), and a page that renders in headless Chromium. It posts to
+# the alerts channel (SLACK_ALERTS_CHANNEL organization variable, #qa-alerts
+# until it is set) when a site goes down, every 6 hours while it stays down, and
+# when it is back; nothing while it is up. It was added after the Portal
+# outage of 2-11 Nov 2026 (CloudFront lost its domain, certificate and CORS),
+# which this repository's screenshot pipeline saw within the hour but
+# reported to no one.
+#
+# The state of the previous run (which site was down, since when, when it was
+# last reported) travels through the Actions cache.
+
+on:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+    inputs:
+      test_message:
+        description: Post a test message to #qa-alerts to check the Slack token and channel
+        type: boolean
+        default: false
+      dry_run:
+        description: Print the Slack messages instead of posting them (the state is not saved)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check the Hub and the Portal
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      SLACK_CHANNEL: ${{ vars.SLACK_ALERTS_CHANNEL }}
+      # Who is tagged when a site is down: the owner of its repository
+      # (edamame-services for the Hub, edamame-core-services for the Portal).
+      SLACK_MENTIONS: ${{ vars.SLACK_MENTIONS }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            src/uptime_check.py
+            requirements.txt
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Playwright and Chromium
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Post a test message
+        if: inputs.test_message
+        run: python src/uptime_check.py --test-message
+
+      - name: Restore the previous state
+        if: ${{ !inputs.test_message }}
+        uses: actions/cache/restore@v4
+        with:
+          path: .uptime-state.json
+          key: uptime-state-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: uptime-state-
+
+      - name: Check the sites
+        if: ${{ !inputs.test_message }}
+        run: python src/uptime_check.py --state .uptime-state.json --browser ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Save the state
+        if: ${{ always() && !inputs.test_message && !inputs.dry_run && hashFiles('.uptime-state.json') != '' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .uptime-state.json
+          key: uptime-state-${{ github.run_id }}-${{ github.run_attempt }}

@@ -20,9 +20,11 @@ vulnerabilities or detection internals. Maintainer material belongs here.
 │   ├── generate_screenshots.py       # Playwright capture of every page and workflow step
 │   ├── deployed_build.py             # Identifies the deployed Hub build (deploy detection)
 │   ├── build_feature_wiki.py         # Wiki markdown generation
-│   └── create_screenshot_account.py  # Signs up a regular Hub account for the capture
+│   ├── create_screenshot_account.py  # Signs up a regular Hub account for the capture
+│   └── uptime_check.py               # Hub and Portal uptime check, Slack alerts
 ├── .github/workflows/
-│   └── feature-wiki.yml              # Deploy detection, capture, screenshot commit, wiki publish
+│   ├── feature-wiki.yml              # Deploy detection, capture, screenshot commit, wiki publish
+│   └── uptime.yml                    # Uptime check every 15 minutes
 └── requirements.txt
 ```
 
@@ -91,6 +93,44 @@ then captures. A dispatch for another environment is ignored.
 | `HUB_SCREENSHOT_BASE_URL` | variable, optional | Hub origin; empty = production |
 | `DEV_GITHUB_TOKEN` | organization secret | Screenshot push to `main`, wiki clone and push |
 | `EDAMAME_POSTURE_*` | organization secret / variables | EDAMAME Posture on the runner (also admits it through the organization IP allow list) |
+| `SLACK_BOT_TOKEN` | organization secret | Uptime alerts to #qa-alerts (`uptime.yml`); the bot token every repository uses |
+
+## Uptime alerts
+
+`uptime.yml` runs `src/uptime_check.py` every 15 minutes against
+`hub.edamame.tech` and `portal.edamame.tech`. It checks each site the way a
+browser uses it:
+
+1. **TLS:** the certificate is valid for the site's name and does not expire
+   within 14 days.
+2. **Pages:** `/` and a deep link answer 200 with the app's page.
+3. **Assets:** each script and stylesheet, requested with a browser's headers,
+   loads cross-origin (`Access-Control-Allow-Origin`).
+4. **Browser:** headless Chromium renders something in `#root`.
+
+It was added after the Portal outage of 2–11 November 2026. A template deploy
+rewrote the Portal's CloudFront distribution without its custom domain,
+certificate and CORS policies. First the site presented the
+`*.cloudfront.net` certificate, then, with the domain back, it showed a white
+page. The Portal's screenshot pipeline saw it within the hour but reported to
+no one.
+
+A failed check is retried twice, 20 seconds apart. The check posts to
+#qa-alerts:
+
+- once when a site goes down, with what failed and a hint;
+- every 6 hours while it stays down;
+- once when the site is back, with how long it was down.
+
+It posts nothing while the sites are up, and the run is red while a site is
+down. The previous run's state travels through the Actions cache. A manual
+run can post a test message to check the Slack token and channel, or print
+the messages instead of posting them (dry run).
+
+```bash
+python src/uptime_check.py --browser --dry-run            # check both sites, post nothing
+python src/uptime_check.py --site Test=https://wrong.host.badssl.com --dry-run
+```
 
 ## Capturing locally
 
