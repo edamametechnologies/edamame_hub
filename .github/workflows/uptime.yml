@@ -43,6 +43,9 @@ jobs:
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       SLACK_CHANNEL: ${{ vars.SLACK_ALERTS_CHANNEL }}
+      # Who is tagged when a site is down: the owner of its repository
+      # (edamame-services for the Hub, edamame-core-services for the Portal).
+      SLACK_MENTIONS: ${{ vars.SLACK_MENTIONS }}
     steps:
       - uses: actions/checkout@v4
         with:

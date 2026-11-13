@@ -43,9 +43,10 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+# (name, URL, deep link, repository whose owner is tagged when the site is down)
 SITES = [
-    ("Hub", "https://hub.edamame.tech", "/dashboard"),
-    ("Portal", "https://portal.edamame.tech", "/auth/welcome"),
+    ("Hub", "https://hub.edamame.tech", "/dashboard", "edamametechnologies/edamame-services"),
+    ("Portal", "https://portal.edamame.tech", "/auth/welcome", "edamametechnologies/edamame-core-services"),
 ]
 CERT_MIN_DAYS = 14
 REMIND_HOURS = 6
@@ -238,7 +239,16 @@ def ago(iso, now):
     return f"{minutes // 60} h {minutes % 60:02d} min" if minutes >= 60 else f"{minutes} min"
 
 
-def decide(name, base, problems, prev, now):
+def mention_for(repo):
+    """<@id> for the repository's owner in the SLACK_MENTIONS organization variable."""
+    try:
+        who = json.loads(os.environ.get("SLACK_MENTIONS") or "{}").get(repo or "", "")
+    except ValueError:
+        return ""
+    return "".join(f"<@{u}> " for u in str(who).replace(",", " ").split())
+
+
+def decide(name, base, problems, prev, now, tag=""):
     """The message to post for this site, if any, and its new state."""
     cf = cloudfront_domain(urllib.parse.urlsplit(base).hostname or "")
     where = f" (CloudFront {cf})" if cf.endswith("cloudfront.net") else ""
@@ -253,11 +263,11 @@ def decide(name, base, problems, prev, now):
     details = "\n".join(f"• {p}" for p in problems[:6])
     if was_up:
         state.update(since=now.isoformat(), last_alert=now.isoformat())
-        return f":x: *{name} is down*: {base}{where}\n{details}\n<{RUN_URL}|Run>", state
+        return f"{tag}:x: *{name} is down*: {base}{where}\n{details}\n<{RUN_URL}|Run>", state
     last = dt.datetime.fromisoformat(prev.get("last_alert", prev.get("since", now.isoformat())))
     if now - last >= dt.timedelta(hours=REMIND_HOURS):
         state["last_alert"] = now.isoformat()
-        return f":rotating_light: *{name} is still down* (for {ago(prev.get('since', now.isoformat()), now)}): {base}{where}\n{details}\n<{RUN_URL}|Run>", state
+        return f"{tag}:rotating_light: *{name} is still down* (for {ago(prev.get('since', now.isoformat()), now)}): {base}{where}\n{details}\n<{RUN_URL}|Run>", state
     return None, state
 
 
@@ -302,7 +312,7 @@ def main():
         for s in args.site:
             name, rest = s.split("=", 1)
             url, _, deep = rest.partition(",")
-            sites.append((name, url.rstrip("/"), deep or None))
+            sites.append((name, url.rstrip("/"), deep or None, None))
 
     state = {}
     if args.state and os.path.exists(args.state):
@@ -311,7 +321,7 @@ def main():
     now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
     down, posted_ok = [], True
     summary = [f"## Uptime check, {now:%Y-%m-%d %H:%M} UTC", ""]
-    for name, base, deep in sites:
+    for name, base, deep, repo in sites:
         print(f"[{name}] {base}")
         problems = check_with_retries(base, deep, args.browser, tuple(args.asset_host))
         for p in problems:
@@ -320,7 +330,7 @@ def main():
             print("  up")
         else:
             down.append(name)
-        message, new_state = decide(name, base, problems, state.get(name, {}), now)
+        message, new_state = decide(name, base, problems, state.get(name, {}), now, mention_for(repo))
         if message and not post_slack(message, args.dry_run):
             posted_ok = False
             new_state = state.get(name, {})  # not posted: the next run tries again
